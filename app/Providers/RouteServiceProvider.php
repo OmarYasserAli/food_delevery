@@ -54,7 +54,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
 
             Route::prefix(LaravelLocalization::setLocale())
-             
+             ->prefix('admin') 
                 ->middleware(['web' ,'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'])
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
