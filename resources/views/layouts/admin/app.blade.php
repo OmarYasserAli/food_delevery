@@ -17,7 +17,11 @@
     <link rel="stylesheet" href="{{asset('public/assets/admin/vendor/icon-set/style.css')}}">
     <link rel="stylesheet" href="{{asset('public/assets/admin/css/custom.css')}}">
     <!-- CSS Front Template -->
+    @if(LaravelLocalization::getCurrentLocale() == 'ar')
     <link rel="stylesheet" href="{{asset('public/assets/admin/css/theme.minc619-ar.css?v=1.0')}}">
+    @else
+    <link rel="stylesheet" href="{{asset('public/assets/admin/css/theme.minc619.css?v=1.0')}}">
+    @endif
     @stack('css_or_js')
 
     <style>

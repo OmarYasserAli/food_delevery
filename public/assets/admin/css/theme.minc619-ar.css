@@ -4,7 +4,7 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  /* */
-:root {
+ :root {
     --blue: #377dff;
     --indigo: #6610f2;
     --purple: #6f42c1;
@@ -4192,7 +4192,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     color: #1e2022;
     background-color: #fff;
     border: .0625rem solid #e7eaf3;
-    border-radius: .3125rem
+    border-radius: .3125rem;
+    text-align: left;
 }
 
 .custom-file-label::after {
@@ -12789,7 +12790,8 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 .text-truncate {
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap
+    white-space: nowrap;
+    padding-right: 6px;
 }
 
 .text-left {
@@ -16044,7 +16046,8 @@ input[type=number] {
 }
 
 [class*=navbar-vertical-aside-show] .navbar-nav-wrap-content-left {
-    padding-left: 0
+    padding-left: 0;
+    transform: rotate(180deg);
 }
 
 .navbar-vertical-aside-mini-mode-hidden-elements {
@@ -16194,11 +16197,13 @@ input[type=number] {
 }
 
 .navbar-vertical-aside-has-menu {
-    position: relative
+    position: relative;
+    text-align:right ;
 }
 
 .navbar-vertical-aside-has-menu > .nav {
-    display: none
+    display: none;
+    padding: 0px;
 }
 
 .navbar-vertical-aside-has-menu > .nav-link-toggle::after {
