@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html >
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,6 +21,9 @@
     @stack('css_or_js')
 
     <style>
+        .rtl{
+            direction: rtl;
+        }
         :root {
             --theameColor: #045cff;
         }
@@ -178,7 +181,7 @@
     <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/toastr.css">
 </head>
 
-<body class="footer-offset">
+<body class="footer-offset" >
 
 <div class="container">
     <div class="row">

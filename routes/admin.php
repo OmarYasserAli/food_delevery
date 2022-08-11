@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale().'/admin',
+        'middleware' => [ 'localize' ]
+    ], function(){ //...
 Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () { 
     /*authentication*/
      Route::get('lang/{locale}', 'LanguageController@lang')->name('lang');
@@ -475,4 +479,5 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
     });
 
     Route::get('zone/get-coordinates/{id}', 'ZoneController@get_coordinates')->name('zone.get-coordinates');
+});
 });

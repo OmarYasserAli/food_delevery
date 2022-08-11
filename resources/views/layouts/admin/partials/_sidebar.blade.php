@@ -4,9 +4,9 @@
     }
 </style>
 
-<div id="sidebarMain" class="d-none">
+<div id="sidebarMain" class="d-none ">
     <aside class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered  ">
-        <div class="navbar-vertical-container">
+        <div class="navbar-vertical-container ">
             <div class="navbar-brand-wrapper justify-content-between">
                 <!-- Logo -->
                 @php($store_logo = \App\Models\BusinessSetting::where(['key' => 'logo'])->first()->value)

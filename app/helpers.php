@@ -2,7 +2,7 @@
 
 use App\CentralLogics\Helpers;
 use Illuminate\Support\Facades\App;
-
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 if (! function_exists('translate')) {
     function translate($key, $replace = [])
     {
@@ -11,7 +11,7 @@ if (! function_exists('translate')) {
         }
         
         $key = strpos($key, 'messages.') === 0?substr($key,9):$key;
-        $local = Helpers::default_lang();
+        $local =  LaravelLocalization::getCurrentLocale();
         App::setLocale($local);
         try {
             $lang_array = include(base_path('resources/lang/' . $local . '/messages.php'));
