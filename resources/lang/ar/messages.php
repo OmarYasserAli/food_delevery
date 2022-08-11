@@ -1360,4 +1360,5 @@
   'Key removed successfully' => 'Key removed successfully',
   'Are you sure' => 'Are you sure',
   'Update option is disabled for demo' => 'Update option is disabled for demo',
+  'translation' => 'Translation',
 );
