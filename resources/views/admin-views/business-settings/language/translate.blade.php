@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 @section('title', translate('Language Translate'))
 
-@push('css_or_js') 
+@push('css_or_js')
     <!-- Custom styles for this page -->
     <link href="{{asset('public/assets/back-end')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
@@ -40,7 +40,7 @@
                                 {{--<th scope="col"></th>--}}
                                 </tr>
                                 </thead>
-                               
+
                                 <tbody>
                                 @foreach($lang_data as $count=>$language)
                                     <tr id="lang-{{$language['key']}}">
@@ -80,14 +80,14 @@
 
 @push('script')
     <!-- Page level plugins -->
-    
-   
+
+
     <script src="{{asset('public/assets/back-end')}}/js/vendor.min.js"></script>
     <script
   src="https://code.jquery.com/jquery-3.6.0.js"
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script>
-  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"defer</script> 
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"defer</script>
 
 
   <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
@@ -97,7 +97,8 @@
         // Call the dataTables jQuery plugin
         $(document).ready(function () {
             $('#dataTable').DataTable({
-                "pageLength": '10'
+                pagingType: 'full_numbers',
+                "pageLength": 50
             });
         });
 
