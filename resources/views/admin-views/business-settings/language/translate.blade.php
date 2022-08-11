@@ -1,7 +1,6 @@
+@extends('layouts.admin.app')
+@section('title', translate('Language Translate'))
 
-{{-- @section('title', __('Language Translate')) --}}
-
-@dd(__('Dashboard'))
 @push('css_or_js') 
     <!-- Custom styles for this page -->
     <link href="{{asset('public/assets/back-end')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -41,7 +40,7 @@
                                 {{--<th scope="col"></th>--}}
                                 </tr>
                                 </thead>
-
+                               
                                 <tbody>
                                 @foreach($lang_data as $count=>$language)
                                     <tr id="lang-{{$language['key']}}">
