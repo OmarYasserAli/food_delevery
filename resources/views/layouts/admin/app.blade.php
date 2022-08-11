@@ -1,5 +1,5 @@
 <!DOCTYPE html >
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{asset('public/assets/admin/vendor/icon-set/style.css')}}">
     <link rel="stylesheet" href="{{asset('public/assets/admin/css/custom.css')}}">
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="{{asset('public/assets/admin/css/theme.minc619.css?v=1.0')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/admin/css/theme.minc619-ar.css?v=1.0')}}">
     @stack('css_or_js')
 
     <style>
