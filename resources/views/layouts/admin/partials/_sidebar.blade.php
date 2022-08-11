@@ -829,6 +829,12 @@
                         <span class="text-truncate">{{ translate('messages.third_party_apis') }}</span>
                     </a>
                 </li>
+                <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/business-settings/config*') ? 'active' : '' }}">
+                    <a class="nav-link " href="{{ route('admin.language.translate',['lang'=>'ar']) }}" title="{{ translate('messages.translation') }}">
+                        <span class="tio-key nav-icon"></span>
+                        <span class="text-truncate">{{ translate('messages.translation') }}</span>
+                    </a>
+                </li>
 
                 <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/business-settings/pages*') ? 'active' : '' }}">
                     <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:" title="{{ translate('messages.pages') }} {{ translate('messages.setup') }}">
