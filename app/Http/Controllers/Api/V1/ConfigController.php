@@ -50,14 +50,14 @@ class ConfigController extends Controller
                 'value' => Helpers::get_language_name($language)
             ]);
         }
-        // $social_login = [];
-        // foreach (Helpers::get_business_settings('social_login') as $social) {
-        //     $config = [
-        //         'login_medium' => $social['login_medium'],
-        //         'status' => (boolean)$social['status']
-        //     ];
-        //     array_push($social_login, $config);
-        // }
+        $social_login = [];
+        foreach (Helpers::get_business_settings('social_login') as $social) {
+            $config = [
+                'login_medium' => $social['login_medium'],
+                'status' => (boolean)$social['status']
+            ];
+            array_push($social_login, $config);
+        }
         $dp = json_decode($settings['digital_payment'], true);
         return response()->json([
             'business_name' => $settings['business_name'],
@@ -112,7 +112,7 @@ class ConfigController extends Controller
             'canceled_by_store' => (boolean)$settings['canceled_by_store'],
             'timeformat' => (string)$settings['timeformat'],
             'language' => $lang_array,
-            // 'social_login' => $social_login,
+             'social_login' => $social_login,
             'toggle_veg_non_veg' => (boolean)$settings['toggle_veg_non_veg'],
             'toggle_dm_registration' => (boolean)$settings['toggle_dm_registration'],
             'toggle_store_registration' => (boolean)$settings['toggle_store_registration'],

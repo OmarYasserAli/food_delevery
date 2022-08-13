@@ -42,8 +42,8 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
         });
 
         //social login(up comming)
-        // Route::post('social-login', 'SocialAuthController@social_login');
-        // Route::post('social-register', 'SocialAuthController@social_register');
+    Route::post('social-login', 'SocialAuthController@social_login');
+        Route::post('social-register', 'SocialAuthController@social_register');
     });
 
     // Module
