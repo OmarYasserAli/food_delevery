@@ -350,20 +350,20 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
 
 
             //translate
-            Route::group(['prefix' => 'language', 'as' => 'language.','middleware'=>['module:business_settings']], function () {
-                Route::get('', 'LanguageController@index')->name('index');
-//                Route::get('app', 'LanguageController@index_app')->name('index-app');
-                Route::post('add-new', 'LanguageController@store')->name('add-new');
-                Route::get('update-status', 'LanguageController@update_status')->name('update-status');
-                Route::get('update-default-status', 'LanguageController@update_default_status')->name('update-default-status');
-                Route::post('update', 'LanguageController@update')->name('update');
-                Route::get('translate/{lang}', 'LanguageController@translate')->name('translate');
-                Route::post('translate-submit/{lang}', 'LanguageController@translate_submit')->name('translate-submit');
-                Route::post('remove-key/{lang}', 'LanguageController@translate_key_remove')->name('remove-key');
-                Route::get('delete/{lang}', 'LanguageController@delete')->name('delete');
-            });
+           
         });
-
+        Route::group(['prefix' => 'language', 'as' => 'language.','middleware'=>['module:business_settings']], function () {
+            Route::get('', 'LanguageController@index')->name('index');
+//                Route::get('app', 'LanguageController@index_app')->name('index-app');
+            Route::post('add-new', 'LanguageController@store')->name('add-new');
+            Route::get('update-status', 'LanguageController@update_status')->name('update-status');
+            Route::get('update-default-status', 'LanguageController@update_default_status')->name('update-default-status');
+            Route::post('update', 'LanguageController@update')->name('update');
+            Route::get('translate/{lang}', 'LanguageController@translate')->name('translate');
+            Route::post('translate-submit/{lang}', 'LanguageController@translate_submit')->name('translate-submit');
+            Route::post('remove-key/{lang}', 'LanguageController@translate_key_remove')->name('remove-key');
+            Route::get('delete/{lang}', 'LanguageController@delete')->name('delete');
+        });
         Route::group(['prefix' => 'message', 'as' => 'message.'], function () {
             Route::get('list', 'ConversationController@list')->name('list');
             Route::post('store/{user_id}', 'ConversationController@store')->name('store');

@@ -22,12 +22,19 @@
             <div class="col-md-12">
                 <div class="card" style="width:100%; text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
                     <div class="card-header">
-                        <h5>{{translate('language_content_table')}}</h5>
-                        <a href="{{route('admin.business-settings.language.index')}}"
+                        <h5>{{translate('language_content_table')}}
+                        <select id="lang_select">
+                            <option value="ar">Arabic</option>
+                            <option value="en" @if($lang == 'en') selected @endif>English</option>
+                                
+                        </select>
+                    </h5>
+                        <a href="{{route('admin.language.index')}}"
                            class="btn btn-sm btn-danger btn-icon-split float-right">
                             <span class="text text-capitalize">{{translate('back')}}</span>
                         </a>
                     </div>
+                    
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -94,14 +101,20 @@
     <script src="{{asset('public/assets/back-end')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <!-- Page level custom scripts -->
     <script>
-        // Call the dataTables jQuery plugin
+     
         $(document).ready(function () {
             $('#dataTable').DataTable({
                 pagingType: 'full_numbers',
                 "pageLength": 50
             });
         });
+        $('#lang_select').change(function(){
+            if($('#lang_select').val() =='ar')
+                window.location.replace("{{ route('admin.language.translate',['lang'=>'ar']) }}");
+            else
+                window.location.replace("{{ route('admin.language.translate',['lang'=>'en']) }}");
 
+        })
         function update_lang(key, value) {
             $.ajaxSetup({
                 headers: {
@@ -109,7 +122,7 @@
                 }
             });
             $.ajax({
-                url: "{{route('admin.business-settings.language.translate-submit',[$lang])}}",
+                url: "{{route('admin.language.translate-submit',[$lang])}}",
                 method: 'POST',
                 data: {
                     key: key,
@@ -134,7 +147,7 @@
                 }
             });
             $.ajax({
-                url: "{{route('admin.business-settings.language.remove-key',[$lang])}}",
+                url: "{{route('admin.language.remove-key',[$lang])}}",
                 method: 'POST',
                 data: {
                     key: key
