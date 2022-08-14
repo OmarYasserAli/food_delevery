@@ -1361,5 +1361,9 @@
   'Are you sure' => 'Are you sure',
   'Update option is disabled for demo' => 'Update option is disabled for demo',
   'xx' => 'Xx',
+
+  'Export Restaurants' => 'Export Restaurants',
+
   'translation' => 'Translation',
+
 );

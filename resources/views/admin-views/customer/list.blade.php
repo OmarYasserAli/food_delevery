@@ -5,7 +5,6 @@
 @push('css_or_js')
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
-
 @section('content')
     <div class="content container-fluid">
         <!-- Page Header -->
@@ -318,7 +317,18 @@
 @endsection
 
 @push('script_2')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.5/pdfmake.min.js" integrity="sha512-rDbVu5s98lzXZsmJoMa0DjHNE+RwPJACogUCLyq3Xxm2kJO6qsQwjbE5NDk2DqmlKcxDirCnU1wAzVLe12IM3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script>
+        pdfMake.fonts = {
+            Roboto: {
+                normal: '{{asset('public/assets/JF-Flat-Regular.ttf')}}',
+                bold: '{{asset('public/assets/JF-Flat-Regular.ttf')}}',
+                italics: '{{asset('public/assets/JF-Flat-Regular.ttf')}}',
+                bolditalics: '{{asset('public/assets/JF-Flat-Regular.ttf')}}'
+            }
+        };
+
         function status_change_alert(url, message, e) {
             e.preventDefault();
             Swal.fire({
@@ -369,8 +379,13 @@
                     },
                     {
                         extend: 'pdf',
-                        className: 'd-none'
-                    },
+                        className: 'd-none',
+
+                        defaultStyle: {
+                            font: 'Roboto'
+                        }
+
+                },
                     {
                         extend: 'print',
                         className: 'd-none'
@@ -459,6 +474,8 @@
                 var tagify = $.HSCore.components.HSTagify.init($(this));
             });
         });
+
+
     </script>
 
     <script>

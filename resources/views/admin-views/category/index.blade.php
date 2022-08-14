@@ -87,7 +87,7 @@
                     <div class="form-group pt-2">
                         <button type="submit" class="btn btn-primary">{{isset($category)?translate('messages.update'):translate('messages.add')}}</button>
                     </div>
-                    
+
                 </form>
             </div>
         </div>
@@ -150,7 +150,10 @@
                                 <td>{{$category->id}}</td>
                                 <td>
                                     <span class="d-block font-size-sm text-body">
-                                        {{Str::limit($category['name'], 20,'...')}}
+
+
+                                        @if(LaravelLocalization::getCurrentLocale() == 'en' ) {{Str::limit($category['name'], 20,'...')}}@else {{ Str::limit($category->translations()->where('key','name')->first()->value, 20,'...') }} @endif
+
                                     </span>
                                 </td>
                                 <td>
@@ -168,7 +171,7 @@
                                 </td>
                                 <td>
                                     <form action="{{route('admin.category.priority',$category->id)}}">
-                                    <select name="priority" id="priority" class="w-100" onchange="this.form.submit()"> 
+                                    <select name="priority" id="priority" class="w-100" onchange="this.form.submit()">
                                         <option value="0" {{$category->priority == 0?'selected':''}}>{{translate('messages.normal')}}</option>
                                         <option value="1" {{$category->priority == 1?'selected':''}}>{{translate('messages.medium')}}</option>
                                         <option value="2" {{$category->priority == 2?'selected':''}}>{{translate('messages.high')}}</option>
@@ -194,7 +197,7 @@
             </div>
             <div class="card-footer page-area">
                 <!-- Pagination -->
-                <div class="row justify-content-center justify-content-sm-between align-items-sm-center"> 
+                <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
                     <div class="col-sm-auto">
                         <div class="d-flex justify-content-center justify-content-sm-end">
                             <!-- Pagination -->
@@ -215,7 +218,7 @@
         $(document).on('ready', function () {
             // INITIALIZATION OF DATATABLES
             // =======================================================
-            
+
 
             $('#dataSearch').on('submit', function (e) {
                 e.preventDefault();

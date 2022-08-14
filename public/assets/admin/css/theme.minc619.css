@@ -26647,4 +26647,8 @@ a:hover .text-hover-primary {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0
 }
+a.paginate_button {
+    margin: 7px;
+    cursor: pointer;
+}
 
