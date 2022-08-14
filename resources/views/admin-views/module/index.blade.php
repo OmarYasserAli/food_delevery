@@ -63,12 +63,17 @@
                                 <td>{{$module->id}}</td>
                                 <td>
                                     <span class="d-block font-size-sm text-body">
-                                        {{Str::limit($module['module_name'], 20,'...')}}
+
+                        @if(LaravelLocalization::getCurrentLocale() == 'en' ){{Str::limit($module['module_name'], 20,'...')}} @else {{$module->translations()->where('key','module_name')->first()->value}} @endif
+
+
                                     </span>
                                 </td>
                                 <td>
                                     <span class="d-block font-size-sm text-body text-capitalize">
-                                        {{Str::limit($module['module_type'], 20,'...')}}
+                                        @if(LaravelLocalization::getCurrentLocale() == 'en' ){{Str::limit($module['module_type'], 20,'...')}} @else {!! Str::limit($module->translations()->where('key','description')->first()->value, 20,'...') !!} @endif
+
+
                                     </span>
                                 </td>
                                 <td>
@@ -93,7 +98,7 @@
             </div>
             <div class="card-footer page-area">
                 <!-- Pagination -->
-                <div class="row justify-content-center justify-content-sm-between align-items-sm-center"> 
+                <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
                     <div class="col-sm-auto">
                         <div class="d-flex justify-content-center justify-content-sm-end">
                             <!-- Pagination -->
@@ -114,7 +119,7 @@
         $(document).on('ready', function () {
             // INITIALIZATION OF DATATABLES
             // =======================================================
-            
+
 
             {{--
                 $('#dataSearch').on('submit', function (e) {
