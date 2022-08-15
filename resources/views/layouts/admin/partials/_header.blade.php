@@ -62,31 +62,31 @@
                     <li class="nav-item">
                         <!-- Account -->
                         <div class="hs-unfold">
-                            <a class="js-hs-unfold-invoker navbar-dropdown-account-wrapper" href="javascript:;"
+                            <a class="js-hs-unfold-invoker navbar-dropdown-language-wrapper" href="javascript:;"
                                data-hs-unfold-options='{
-                                     "target": "#accountNavbarDropdown",
+                                     "target": "#languageNavbarDropdown",
                                      "type": "css-animation"
                                    }'>
                                 <div class="">
                                     <i class="tio-globe nav-icon"></i>
                                 </div>
                             </a>
-                            
-                            <div id="accountNavbarDropdown"
-                                 class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-account"
+
+                            <div id="languageNavbarDropdown"
+                                 class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-language"
                                  style="width: 16rem;">
-                                
+
                                  <ul>
                                     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                                         <li>
                                             <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                                 <span class="text-truncate pr-2" title="Settings">{{ $properties['native'] }}</span>
-                                                
+
                                             </a>
                                         </li>
                                     @endforeach
                                 </ul>
-                               
+
                             </div>
                         </div>
                         <!-- End Account -->
