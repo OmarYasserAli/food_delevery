@@ -470,7 +470,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
             Route::delete('/delete/{file_path}', 'FileManagerController@destroy')->name('destroy');
         });
 
-        social media login
+//        social media login
          Route::group(['prefix' => 'social-login', 'as' => 'social-login.','middleware'=>['module:business_settings']], function () {
              Route::get('view', 'BusinessSettingsController@viewSocialLogin')->name('view');
              Route::post('update/{service}', 'BusinessSettingsController@updateSocialLogin')->name('update');
