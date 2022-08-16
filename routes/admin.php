@@ -475,6 +475,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
              Route::get('view', 'BusinessSettingsController@viewSocialLogin')->name('view');
              Route::post('update/{service}', 'BusinessSettingsController@updateSocialLogin')->name('update');
 
+
          });
     });
 
