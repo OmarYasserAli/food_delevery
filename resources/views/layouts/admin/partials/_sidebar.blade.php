@@ -875,13 +875,14 @@
                 </li>
 
                  <li class="navbar-vertical-aside-has-menu {{Request::is('admin/social-login/view')?'active':''}}">
-                <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{route('admin.social-login.view')}}">
-                    <i class="tio-twitter nav-icon"></i>
-                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                            <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{route('admin.social-login.view')}}">
+                                <i class="tio-twitter nav-icon"></i>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
                         {{translate('messages.social_login')}}
                     </span>
-                </a>
-                </li>
+                            </a>
+                        </li>
+
 
                 <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/business-settings/recaptcha*') ? 'active' : '' }}">
                     <a class="nav-link " href="{{ route('admin.business-settings.recaptcha_index') }}" title="{{ translate('messages.reCaptcha') }}">
