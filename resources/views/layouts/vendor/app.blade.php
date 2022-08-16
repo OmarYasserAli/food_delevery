@@ -15,7 +15,12 @@
     <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/vendor.min.css">
     <link rel="stylesheet" href="{{asset('public/assets/admin')}}/vendor/icon-set/style.css">
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/theme.minc619.css?v=1.0">
+
+    @if(LaravelLocalization::getCurrentLocale() == 'ar')
+        <link rel="stylesheet" href="{{asset('public/assets/admin/css/theme.minc619-ar.css?v=1.0')}}">
+    @else
+        <link rel="stylesheet" href="{{asset('public/assets/admin/css/theme.minc619.css?v=1.0')}}">
+    @endif
     @stack('css_or_js')
 
     <style>

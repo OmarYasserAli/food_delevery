@@ -77,7 +77,7 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="input-label" for="title">{{translate('messages.start')}} {{translate('messages.date')}}</label>
-                                        <input type="date" id="date_from" class="form-control" required="" name="start_date"> 
+                                        <input type="date" id="date_from" class="form-control" required="" name="start_date">
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -154,7 +154,7 @@
                 $("#type-product").hide();
                 $("#type-category").show();
             }
-        }   
+        }
 
         $("#date_from").on("change", function () {
             $('#date_to').attr('min',$(this).val());

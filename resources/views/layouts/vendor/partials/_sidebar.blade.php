@@ -49,7 +49,7 @@
                     <!-- End Dashboards -->
 
                     @if(\App\CentralLogics\Helpers::employee_module_permission_check('order'))
-                    <li class="nav-item">   
+                    <li class="nav-item">
                         <small class="nav-subtitle" title="{{translate('messages.order')}} {{translate('messages.section')}}">{{translate('messages.order')}} {{translate('messages.section')}}</small>
                         <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                     </li>
@@ -192,15 +192,15 @@
                     </li>
                     <!-- End Order -->
                     @endif
-                    
+
                     @if(\App\CentralLogics\Helpers::employee_module_permission_check('pos'))
                     <li class="nav-item">
                         <small
                             class="nav-subtitle">{{translate('messages.pos')}} {{translate('messages.system')}}</small>
                         <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                     </li>
-                    
-                    
+
+
                     <!-- POS -->
                     <li class="navbar-vertical-aside-has-menu {{Request::is('vendor-panel/pos/*')?'active':''}}">
                         <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
@@ -232,27 +232,27 @@
                         </ul>
                     </li>
                     <!-- End POS -->
-                    @endif      
+                    @endif
                     <li class="nav-item">
                         <small
                             class="nav-subtitle">{{translate('messages.item')}} {{translate('messages.management')}}</small>
                         <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                     </li>
 
-                    <!-- AddOn -->
-                    @if(\App\CentralLogics\Helpers::employee_module_permission_check('addon'))
-                    <li class="navbar-vertical-aside-has-menu {{Request::is('vendor-panel/addon*')?'active':''}}">
-                        <a class="js-navbar-vertical-aside-menu-link nav-link"
-                            href="{{route('vendor.addon.add-new')}}" title="{{translate('messages.addons')}}"
-                        >
-                            <i class="tio-add-circle-outlined nav-icon"></i>
-                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                {{translate('messages.addons')}}
-                            </span>
-                        </a>
-                    </li>
-                    @endif
-                    <!-- End AddOn -->
+{{--                    <!-- AddOn -->--}}
+{{--                    @if(\App\CentralLogics\Helpers::employee_module_permission_check('addon'))--}}
+{{--                    <li class="navbar-vertical-aside-has-menu {{Request::is('vendor-panel/addon*')?'active':''}}">--}}
+{{--                        <a class="js-navbar-vertical-aside-menu-link nav-link"--}}
+{{--                            href="{{route('vendor.addon.add-new')}}" title="{{translate('messages.addons')}}"--}}
+{{--                        >--}}
+{{--                            <i class="tio-add-circle-outlined nav-icon"></i>--}}
+{{--                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">--}}
+{{--                                {{translate('messages.addons')}}--}}
+{{--                            </span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    @endif--}}
+{{--                    <!-- End AddOn -->--}}
                     @if(\App\CentralLogics\Helpers::employee_module_permission_check('item'))
                     <!-- Food -->
                     <li class="navbar-vertical-aside-has-menu {{Request::is('vendor-panel/item*')?'active':''}}">

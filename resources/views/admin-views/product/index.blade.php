@@ -79,7 +79,7 @@
                                 <label class="input-label" for="store_id">{{translate('messages.store')}}<span
                                         class="input-label-secondary"></span></label>
                                 <select name="store_id" data-placeholder="{{translate('messages.select')}} {{translate('messages.store')}}" id="store_id" class="js-data-example-ajax form-control" onchange="getRestaurantData('{{url('/')}}/admin/vendor/get-addons?data[]=0&store_id=',this.value,'add_on')" oninvalid="this.setCustomValidity('{{translate('messages.please_select_store')}}')">
-                                                        
+
                                 </select>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                                 </select>
                             </div>
                         </div>
-                        
+
                         {{--<div class="col-md-4 col-6">
                             <div class="form-group">
                                 <label class="input-label" for="sub-sub-categories">Sub Sub Category<span
@@ -193,19 +193,19 @@
                     <div class="row mt-2">
                         <div class="col-sm-6" id="stock_input">
                             <div class="form-group">
-                                <label class="input-label" for="total_stock">{{translate('messages.total_stock')}}</label>                                
+                                <label class="input-label" for="total_stock">{{translate('messages.total_stock')}}</label>
                                 <input type="number" class="form-control" name="current_stock" id="quantity">
                             </div>
                         </div>
-                        <div class="col-sm-6" id="addon_input">
-                            <div class="form-group">
-                                <label class="input-label" for="exampleFormControlSelect1">{{translate('messages.addon')}}<span
-                                        class="input-label-secondary" title="{{translate('messages.addon')}}"><img src="{{asset('/public/assets/admin/img/info-circle.svg')}}" alt="{{translate('messages.store_required_warning')}}"></span></label>                                
-                                <select name="addon_ids[]" class="form-control js-select2-custom" multiple="multiple" id="add_on">
-                                   
-                                </select>
-                            </div>
-                        </div>
+{{--                        <div class="col-sm-6" id="addon_input">--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label class="input-label" for="exampleFormControlSelect1">{{translate('messages.addon')}}<span--}}
+{{--                                        class="input-label-secondary" title="{{translate('messages.addon')}}"><img src="{{asset('/public/assets/admin/img/info-circle.svg')}}" alt="{{translate('messages.store_required_warning')}}"></span></label>--}}
+{{--                                <select name="addon_ids[]" class="form-control js-select2-custom" multiple="multiple" id="add_on">--}}
+
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
 
                     <div class="row" id="time_input">
@@ -266,7 +266,7 @@
                 },
             });
         }
-        
+
         function getRequest(route, id) {
             $.get({
                 url: route,
