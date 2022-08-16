@@ -26,15 +26,15 @@
                         <select id="lang_select">
                             <option value="ar">Arabic</option>
                             <option value="en" @if($lang == 'en') selected @endif>English</option>
-                                
+
                         </select>
                     </h5>
-                        <a href="{{route('admin.language.index')}}"
-                           class="btn btn-sm btn-danger btn-icon-split float-right">
-                            <span class="text text-capitalize">{{translate('back')}}</span>
-                        </a>
+{{--                        <a href="{{route('admin.language.index')}}"--}}
+{{--                           class="btn btn-sm btn-danger btn-icon-split float-right">--}}
+{{--                            <span class="text text-capitalize">{{translate('back')}}</span>--}}
+{{--                        </a>--}}
                     </div>
-                    
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -101,7 +101,7 @@
     <script src="{{asset('public/assets/back-end')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <!-- Page level custom scripts -->
     <script>
-     
+
         $(document).ready(function () {
             $('#dataTable').DataTable({
                 pagingType: 'full_numbers',
