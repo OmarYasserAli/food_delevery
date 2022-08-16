@@ -107,7 +107,7 @@
                         </table>
                         <hr>
                         <table class="page-area">
-                            <tfoot> 
+                            <tfoot>
                             {!! $campaigns->links() !!}
                             </tfoot>
                         </table>

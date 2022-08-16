@@ -30,7 +30,7 @@ class CampaignController extends Controller
         else{
             $campaigns=ItemCampaign::latest()->paginate(config('default_pagination'));
         }
-        
+
         return view('admin-views.campaign.'.$type.'.list', compact('campaigns'));
     }
 
@@ -42,7 +42,7 @@ class CampaignController extends Controller
             'image' => 'required',
             'module_id'=>'required'
         ]);
-        
+
         if ($validator->fails()) {
             return response()->json(['errors' => Helpers::error_processor($validator)]);
         }
@@ -57,7 +57,7 @@ class CampaignController extends Controller
         $campaign->end_time = $request->end_time;
         $campaign->module_id = $request->module_id;
         $campaign->save();
-        
+
         $data = [];
         foreach ($request->lang as $index => $key) {
             if ($request->title[$index] && $key != 'en') {
@@ -95,7 +95,7 @@ class CampaignController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => Helpers::error_processor($validator)]);
         }
-        
+
         $campaign->title = $request->title[array_search('en', $request->lang)];
         $campaign->description = $request->description[array_search('en', $request->lang)];
         $campaign->image = $request->has('image') ? Helpers::update('campaign/', $campaign->image, 'png', $request->file('image')) : $campaign->image;;
@@ -128,7 +128,7 @@ class CampaignController extends Controller
 
         return response()->json([], 200);
     }
-    
+
     public function storeItem(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -146,7 +146,7 @@ class CampaignController extends Controller
         ], [
             'category_id.required' => translate('messages.select_category'),
         ]);
-        
+
         if ($validator->fails()) {
             return response()->json(['errors' => Helpers::error_processor($validator)]);
         }
@@ -251,7 +251,7 @@ class CampaignController extends Controller
         $campaign->module_id= $request->module_id;
         $campaign->stock= $request->current_stock;
         $campaign->save();
-        
+
         $data = [];
         foreach ($request->lang as $index => $key) {
             if ($request->title[$index] && $key != 'en') {
@@ -287,7 +287,7 @@ class CampaignController extends Controller
             'veg' => 'required',
             'description.*'=>'max:1000',
         ]);
-        
+
         if ($validator->fails()) {
             return response()->json(['errors' => Helpers::error_processor($validator)]);
         }
@@ -435,16 +435,16 @@ class CampaignController extends Controller
             }
             return view('admin-views.campaign.'.$type.'.edit', compact('campaign','sub_category','category'));
         }
-        
+
     }
 
     public function view($type, $campaign)
-    {   
+    {
         if($type=='basic')
         {
             $campaign = Campaign::findOrFail($campaign);
             $stores = $campaign->stores()->paginate(config('default_pagination'));
-            $store_ids = []; 
+            $store_ids = [];
             foreach($campaign->stores as $store)
             {
                 $store_ids[] = $store->id;
@@ -456,7 +456,7 @@ class CampaignController extends Controller
             $campaign = ItemCampaign::findOrFail($campaign);
         }
         return view('admin-views.campaign.item.view', compact('campaign'));
-        
+
     }
 
     public function status($type, $id, $status)

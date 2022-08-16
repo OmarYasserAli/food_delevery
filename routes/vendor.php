@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-
-Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
+Route::group(['namespace' => 'Vendor', 'as' => 'vendor.', 'prefix' => LaravelLocalization::setLocale().'/vendor-panel',
+    'middleware' => [ 'localize' ]], function () {
     /*authentication*/
     Route::group(['namespace' => 'Auth', 'prefix' => 'auth', 'as' => 'auth.'], function () {
         Route::get('login', 'LoginController@login')->name('login');
@@ -20,7 +21,7 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
         Route::get('/', 'DashboardController@dashboard')->name('dashboard');
         Route::get('/get-store-data', 'DashboardController@store_data')->name('get-store-data');
         Route::get('/reviews', 'ReviewController@index')->name('reviews')->middleware('module:reviews');
-        
+
 
         Route::group(['prefix' => 'pos', 'as' => 'pos.'], function () {
             Route::post('variant_price', 'POSController@variant_price')->name('variant_price');
@@ -105,12 +106,12 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
             Route::get('view/{id}', 'ItemController@view')->name('view');
             Route::get('remove-image', 'ItemController@remove_image')->name('remove-image');
             Route::get('get-categories', 'ItemController@get_categories')->name('get-categories');
-            
+
             //Mainul
             Route::get('get-variations', 'ItemController@get_variations')->name('get-variations');
             Route::get('stock-limit-list', 'ItemController@stock_limit_list')->name('stock-limit-list');
             Route::post('stock-update', 'ItemController@stock_update')->name('stock-update');
-            
+
             //Import and export
             Route::get('bulk-import', 'ItemController@bulk_import_index')->name('bulk-import');
             Route::post('bulk-import', 'ItemController@bulk_import_data');

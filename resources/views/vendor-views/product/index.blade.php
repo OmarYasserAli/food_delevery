@@ -99,7 +99,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>                            
+                        </div>
                         @endif
                         @if ($module_data['veg_non_veg'])
                         <div class="col-6">
@@ -110,7 +110,7 @@
                                     <option value="1">{{translate('messages.veg')}}</option>
                                 </select>
                             </div>
-                        </div>                            
+                        </div>
                         @endif
 
                     </div>
@@ -183,25 +183,25 @@
                         @if ($module_data['stock'])
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label class="input-label" for="total_stock">{{translate('messages.total_stock')}}</label>                                
+                                    <label class="input-label" for="total_stock">{{translate('messages.total_stock')}}</label>
                                     <input type="number" class="form-control" name="current_stock" id="quantity">
                                 </div>
-                            </div>                            
+                            </div>
                         @endif
-                        
-                        @if ($module_data['add_on'])
-                            <div class="col-12" >
-                                <div class="form-group">
-                                    <label class="input-label" for="exampleFormControlSelect1">{{translate('messages.addon')}}<span
-                                            class="input-label-secondary"></span></label>
-                                    <select name="addon_ids[]" class="form-control js-select2-custom" multiple="multiple">
-                                        @foreach(\App\Models\AddOn::where('store_id', \App\CentralLogics\Helpers::get_store_id())->orderBy('name')->get() as $addon)
-                                            <option value="{{$addon['id']}}">{{$addon['name']}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>                            
-                        @endif
+
+{{--                        @if ($module_data['add_on'])--}}
+{{--                            <div class="col-12" >--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label class="input-label" for="exampleFormControlSelect1">{{translate('messages.addon')}}<span--}}
+{{--                                            class="input-label-secondary"></span></label>--}}
+{{--                                    <select name="addon_ids[]" class="form-control js-select2-custom" multiple="multiple">--}}
+{{--                                        @foreach(\App\Models\AddOn::where('store_id', \App\CentralLogics\Helpers::get_store_id())->orderBy('name')->get() as $addon)--}}
+{{--                                            <option value="{{$addon['id']}}">{{$addon['name']}}</option>--}}
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                            </div>                            --}}
+{{--                        @endif--}}
 
                     </div>
                     @if ($module_data['item_available_time'])
@@ -209,7 +209,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label class="input-label" for="exampleFormControlInput1">{{translate('messages.available')}} {{translate('messages.time')}} {{translate('messages.starts')}}</label>
-                                <input type="time" name="available_time_starts" class="form-control" 
+                                <input type="time" name="available_time_starts" class="form-control"
                                        placeholder="Ex : 10:30 am" required>
                             </div>
                         </div>
@@ -400,7 +400,7 @@
             }
         })
     </script>
-    
+
     <script src="{{asset('public/assets/admin/js/spartan-multi-image-picker.js')}}"></script>
     <script type="text/javascript">
         $(function () {

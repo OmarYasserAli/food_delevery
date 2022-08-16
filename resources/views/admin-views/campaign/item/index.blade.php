@@ -80,7 +80,7 @@
                                         class="input-label-secondary">*</span></label>
                                 <select name="store_id" class="js-data-example-ajax form-control" id="store_id" onchange="getStoreData('{{url('/')}}/admin/vendor/get-addons?data[]=0&store_id='+this.value,'add_on')"  title="Select Store" required>
                                 <option selected>Select Store</option>
-                                    
+
                                 </select>
                             </div>
 
@@ -91,7 +91,7 @@
                         <div class="col-md-3 col-6">
                             <div class="form-group">
                                 <label class="input-label" for="title">{{translate('messages.start')}} {{translate('messages.date')}}</label>
-                                <input type="date" id="date_from" class="form-control" required="" name="start_date"> 
+                                <input type="date" id="date_from" class="form-control" required="" name="start_date">
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
@@ -102,7 +102,7 @@
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="form-group">
-                                <label class="input-label" for="title">{{translate('messages.start')}} {{translate('messages.time')}}</label>                                    
+                                <label class="input-label" for="title">{{translate('messages.start')}} {{translate('messages.time')}}</label>
                                 <input type="time" id="start_time" class="form-control" name="start_time">
                             </div>
                         </div>
@@ -183,7 +183,7 @@
                                 </select>
                             </div>
                         </div>
-                        
+
                         {{--<div class="col-md-4 col-6">
                             <div class="form-group">
                                 <label class="input-label" for="exampleFormControlSelect1">Sub Sub Category<span
@@ -226,7 +226,7 @@
                     <div class="row mt-2">
                         <div class="col-sm-6" id="stock_input">
                             <div class="form-group">
-                                <label class="input-label" for="total_stock">{{translate('messages.total_stock')}}</label>                                
+                                <label class="input-label" for="total_stock">{{translate('messages.total_stock')}}</label>
                                 <input type="number" class="form-control" name="current_stock" id="quantity">
                             </div>
                         </div>

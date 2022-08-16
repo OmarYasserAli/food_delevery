@@ -221,18 +221,18 @@
                     <div class="row mt-2">
                         <div class="col-sm-6" id="stock_input">
                             <div class="form-group">
-                                <label class="input-label" for="total_stock">{{translate('messages.total_stock')}}</label>                                
+                                <label class="input-label" for="total_stock">{{translate('messages.total_stock')}}</label>
                                 <input type="number" class="form-control" name="current_stock" value="{{$product->stock}}" id="quantity">
                             </div>
                         </div>
-                        <div class="col-sm-6" id="addon_input">
-                            <div class="form-group">
-                                <label class="input-label" for="exampleFormControlSelect1">{{translate('messages.addon')}}<span
-                                        class="input-label-secondary" title="{{translate('messages.store_required_warning')}}"><img src="{{asset('/public/assets/admin/img/info-circle.svg')}}" alt="{{translate('messages.store_required_warning')}}"></span></label>
-                                <select name="addon_ids[]" class="form-control js-select2-custom" multiple="multiple" id="add_on">
-                                </select>
-                            </div>
-                        </div>
+{{--                        <div class="col-sm-6" id="addon_input">--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label class="input-label" for="exampleFormControlSelect1">{{translate('messages.addon')}}<span--}}
+{{--                                        class="input-label-secondary" title="{{translate('messages.store_required_warning')}}"><img src="{{asset('/public/assets/admin/img/info-circle.svg')}}" alt="{{translate('messages.store_required_warning')}}"></span></label>--}}
+{{--                                <select name="addon_ids[]" class="form-control js-select2-custom" multiple="multiple" id="add_on">--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
 
                     <div class="row"  id="time_input">
@@ -354,7 +354,7 @@
     <script>
         var module_id = {{$product->module_id}};
         var parent_category_id = {{$category?$category->id:0}};
-        <?php 
+        <?php
             $module_data = config('module.'.$product->module->module_type);
             unset($module_data['description']);
         ?>
@@ -429,7 +429,7 @@
                 var select2 = $.HSCore.components.HSSelect2.init($(this));
             });
         });
-        
+
         $('#store_id').select2({
             ajax: {
                 url: '{{url('/')}}/admin/vendor/get-stores',

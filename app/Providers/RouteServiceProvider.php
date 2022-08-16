@@ -56,10 +56,9 @@ class RouteServiceProvider extends ServiceProvider
                 Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
-            
 
-            Route::prefix('vendor-panel')
-                ->middleware('web')
+
+            Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/vendor.php'));
 
