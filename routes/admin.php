@@ -7,14 +7,14 @@ Route::group(
         'prefix' => LaravelLocalization::setLocale().'/admin',
         'middleware' => [ 'localize' ]
     ], function(){ //...
-Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () { 
+Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
     /*authentication*/
      Route::get('lang/{locale}', 'LanguageController@lang')->name('lang');
     Route::group(['namespace' => 'Auth', 'prefix' => 'auth', 'as' => 'auth.'], function () {
         Route::get('login', 'LoginController@login')->name('login');
         Route::post('login', 'LoginController@submit')->middleware('actch');
         Route::get('logout', 'LoginController@logout')->name('logout');
-       
+
     });
     /*authentication*/
 
@@ -75,7 +75,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
             Route::post('search', 'EmployeeController@search')->name('search');
         });
         Route::post('item/variant-price', 'ItemController@variant_price')->name('item.variant-price');
-        
+
         Route::group(['prefix' => 'item', 'as' => 'item.', 'middleware' => ['module:item']], function () {
             Route::get('add-new', 'ItemController@index')->name('add-new');
             Route::post('variant-combination', 'ItemController@variant_combination')->name('variant-combination');
@@ -183,7 +183,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
                 Route::get('featured/{store}/{status}', 'VendorController@featured')->name('featured');
                 Route::get('toggle-settings-status/{store}/{status}/{menu}', 'VendorController@store_status')->name('toggle-settings');
                 Route::post('status-filter', 'VendorController@status_filter')->name('status-filter');
-                
+
                 //Import and export
                 Route::get('bulk-import', 'VendorController@bulk_import_index')->name('bulk-import');
                 Route::post('bulk-import', 'VendorController@bulk_import_data');
@@ -244,7 +244,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
         Route::group(['prefix' => 'order', 'as' => 'order.', 'middleware' => ['module:order']], function () {
             Route::get('list/{status}', 'OrderController@list')->name('list');
             Route::get('details/{id}', 'OrderController@details')->name('details');
-            
+
             // Route::put('status-update/{id}', 'OrderController@status')->name('status-update');
             Route::get('view/{id}', 'OrderController@view')->name('view');
             Route::post('update-shipping/{order}', 'OrderController@update_shipping')->name('update-shipping');
@@ -252,7 +252,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
 
             Route::get('add-delivery-man/{order_id}/{delivery_man_id}', 'OrderController@add_delivery_man')->name('add-delivery-man');
             Route::get('payment-status', 'OrderController@payment_status')->name('payment-status');
-            
+
             Route::post('add-payment-ref-code/{id}', 'OrderController@add_payment_ref_code')->name('add-payment-ref-code');
             Route::get('store-filter/{store_id}', 'OrderController@restaurnt_filter')->name('store-filter');
             Route::get('filter/reset', 'OrderController@filter_reset');
@@ -350,7 +350,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
 
 
             //translate
-           
+
         });
         Route::group(['prefix' => 'language', 'as' => 'language.','middleware'=>['module:business_settings']], function () {
             Route::get('', 'LanguageController@index')->name('index');
@@ -395,7 +395,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
         // Subscribed customer Routes
         Route::group(['prefix' => 'customer', 'as' => 'customer.'], function () {
 
-            
+
             Route::group(['prefix' => 'wallet', 'as' => 'wallet.', 'middleware' => ['module:customer_wallet']], function () {
                 Route::get('add-fund', 'CustomerWalletController@add_fund_view')->name('add-fund');
                 Route::post('add-fund', 'CustomerWalletController@add_fund');
@@ -405,7 +405,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
             // Subscribed customer Routes
             Route::get('subscribed', 'CustomerController@subscribedCustomers')->name('subscribed');
             Route::post('subscriber-search', 'CustomerController@subscriberMailSearch')->name('subscriberMailSearch');
-            
+
             Route::get('loyalty-point/report', 'LoyaltyPointController@report')->name('loyalty-point.report');
             Route::get('settings', 'CustomerController@settings')->name('settings');
             Route::post('update-settings', 'CustomerController@update_settings')->name('update-settings');
@@ -470,12 +470,12 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
             Route::delete('/delete/{file_path}', 'FileManagerController@destroy')->name('destroy');
         });
 
-        //social media login
-        // Route::group(['prefix' => 'social-login', 'as' => 'social-login.','middleware'=>['module:business_settings']], function () {
-        //     Route::get('view', 'BusinessSettingsController@viewSocialLogin')->name('view');
-        //     Route::post('update/{service}', 'BusinessSettingsController@updateSocialLogin')->name('update');
+//        social media login
+         Route::group(['prefix' => 'social-login', 'as' => 'social-login.','middleware'=>['module:business_settings']], function () {
+             Route::get('view', 'BusinessSettingsController@viewSocialLogin')->name('view');
+             Route::post('update/{service}', 'BusinessSettingsController@updateSocialLogin')->name('update');
 
-        // });
+         });
     });
 
     Route::get('zone/get-coordinates/{id}', 'ZoneController@get_coordinates')->name('zone.get-coordinates');
