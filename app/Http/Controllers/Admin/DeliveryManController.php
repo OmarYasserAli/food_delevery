@@ -250,7 +250,7 @@ class DeliveryManController extends Controller
         $delivery_man->password = strlen($request->password)>1?bcrypt($request->password):$delivery_man['password'];
         $delivery_man->save();
         Toastr::success(translate('messages.deliveryman_updated_successfully'));
-        return redirect('admin/delivery-man/list');
+        return redirect()->route('admin.delivery-man.list');
     }
 
     public function delete(Request $request)
