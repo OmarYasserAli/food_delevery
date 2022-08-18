@@ -65,21 +65,27 @@
                                     <span class="d-block font-size-sm text-body">
 
                         @if(LaravelLocalization::getCurrentLocale() == 'en')
-                                     {{Str::limit($module['module_type'], 20,'...')}}
-                                @elseif(count($module->translations()->where('key','description')->get()) > 0  && LaravelLocalization::getCurrentLocale() == 'ar')
-                                    {!!  Str::limit($module->translations()->where('key','description')->first()->value, 20,'...')  !!}
+                                     {{Str::limit($module['module_name'], 20,'...')}}
+                                @elseif(count($module->translations()->where('key','module_name')->get()) > 0  && LaravelLocalization::getCurrentLocale() == 'ar')
+                                    {!!  Str::limit($module->translations()->where('key','module_name')->first()->value, 20,'...')  !!}
 
                                 @else
-                                <p>لا يوجد</p>
-                                @endif  
+                                 {{Str::limit($module['module_name'], 20,'...')}}
+                                @endif
 
 
                                     </span>
                                 </td>
                                 <td>
                                     <span class="d-block font-size-sm text-body text-capitalize">
-                                        @if(LaravelLocalization::getCurrentLocale() == 'en' ){{Str::limit($module['module_type'], 20,'...')}} @else {!! Str::limit($module->translations()->where('key','description')->first()->value, 20,'...') !!} @endif
+          @if(LaravelLocalization::getCurrentLocale() == 'en')
+                                            {{Str::limit($module['module_type'], 20,'...')}}
+                                        @elseif(count($module->translations()->where('key','description')->get()) > 0  && LaravelLocalization::getCurrentLocale() == 'ar')
+                                            {!!  Str::limit($module->translations()->where('key','description')->first()->value, 20,'...')  !!}
 
+                                        @else
+                                            <p>لا يوجد</p>
+                                        @endif
 
                                     </span>
                                 </td>

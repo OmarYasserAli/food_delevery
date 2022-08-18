@@ -23,7 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/module/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/module/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,6 +303,11 @@
       <workItem from="1630746551123" duration="2315000" />
       <workItem from="1660464276342" duration="10566000" />
       <workItem from="1660638145263" duration="8933000" />
+      <workItem from="1660660646873" duration="548000" />
+      <workItem from="1660720148639" duration="2090000" />
+      <workItem from="1660744261177" duration="3450000" />
+      <workItem from="1660805052590" duration="37000" />
+      <workItem from="1660805125581" duration="1108000" />
     </task>
     <servers />
   </component>
@@ -323,6 +328,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1660721010134">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1660721010134" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
