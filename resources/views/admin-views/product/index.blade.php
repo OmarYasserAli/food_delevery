@@ -535,7 +535,7 @@
                             ProgressBar: true
                         });
                         setTimeout(function () {
-                            location.href = "{{route('admin.item.list')}}";
+                            location.href = "{{route('admin.item.add-new')}}";
                         }, 2000);
                     }
                 }
