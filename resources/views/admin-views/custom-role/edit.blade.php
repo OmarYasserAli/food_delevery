@@ -51,13 +51,13 @@
                                     <label class="form-check-label qcont text-dark" for="account">{{translate('messages.collect')}} {{translate('messages.cash')}}</label>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="form-group form-check">
-                                    <input type="checkbox" name="modules[]" value="addon" class="form-check-input"
-                                           id="addon"  {{in_array('addon',(array)json_decode($role['modules']))?'checked':''}}>
-                                    <label class="form-check-label qcont text-dark" for="addon">{{translate('messages.addon')}}</label>
-                                </div>
-                            </div>
+{{--                            <div class="col-md-3">--}}
+{{--                                <div class="form-group form-check">--}}
+{{--                                    <input type="checkbox" name="modules[]" value="addon" class="form-check-input"--}}
+{{--                                           id="addon"  {{in_array('addon',(array)json_decode($role['modules']))?'checked':''}}>--}}
+{{--                                    <label class="form-check-label qcont text-dark" for="addon">{{translate('messages.addon')}}</label>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                             <div class="col-md-3">
                                 <div class="form-group form-check">
                                     <input type="checkbox" name="modules[]" value="attribute" class="form-check-input"
