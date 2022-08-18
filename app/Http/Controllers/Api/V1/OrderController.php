@@ -64,7 +64,9 @@ class OrderController extends Controller
             'parcel_category_id' => 'required_if:order_type,parcel',
             'receiver_details' => 'required_if:order_type,parcel',
             'charge_payer' => 'required_if:order_type,parcel|in:sender,receiver',
-            'dm_tips' => 'nullable|numeric'
+            'dm_tips' => 'nullable|numeric',
+            'building' => 'required',
+            'flat' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -171,7 +173,7 @@ class OrderController extends Controller
             }
 
             $zone = Zone::whereIn('id', $zone_id)->contains('coordinates', $point)->latest()->first();
-            
+
             if (!$zone) {
                 $errors = [];
                 array_push($errors, ['code' => 'coordinates', 'message' => translate('messages.out_of_coverage')]);
@@ -220,7 +222,7 @@ class OrderController extends Controller
         $order->schedule_at = $schedule_at;
         $order->scheduled = $request->schedule_at ? 1 : 0;
         $order->otp = rand(1000, 9999);
-        $order->zone_id = isset($zone) ? $zone->id : end(json_decode($request->header('zoneId'), true));        
+        $order->zone_id = isset($zone) ? $zone->id : end(json_decode($request->header('zoneId'), true));
         $order->module_id = $request->header('moduleId');
         $order->parcel_category_id = $request->parcel_category_id;
         $order->receiver_details = json_decode($request->receiver_details);
@@ -230,7 +232,8 @@ class OrderController extends Controller
         $order->created_at = now();
         $order->updated_at = now();
         $order->charge_payer = $request->charge_payer;
-
+        $order->flat = $request->flat;
+        $order->building = $request->building;
         //Added DM TIPS
         $dm_tips_manage_status = BusinessSetting::where('key', 'dm_tips_status')->first()->value;
         if ($dm_tips_manage_status == 1) {
@@ -439,7 +442,7 @@ class OrderController extends Controller
                     }
                 }
                 $store->increment('total_order');
-                
+
             }
             $customer = $request->user();
             $customer->zone_id = $order->zone_id;

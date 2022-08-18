@@ -24,8 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Auth/CustomerAuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Auth/CustomerAuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,7 +307,7 @@
       <workItem from="1660720148639" duration="2090000" />
       <workItem from="1660744261177" duration="3450000" />
       <workItem from="1660805052590" duration="37000" />
-      <workItem from="1660805125581" duration="4278000" />
+      <workItem from="1660805125581" duration="5791000" />
     </task>
     <servers />
   </component>
@@ -340,6 +338,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1660721010134" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1660810478279">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1660810478279" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
