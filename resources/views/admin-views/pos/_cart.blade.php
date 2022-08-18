@@ -75,8 +75,7 @@
     <div class="box p-3">
         <dl class="row text-sm-right">
 
-            <dt  class="col-sm-6">{{translate('messages.addon')}}:</dt>
-            <dd class="col-sm-6 text-right">{{\App\CentralLogics\Helpers::format_currency($addon_price)}}</dd>
+            
 
             <dt  class="col-sm-6">{{translate('messages.subtotal')}}:</dt>
             <dd class="col-sm-6 text-right">{{\App\CentralLogics\Helpers::format_currency($subtotal+$addon_price)}}</dd>
