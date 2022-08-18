@@ -817,12 +817,12 @@
                         <span class="text-truncate">{{ translate('messages.app_settings') }}</span>
                     </a>
                 </li>
-                <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/business-settings/landing-page-settings*') ? 'active' : '' }}">
+              <!--   <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/business-settings/landing-page-settings*') ? 'active' : '' }}">
                     <a class="nav-link " href="{{ route('admin.business-settings.landing-page-settings', 'index') }}" title="{{ translate('messages.landing_page_settings') }}">
                         <span class="tio-website nav-icon"></span>
                         <span class="text-truncate">{{ translate('messages.landing_page_settings') }}</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/business-settings/config*') ? 'active' : '' }}">
                     <a class="nav-link " href="{{ route('admin.business-settings.config-setup') }}" title="{{ translate('messages.third_party_apis') }}">
                         <span class="tio-key nav-icon"></span>
