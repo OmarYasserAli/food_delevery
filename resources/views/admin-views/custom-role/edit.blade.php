@@ -5,7 +5,17 @@
 @endpush
 
 @section('content')
-<div class="content container-fluid"> 
+    @if(LaravelLocalization::getCurrentLocale() == 'ar')
+        <style>
+            .form-check-input {
+                position: absolute;
+                margin-top: 0.3rem;
+                margin-right: -1.25rem;
+            }
+        </style>
+
+    @endif
+<div class="content container-fluid">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
@@ -160,7 +170,7 @@
                                     <label class="form-check-label qcont text-dark" for="settings">{{translate('messages.business')}} {{translate('messages.settings')}}</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-3">
                                 <div class="form-group form-check">
                                     <input type="checkbox" name="modules[]" value="withdraw_list" class="form-check-input"
