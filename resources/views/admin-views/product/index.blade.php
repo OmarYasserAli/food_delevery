@@ -8,6 +8,7 @@
 @endpush
 
 @section('content')
+
     <div class="content container-fluid">
         <!-- Page Header -->
         <div class="page-header">
@@ -534,7 +535,7 @@
                             ProgressBar: true
                         });
                         setTimeout(function () {
-                            location.href = "{{\Request::server('HTTP_REFERER')??route('admin.item.list')}}";
+                            location.href = "{{route('admin.item.list')}}";
                         }, 2000);
                     }
                 }
