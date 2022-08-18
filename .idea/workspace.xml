@@ -24,7 +24,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/custom-role/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/custom-role/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/account/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/account/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/business-settings/db-index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/business-settings/db-index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,7 +312,8 @@
       <workItem from="1660720148639" duration="2090000" />
       <workItem from="1660744261177" duration="3450000" />
       <workItem from="1660805052590" duration="37000" />
-      <workItem from="1660805125581" duration="13463000" />
+      <workItem from="1660805125581" duration="13852000" />
+      <workItem from="1660827670131" duration="3989000" />
     </task>
     <servers />
   </component>
@@ -335,6 +340,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="530" y="277" key="VCS.ChangelistChooser/0.0.1366.728@0.0.1366.728" timestamp="1660808405722" />
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1660831207280">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1660831207280" />
     <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1660721010134">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -351,6 +360,26 @@
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php</url>
           <line>89</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/admin-views/custom-role/edit.blade.php</url>
+          <line>53</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php</url>
+          <line>714</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php</url>
+          <line>905</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php</url>
+          <line>337</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/Auth/CustomerAuthController.php</url>

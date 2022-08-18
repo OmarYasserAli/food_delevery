@@ -32,26 +32,26 @@
                         <label class="input-label" for="type">{{translate('messages.type')}}<span class="input-label-secondary"></span></label>
                             <select name="type" id="type" class="form-control">
                                 <option value="deliveryman">{{translate('messages.deliveryman')}}</option>
-                                <option value="store">{{translate('messages.store')}}</option>
-                            </select>
-                        </div>  
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="input-label" for="store">{{translate('messages.store')}}<span class="input-label-secondary"></span></label>
-                            <select id="store" name="store_id" data-placeholder="{{translate('messages.select')}} {{translate('messages.store')}}" onchange="getAccountData('{{url('/')}}/admin/vendor/get-account-data/',this.value,'store')" class="form-control" title="Select Restaurant" disabled>
-                                                    
+{{--                                <option value="store">{{translate('messages.store')}}</option>--}}
                             </select>
                         </div>
                     </div>
+{{--                    <div class="col-md-4">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label class="input-label" for="store">{{translate('messages.store')}}<span class="input-label-secondary"></span></label>--}}
+{{--                            <select id="store" name="store_id" data-placeholder="{{translate('messages.select')}} {{translate('messages.store')}}" onchange="getAccountData('{{url('/')}}/admin/vendor/get-account-data/',this.value,'store')" class="form-control" title="Select Restaurant" disabled>--}}
+{{--                                                    --}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="input-label" for="deliveryman">{{translate('messages.deliveryman')}}<span class="input-label-secondary"></span></label>
                             <select id="deliveryman" name="deliveryman_id" data-placeholder="{{translate('messages.select')}} {{translate('messages.deliveryman')}}" onchange="getAccountData('{{url('/')}}/admin/delivery-man/get-account-data/',this.value,'deliveryman')" class="form-control" title="Select deliveryman">
-                                                    
+
                             </select>
                         </div>
-                    </div>  
+                    </div>
                 </div>
 
                 <div class="row">
@@ -59,7 +59,7 @@
                         <div class="form-group">
                             <label class="input-label" for="method">{{translate('messages.method')}}<span class="input-label-secondary"></span></label>
                             <input class="form-control" type="text" name="method" id="method" required maxlength="191">
-                        </div>  
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
@@ -72,7 +72,7 @@
                             <label class="input-label" for="amount">{{translate('messages.amount')}}<span class="input-label-secondary" id="account_info"></span></label>
                             <input class="form-control" type="number" min=".01" step="0.01" name="amount" id="amount" max="999999999999.99">
                         </div>
-                    </div>  
+                    </div>
                 </div>
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="{{translate('messages.save')}}" >

@@ -7,6 +7,16 @@
 @endpush
 
 @section('content')
+    @if(LaravelLocalization::getCurrentLocale() == 'ar')
+        <style>
+            .form-check-input {
+                position: absolute;
+                margin-top: 0.3rem;
+                margin-right: -1.25rem;
+            }
+        </style>
+
+    @endif
 <div class="content container-fluid">
     <!-- Page Header -->
     <div class="page-header">
@@ -35,7 +45,7 @@
                                            id="{{$table}}">
                                     <label class="form-check-label text-dark"
                                            style="{{Session::get('direction') === "rtl" ? 'margin-right: 1.25rem;' : ''}};"
-                                           for="{{$table}}">{{ Str::limit($table, 20) }}</label>
+                                           for="{{$table}}">{{ translate($table) }}</label>
                                     <span class="badge-pill badge-secondary mx-2">{{$rows[$key]}}</span>
                                 </div>
                             </div>
@@ -67,7 +77,7 @@
 
                 if(event.target.id == 'zones' || event.target.id == 'orders') {
                     checked_orders(true);
-                }                
+                }
             } else {
                 if(store_dependent.includes(event.target.id)) {
                     if(check_store() || check_zone()){
@@ -82,7 +92,7 @@
                     if(check_zone()){
                         $(this).prop('checked', true);
                     }
-                } 
+                }
             }
 
         });
@@ -102,7 +112,7 @@
             $('#'+value).prop('checked', status);
         });
         $('#vendors').prop('checked', status);
-        
+
     }
 
     function checked_orders(status) {

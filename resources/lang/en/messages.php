@@ -1361,9 +1361,17 @@
   'Are you sure' => 'Are you sure',
   'Update option is disabled for demo' => 'Update option is disabled for demo',
   'xx' => 'Xx',
-
   'Export Restaurants' => 'Export Restaurants',
-
   'translation' => 'Translation',
-
+  'module_management' => 'Module management',
+  'order_section' => 'Order section',
+  'store_management' => 'Store management',
+  'items_management' => 'Items management',
+  'deliveryman_section' => 'Deliveryman section',
+  'customers_section' => 'Customers section',
+  'marketing_section' => 'Marketing section',
+  'business_section' => 'Business section',
+  'business_setting' => 'Business setting',
+  'web_and_app_setting' => 'Web and app setting',
+  'employee_section' => 'Employee section',
 );

@@ -40,8 +40,8 @@
                     <!-- End Dashboards -->
 
                     <li class="nav-item">
-                        <small class="nav-subtitle" title="{{ translate('messages.module') }} {{ translate('messages.section') }}">{{ translate('messages.module') }}
-                            {{ translate('messages.management') }}</small>
+                        <small class="nav-subtitle" title="{{ translate('messages.module') }} {{ translate('messages.section') }}">{{ translate('messages.module_management') }}
+                          </small>
                         <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                     </li>
 
@@ -75,7 +75,7 @@
 
                     @if(\App\CentralLogics\Helpers::module_permission_check('pos'))
                     <li class="nav-item">
-                        <small class="nav-subtitle">{{translate('messages.pos')}} {{translate('messages.system')}}</small>
+                        <small class="nav-subtitle">{{translate('messages.pos_system')}}</small>
                         <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                     </li>
 
@@ -110,8 +110,8 @@
                     <!-- Orders -->
                     @if (\App\CentralLogics\Helpers::module_permission_check('order'))
                     <li class="nav-item">
-                        <small class="nav-subtitle">{{ translate('messages.order') }}
-                            {{ translate('messages.section') }}</small>
+                        <small class="nav-subtitle">{{ translate('messages.order_section') }}
+                      </small>
                         <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                     </li>
 
@@ -320,8 +320,8 @@
 
                     <!-- Restaurant -->
                     <li class="nav-item">
-                        <small class="nav-subtitle" title="{{ translate('messages.store') }} {{ translate('messages.section') }}">{{ translate('messages.store') }}
-                            {{ translate('messages.management') }}</small>
+                        <small class="nav-subtitle" title="{{ translate('messages.store') }} {{ translate('messages.section') }}">{{ translate('messages.store_management') }}
+                      </small>
                         <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                     </li>
 
@@ -377,8 +377,8 @@
                     <!-- End Restaurant -->
 
                     <li class="nav-item">
-                        <small class="nav-subtitle" title="{{ translate('messages.item') }} {{ translate('messages.section') }}">{{ translate('messages.item') }}
-                            {{ translate('messages.management') }}</small>
+                        <small class="nav-subtitle" title="{{ translate('messages.item') }} {{ translate('messages.section') }}">{{ translate('messages.items_management') }}
+                  </small>
                         <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                     </li>
 
@@ -530,8 +530,8 @@
                 <!-- DeliveryMan -->
                 @if (\App\CentralLogics\Helpers::module_permission_check('deliveryman'))
                 <li class="nav-item">
-                    <small class="nav-subtitle" title="{{ translate('messages.deliveryman') }} {{ translate('messages.section') }}">{{ translate('messages.deliveryman') }}
-                        {{ translate('messages.section') }}</small>
+                    <small class="nav-subtitle" title="{{ translate('messages.deliveryman') }} {{ translate('messages.section') }}">{{ translate('messages.deliveryman_section') }}
+         </small>
                     <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                 </li>
                 <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/delivery-man/add') ? 'active' : '' }}">
@@ -566,8 +566,8 @@
                 <!-- Customer Section -->
                 @if (\App\CentralLogics\Helpers::module_permission_check('customerList'))
                 <li class="nav-item">
-                    <small class="nav-subtitle" title="{{ translate('messages.customer') }} {{ translate('messages.section') }}">{{ translate('messages.customer') }}
-                        {{ translate('messages.section') }}</small>
+                    <small class="nav-subtitle" title="{{ translate('messages.customer') }} {{ translate('messages.section') }}">{{ translate('messages.customers_section') }}
+                      </small>
                     <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                 </li>
                 <!-- Custommer -->
@@ -646,8 +646,8 @@
                 <!-- End customer Section -->
                 <!-- Marketing section -->
                 <li class="nav-item">
-                    <small class="nav-subtitle" title="{{ translate('messages.employee_handle') }}">{{ translate('messages.marketing') }}
-                        {{ translate('messages.section') }}</small>
+                    <small class="nav-subtitle" title="{{ translate('messages.employee_handle') }}">{{ translate('messages.marketing_section') }}
+                 </small>
                     <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                 </li>
                 <!-- Campaign -->
@@ -713,21 +713,21 @@
 
                 <!-- Business Section-->
                 <li class="nav-item">
-                    <small class="nav-subtitle" title="{{ translate('messages.business') }} {{ translate('messages.section') }}">{{ translate('messages.business') }}
-                        {{ translate('messages.section') }}</small>
+                    <small class="nav-subtitle" title="{{ translate('messages.business') }} {{ translate('messages.section') }}">{{ translate('messages.business_section') }}
+               </small>
                     <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                 </li>
 
                 <!-- withdraw -->
-                @if (\App\CentralLogics\Helpers::module_permission_check('withdraw_list'))
-                <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/vendor/withdraw*') ? 'active' : '' }}">
-                    <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{ route('admin.vendor.withdraw_list') }}" title="{{ translate('messages.store') }} {{ translate('messages.withdraws') }}">
-                        <i class="tio-table nav-icon"></i>
-                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{ translate('messages.store') }}
-                            {{ translate('messages.withdraws') }}</span>
-                    </a>
-                </li>
-                @endif
+{{--                @if (\App\CentralLogics\Helpers::module_permission_check('withdraw_list'))--}}
+{{--                <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/vendor/withdraw*') ? 'active' : '' }}">--}}
+{{--                    <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{ route('admin.vendor.withdraw_list') }}" title="{{ translate('messages.store') }} {{ translate('messages.withdraws') }}">--}}
+{{--                        <i class="tio-table nav-icon"></i>--}}
+{{--                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{ translate('messages.store') }}--}}
+{{--                            {{ translate('messages.withdraws') }}</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                @endif--}}
                 <!-- End withdraw -->
                 <!-- account -->
                 @if (\App\CentralLogics\Helpers::module_permission_check('account'))
@@ -742,21 +742,21 @@
                 <!-- End account -->
 
                 <!-- provide_dm_earning -->
-                @if (\App\CentralLogics\Helpers::module_permission_check('provide_dm_earning'))
-                <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/provide-deliveryman-earnings*') ? 'active' : '' }}">
-                    <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{ route('admin.provide-deliveryman-earnings.index') }}" title="{{ translate('messages.deliverymen_earning_provide') }}">
-                        <i class="tio-send nav-icon"></i>
-                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{ translate('messages.deliverymen_earning_provide') }}</span>
-                    </a>
-                </li>
-                @endif
+{{--                @if (\App\CentralLogics\Helpers::module_permission_check('provide_dm_earning'))--}}
+{{--                <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/provide-deliveryman-earnings*') ? 'active' : '' }}">--}}
+{{--                    <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{ route('admin.provide-deliveryman-earnings.index') }}" title="{{ translate('messages.deliverymen_earning_provide') }}">--}}
+{{--                        <i class="tio-send nav-icon"></i>--}}
+{{--                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{ translate('messages.deliverymen_earning_provide') }}</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                @endif--}}
                 <!-- End provide_dm_earning -->
 
                 <!-- Business Settings -->
                 @if (\App\CentralLogics\Helpers::module_permission_check('settings'))
                 <li class="nav-item">
-                    <small class="nav-subtitle" title="{{ translate('messages.business') }} {{ translate('messages.settings') }}">{{ translate('messages.business') }}
-                        {{ translate('messages.settings') }}</small>
+                    <small class="nav-subtitle" title="{{ translate('messages.business') }} {{ translate('messages.settings') }}">{{ translate('messages.business_setting') }}
+                   </small>
                     <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                 </li>
                 <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/business-settings/business-setup') ? 'active' : '' }}">
@@ -807,8 +807,8 @@
                 <!-- web & adpp Settings -->
                 @if (\App\CentralLogics\Helpers::module_permission_check('settings'))
                 <li class="nav-item">
-                    <small class="nav-subtitle" title="{{ translate('messages.business') }} {{ translate('messages.settings') }}">{{ translate('messages.web_and_app') }}
-                        {{ translate('messages.settings') }}</small>
+                    <small class="nav-subtitle" title="{{ translate('messages.business') }} {{ translate('messages.settings') }}">{{ translate('messages.web_and_app_setting') }}
+                   </small>
                     <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                 </li>
                 <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/business-settings/app-settings*') ? 'active' : '' }}">
@@ -934,8 +934,8 @@
                 <!-- Employee-->
 
                 <li class="nav-item">
-                    <small class="nav-subtitle" title="{{ translate('messages.employee_handle') }}">{{ translate('messages.employee') }}
-                        {{ translate('section') }}</small>
+                    <small class="nav-subtitle" title="{{ translate('messages.employee_handle') }}">{{ translate('messages.employee_section') }}
+             </small>
                     <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                 </li>
 
