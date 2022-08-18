@@ -79,7 +79,7 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
             Route::delete('remove-account', 'DeliverymanController@remove_account');
         });
     });
-    
+
     Route::group(['prefix' => 'vendor', 'namespace' => 'Vendor', 'middleware'=>['vendor.api']], function () {
         Route::get('notifications', 'VendorController@get_notifications');
         Route::get('profile', 'VendorController@get_profile');
@@ -99,7 +99,7 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
         Route::get('get-items-list', 'VendorController@get_items');
         Route::put('update-bank-info', 'VendorController@update_bank_info');
         Route::post('request-withdraw', 'VendorController@request_withdraw');
-        
+
         //remove account
         Route::delete('remove-account', 'VendorController@remove_account');
 
@@ -165,7 +165,7 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
         Route::get('geocode-api', 'ConfigController@geocode_api');
     });
 
-    Route::group(['middleware'=>['module-check']], function(){    
+    Route::group(['middleware'=>['module-check']], function(){
         Route::group(['prefix' => 'customer', 'middleware' => 'auth:api'], function () {
             Route::get('notifications', 'NotificationController@get_notifications');
             Route::get('info', 'CustomerController@info');
@@ -176,7 +176,7 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
             Route::get('suggested-items', 'CustomerController@get_suggested_item');
             //Remove account
             Route::delete('remove-account', 'CustomerController@remove_account');
-            
+
             Route::group(['prefix' => 'address'], function () {
                 Route::get('list', 'CustomerController@address_list');
                 Route::post('add', 'CustomerController@add_new_address');
@@ -210,17 +210,18 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
             //Loyalty
             Route::group(['prefix'=>'loyalty-point'], function() {
                 Route::post('point-transfer', 'LoyaltyPointController@point_transfer');
-                Route::get('transactions', 'LoyaltyPointController@transactions');            
+                Route::get('transactions', 'LoyaltyPointController@transactions');
             });
 
             Route::group(['prefix'=>'wallet'], function() {
-                Route::get('transactions', 'WalletController@transactions');            
+                Route::get('transactions', 'WalletController@transactions');
             });
-    
+
         });
-        
+
         Route::group(['prefix' => 'items'], function () {
             Route::get('latest', 'ItemController@get_latest_products');
+            Route::get('discount', 'ItemController@get_discount_product');
             Route::get('popular', 'ItemController@get_popular_products');
             Route::get('most-reviewed', 'ItemController@get_most_reviewed_products');
             Route::get('set-menu', 'ItemController@get_set_menus');

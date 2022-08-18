@@ -1,11 +1,27 @@
 @extends('layouts.admin.app')
 @section('title',translate('messages.custom_role'))
 @push('css_or_js')
-
+@if(LaravelLocalization::getCurrentLocale() == 'ar')
+    .form-check-input {
+    position: absolute;
+    margin-top: 0.3rem;
+    margin-right: -1.25rem;
+    }
+@endif
 @endpush
 
 @section('content')
-<div class="content container-fluid"> 
+    @if(LaravelLocalization::getCurrentLocale() == 'ar')
+        <style>
+            .form-check-input {
+                position: absolute;
+                margin-top: 0.3rem;
+                margin-right: -1.25rem;
+            }
+        </style>
+
+    @endif
+<div class="content container-fluid">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{translate('messages.dashboard')}}</a></li>
@@ -44,13 +60,13 @@
                                     <label class="form-check-label qcont text-dark" for="account">{{translate('messages.collect')}} {{translate('messages.cash')}}</label>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="form-group form-check">
-                                    <input type="checkbox" name="modules[]" value="addon" class="form-check-input"
-                                           id="addon">
-                                    <label class="form-check-label qcont text-dark" for="addon">{{translate('messages.addon')}}</label>
-                                </div>
-                            </div>
+{{--                            <div class="col-md-3">--}}
+{{--                                <div class="form-group form-check">--}}
+{{--                                    <input type="checkbox" name="modules[]" value="addon" class="form-check-input"--}}
+{{--                                           id="addon">--}}
+{{--                                    <label class="form-check-label qcont text-dark" for="addon">{{translate('messages.addon')}}</label>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                             <div class="col-md-3">
                                 <div class="form-group form-check">
                                     <input type="checkbox" name="modules[]" value="attribute" class="form-check-input"
@@ -163,7 +179,7 @@
                                     <label class="form-check-label qcont text-dark" for="settings">{{translate('messages.business')}} {{translate('messages.settings')}}</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-3">
                                 <div class="form-group form-check">
                                     <input type="checkbox" name="modules[]" value="withdraw_list" class="form-check-input"
