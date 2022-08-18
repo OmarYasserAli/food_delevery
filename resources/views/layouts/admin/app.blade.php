@@ -22,9 +22,15 @@
     @else
     <link rel="stylesheet" href="{{asset('public/assets/admin/css/theme.minc619.css?v=1.0')}}">
     @endif
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+
     @stack('css_or_js')
 
     <style>
+
+
         .rtl{
             direction: rtl;
         }
@@ -179,7 +185,14 @@
             transition:0s;
         }
     </style>
+    @if(LaravelLocalization::getCurrentLocale() == 'ar')
+        <style>
+        body{
+        font-family: 'Cairo', sans-serif !important;
 
+        }
+        </style>
+    @endif
     <script
         src="{{asset('public/assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
     <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/toastr.css">
@@ -435,7 +448,7 @@
             {
                 location.href = "{{route('admin.order.list',['status'=>'all'])}}";
             }
-            
+
         }
         @endif
     @endif
@@ -480,7 +493,7 @@
 
         location.href = nurl;
     }
-    
+
     function set_store_filter(url, id) {
         var nurl = new URL(url);
         nurl.searchParams.set('store_id', id);
