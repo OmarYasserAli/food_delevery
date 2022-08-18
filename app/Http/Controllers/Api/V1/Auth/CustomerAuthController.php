@@ -203,13 +203,13 @@ class CustomerAuthController extends Controller
 
                 $refer_wallet_transaction = CustomerLogic::create_wallet_transaction($referar_user->id, $ref_code_exchange_amt, 'referrer', $user->phone);
                 //dd($refer_wallet_transaction);
-                try {
-                    if (config('mail.status')) {
-                        Mail::to($referar_user->email)->send(new \App\Mail\AddFundToWallet($refer_wallet_transaction));
-                    }
-                } catch (\Exception $ex) {
-                    info($ex);
-                }
+//                try {
+//                    if (config('mail.status')) {
+//                        Mail::to($referar_user->email)->send(new \App\Mail\AddFundToWallet($refer_wallet_transaction));
+//                    }
+//                } catch (\Exception $ex) {
+//                    info($ex);
+//                }
             }
         }
 
@@ -217,43 +217,43 @@ class CustomerAuthController extends Controller
 
         $token = $user->createToken('RestaurantCustomerAuth')->accessToken;
 
-        if ($customer_verification && env('APP_MODE') != 'demo') {
-            $otp = rand(1000, 9999);
-            DB::table('phone_verifications')->updateOrInsert(
-                ['phone' => $request['phone']],
-                [
-                    'token' => $otp,
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ]
-            );
-            try {
-                if (config('mail.status')) {
-                    Mail::to($request['email'])->send(new EmailVerification($otp));
-                }
-            } catch (\Exception $ex) {
-                info($ex);
-            }
-
-            $response = SMS_module::send($request['phone'], $otp);
-            if ($response != 'success') {
-                $errors = [];
-                array_push($errors, [
-                    'code' => 'otp',
-                    'message' => translate('messages.faield_to_send_sms')
-                ]);
-                return response()->json([
-                    'errors' => $errors
-                ], 405);
-            }
-        }
-        try {
-            if (config('mail.status')) {
-                Mail::to($request->email)->send(new \App\Mail\CustomerRegistration($request->f_name . ' ' . $request->l_name));
-            }
-        } catch (\Exception $ex) {
-            info($ex);
-        }
+//        if ($customer_verification && env('APP_MODE') != 'demo') {
+//            $otp = rand(1000, 9999);
+//            DB::table('phone_verifications')->updateOrInsert(
+//                ['phone' => $request['phone']],
+//                [
+//                    'token' => $otp,
+//                    'created_at' => now(),
+//                    'updated_at' => now(),
+//                ]
+//            );
+//            try {
+//                if (config('mail.status')) {
+//                    Mail::to($request['email'])->send(new EmailVerification($otp));
+//                }
+//            } catch (\Exception $ex) {
+//                info($ex);
+//            }
+//
+//            $response = SMS_module::send($request['phone'], $otp);
+//            if ($response != 'success') {
+//                $errors = [];
+//                array_push($errors, [
+//                    'code' => 'otp',
+//                    'message' => translate('messages.faield_to_send_sms')
+//                ]);
+//                return response()->json([
+//                    'errors' => $errors
+//                ], 405);
+//            }
+//        }
+//        try {
+//            if (config('mail.status')) {
+//                Mail::to($request->email)->send(new \App\Mail\CustomerRegistration($request->f_name . ' ' . $request->l_name));
+//            }
+//        } catch (\Exception $ex) {
+//            info($ex);
+//        }
         return response()->json(['token' => $token, 'is_phone_verified' => 0, 'phone_verify_end_url' => "api/v1/auth/verify-phone"], 200);
     }
 
