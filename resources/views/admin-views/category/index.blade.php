@@ -152,7 +152,13 @@
                                     <span class="d-block font-size-sm text-body">
 
 
-                                        @if(LaravelLocalization::getCurrentLocale() == 'en' ) {{Str::limit($category['name'], 20,'...')}}@else {{ Str::limit($category->translations()->where('key','name')->first()->value, 20,'...') }} @endif
+                                        @if(LaravelLocalization::getCurrentLocale() == 'en' )
+
+                                            {{Str::limit($category['name'], 20,'...')}}
+
+                                        @elseif(count($category->translations()->where('key','name')->get()) > 0 && LaravelLocalization::getCurrentLocale() == 'ar' )
+                                            {{ Str::limit($category->translations()->where('key','name')->first()->value, 20,'...') }}
+                                        @else {{Str::limit($category['name'], 20,'...')}}  @endif
 
                                     </span>
                                 </td>
