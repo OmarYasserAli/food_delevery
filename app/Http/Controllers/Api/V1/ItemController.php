@@ -158,8 +158,8 @@ class ItemController extends Controller
     {
         $validator = Validator::make($request->all(), [
 
-            'limit' => 'required',
-            'offset' => 'required',
+            // 'limit' => 'required',
+            // 'offset' => 'required',
         ]);
 
         if ($validator->fails()) {
