@@ -36,6 +36,19 @@ class ProductLogic
             'products' => $paginator->items()
         ];
     }
+    public static function get_discount_product($limit, $offset, $store_id, $category_id, $type)
+    {
+        $paginator = Item::active()->type($type)
+
+         ->where("discount",'!=',0)->latest()->paginate($limit, ['*'], 'page', $offset);
+//        ->where('store_id', $store_id)
+        return [
+            'total_size' => $paginator->total(),
+            'limit' => $limit,
+            'offset' => $offset,
+            'products' => $paginator->items()
+        ];
+    }
 
     public static function get_related_products($product_id)
     {
@@ -52,7 +65,7 @@ class ProductLogic
         ->limit(10)
         ->get();
     }
-    
+
     public static function popular_products($zone_id, $limit = null, $offset = null, $type = 'all')
     {
         if($limit != null && $offset != null)
@@ -92,7 +105,7 @@ class ProductLogic
             'offset' => $offset,
             'products' => $paginator
         ];
-        
+
     }
 
     public static function most_reviewed_products($zone_id, $limit = null, $offset = null, $type = 'all')
@@ -140,7 +153,7 @@ class ProductLogic
             'offset' => $offset,
             'products' => $paginator
         ];
-        
+
     }
 
     public static function get_product_review($id)
@@ -277,7 +290,7 @@ class ProductLogic
         if(isset($ratings))
         {
             $store_ratings = json_decode($ratings, true);
-            $store_ratings[$product_rating] = $store_ratings[$product_rating] + 1; 
+            $store_ratings[$product_rating] = $store_ratings[$product_rating] + 1;
         }
         else
         {
@@ -287,11 +300,11 @@ class ProductLogic
     }
 
     public static function update_stock($item, $quantity, $variant=null)
-    { 
+    {
         if(isset($variant))
         {
             $variations = is_array($item['variations'])?$item['variations']: json_decode($item['variations'], true);
-            
+
             foreach ($variations as $key => $value) {
                 if ($value['type'] == $variant) {
                     $variations[$key]['stock'] -= $quantity;

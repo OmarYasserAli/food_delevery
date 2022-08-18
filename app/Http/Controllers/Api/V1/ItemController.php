@@ -28,7 +28,7 @@ class ItemController extends Controller
             return response()->json(['errors' => Helpers::error_processor($validator)], 403);
         }
 
-        $type = $request->query('type', 'all'); 
+        $type = $request->query('type', 'all');
 
         $items = ProductLogic::get_latest_products($request['limit'], $request['offset'], $request['store_id'], $request['category_id'], $type);
         $items['products'] = Helpers::product_data_formatting($items['products'], true, false, app()->getLocale());
@@ -54,14 +54,14 @@ class ItemController extends Controller
         $zone_id = $request->header('zoneId');
 
         $key = explode(' ', $request['name']);
-        
+
         $limit = $request['limit']??10;
         $offset = $request['offset']??1;
 
-        $type = $request->query('type', 'all'); 
+        $type = $request->query('type', 'all');
 
         $items = Item::active()->type($type)
-        
+
         ->when($request->category_id, function($query)use($request){
             $query->whereHas('category',function($q)use($request){
                 return $q->whereId($request->category_id)->orWhere('parent_id', $request->category_id);
@@ -120,8 +120,8 @@ class ItemController extends Controller
         $items = ProductLogic::popular_products($zone_id, $request['limit'], $request['offset'], $type);
         $items['products'] = Helpers::product_data_formatting($items['products'], true, false, app()->getLocale());
         return response()->json($items, 200);
-    }    
-    
+    }
+
     public function get_most_reviewed_products(Request $request)
     {
         if (!$request->hasHeader('zoneId')) {
@@ -142,7 +142,7 @@ class ItemController extends Controller
 
     public function get_product($id)
     {
-        
+
         try {
             $item = ProductLogic::get_product($id);
             $item = Helpers::product_data_formatting($item, false, false, app()->getLocale());
@@ -153,6 +153,26 @@ class ItemController extends Controller
             ], 404);
         }
     }
+
+    public function get_discount_product(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+
+            'limit' => 'required',
+            'offset' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => Helpers::error_processor($validator)], 403);
+        }
+
+        $type = $request->query('type', 'all');
+
+        $items = ProductLogic::get_discount_product($request['limit'], $request['offset'], $request['store_id'], $request['category_id'], $type);
+        $items['products'] = Helpers::product_data_formatting($items['products'], true, false, app()->getLocale());
+        return response()->json($items, 200);
+    }
+
 
     public function get_related_products($id)
     {
@@ -195,7 +215,7 @@ class ItemController extends Controller
                     $temp['item_name'] = $translate['name'];
                 }
             }
-            
+
             unset($temp['item']);
             array_push($storage, $temp);
         }
@@ -236,7 +256,7 @@ class ItemController extends Controller
         $multi_review = Review::where(['item_id' => $request->item_id, 'user_id' => $request->user()->id, 'order_id'=>$request->order_id])->first();
         if (isset($multi_review)) {
             return response()->json([
-                'errors' => [ 
+                'errors' => [
                     ['code'=>'review','message'=> translate('messages.already_submitted')]
                 ]
             ], 403);

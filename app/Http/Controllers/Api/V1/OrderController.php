@@ -534,6 +534,7 @@ class OrderController extends Controller
 
     public function get_order_details(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'order_id' => 'required'
         ]);
