@@ -65,8 +65,8 @@ class OrderController extends Controller
             'receiver_details' => 'required_if:order_type,parcel',
             'charge_payer' => 'required_if:order_type,parcel|in:sender,receiver',
             'dm_tips' => 'nullable|numeric',
-            'building' => 'required',
-            'flat' => 'required'
+            'building' => 'nullable',
+            'flat' => 'nullable'
         ]);
 
         if ($validator->fails()) {
