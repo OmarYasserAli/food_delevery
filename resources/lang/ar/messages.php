@@ -736,7 +736,7 @@
   'campaign_status_updated' => 'Campaign status updated!',
   'campaign_deleted_successfully' => 'Campaign deleted successfully!',
   'capmaign_participation_updated' => 'تم تحديث الاشتراك في الحملة!',
-  'stores' => 'متاجر',
+  'stores' => 'قائمة المتاجر',
   'store_added_to_campaign' => 'تمت إضافة المتجر إلى الحملة!',
   'store_imported_successfully' => 'تم استيراد المتاجر بنجاح!',
   'store_remove_from_campaign' => 'تمت إزالة المتجر من الحملة!',
