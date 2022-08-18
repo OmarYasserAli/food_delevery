@@ -659,12 +659,12 @@
                     </a>
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub" style="display: {{ Request::is('admin/campaign*') ? 'block' : 'none' }}">
 
-                        <li class="nav-item {{ Request::is('admin/campaign/basic/*') ? 'active' : '' }}">
-                            <a class="nav-link " href="{{ route('admin.campaign.list', 'basic') }}" title="{{ translate('messages.basic_campaign') }}">
-                                <span class="tio-circle nav-indicator-icon"></span>
-                                <span class="text-truncate">{{ translate('messages.basic_campaign') }}</span>
-                            </a>
-                        </li>
+{{--                        <li class="nav-item {{ Request::is('admin/campaign/basic/*') ? 'active' : '' }}">--}}
+{{--                            <a class="nav-link " href="{{ route('admin.campaign.list', 'basic') }}" title="{{ translate('messages.basic_campaign') }}">--}}
+{{--                                <span class="tio-circle nav-indicator-icon"></span>--}}
+{{--                                <span class="text-truncate">{{ translate('messages.basic_campaign') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         <li class="nav-item {{ Request::is('admin/campaign/item/*') ? 'active' : '' }}">
                             <a class="nav-link " href="{{ route('admin.campaign.list', 'item') }}" title="{{ translate('messages.item') }} {{ translate('messages.campaign') }}">
                                 <span class="tio-circle nav-indicator-icon"></span>
