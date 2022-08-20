@@ -12,7 +12,7 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title"><i class="tio-filter-list"></i> {{__('messages.customer_loyalty_point')}} {{__('messages.report')}}</h1>
+                    <h1 class="page-header-title"><i class="tio-filter-list"></i> @if(LaravelLocalization::getCurrentLocale() == 'en') {{translate('messages.customer_loyalty_point')}} {{translate('messages.report')}} @else {{translate('messages.report')}} {{translate('messages.customer_loyalty_point')}}  @endif</h1>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="card">
             <div class="card-header text-capitalize py-0">
                 <h4 class="pt-1">{{__('messages.filter')}} {{__('messages.options')}}</h4>
-            </div>    
+            </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-12 pt-3">
@@ -55,7 +55,7 @@
                                             @if (request()->get('customer_id') && $customer_info = \App\Models\User::find(request()->get('customer_id')))
                                                 <option value="{{$customer_info->id}}" selected>{{$customer_info->f_name.' '.$customer_info->l_name}}({{$customer_info->phone}})</option>
                                             @endif
-                                            
+
                                         </select>
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@
                             </div>
                         </form>
                     </div>
-                </div>                
+                </div>
             </div>
 
         </div>
@@ -79,7 +79,7 @@
                         $credit = $data[0]->total_credit??0;
                         $debit = $data[0]->total_debit??0;
                         $balance = $credit - $debit;
-                    @endphp            
+                    @endphp
                     <!--Debit earned-->
                     <div class="col-sm-4">
                         <!-- Card -->
@@ -161,7 +161,7 @@
                         <!-- End Card -->
                     </div>
                     <!--balance earned end-->
-                </div>                
+                </div>
             </div>
 
         </div>
@@ -219,7 +219,7 @@
             <!-- End Body -->
             <div class="card-footer">
                 {!!$transactions->links()!!}
-            </div>    
+            </div>
         </div>
         <!-- End Card -->
     </div>

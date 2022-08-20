@@ -22,7 +22,16 @@
         <div class="page-header">
             <div class="row align-items-center mb-3">
                 <div class="col-9">
-                    <h1 class="page-header-title text-capitalize">@if ($parcel_order) {{translate('messages.parcel')}} {{translate('messages.orders')}} @else {{str_replace('_',' ',$status)}} {{translate('messages.orders')}} @endif <span class="badge badge-soft-dark ml-2">{{$total}}</span></h1>
+
+                    <h1 class="page-header-title text-capitalize">@if ($parcel_order) {{translate('messages.parcel')}} {{translate('messages.orders')}} @else
+                            @if(LaravelLocalization::getCurrentLocale() == 'en')
+
+                            {{str_replace('_',' ',translate($status))}} {{translate('messages.orders')}}
+                            @elseif(LaravelLocalization::getCurrentLocale() == 'ar')
+
+                                {{translate('messages.orders')}}  {{str_replace('_',' ',translate($status))}}
+                            @endif
+                            @endif <span class="badge badge-soft-dark ml-2">{{$total}}</span></h1>
                 </div>
                 <div class="col-3">
                     @if (!$parcel_order)
@@ -35,7 +44,7 @@
                                 {{$module['module_name']}}
                             </option>
                         @endforeach
-                    </select>                        
+                    </select>
                     @endif
                 </div>
             </div>
@@ -355,7 +364,7 @@
                                 @endif
                             </td>
                             @if ($parcel_order)
-                                
+
                             @endif
                             <td>
                                 @if ($parcel_order)
@@ -462,7 +471,7 @@
                     </a>
                     <!-- End Toggle Button -->
                 </div>
-                <?php 
+                <?php
                 $filter_count=0;
                 if(isset($zone_ids) && count($zone_ids) > 0) $filter_count += 1;
                 if(isset($vendor_ids) && count($vendor_ids)>0) $filter_count += 1;
@@ -474,7 +483,7 @@
 
                 if(isset($from_date) && isset($to_date)) $filter_count += 1;
                 if(isset($order_type)) $filter_count += 1;
-                
+
                 ?>
                 <!-- Body -->
                 <form class="card-body sidebar-body sidebar-scrollbar" action="{{route('admin.order.filter')}}" method="POST" id="order_filter_form">
@@ -497,7 +506,7 @@
                                 <option value="{{$store->id}}" selected >{{$store->name}}</option>
                             @endforeach
                             </select>
-                        </div>                        
+                        </div>
                     @endif
 
 
@@ -564,7 +573,7 @@
                         <div class="custom-control custom-radio mb-2">
                             <input type="radio" id="delivery" name="order_type" class="custom-control-input" value="delivery" {{isset($order_type)?($order_type=='delivery'?'checked':''):''}}>
                             <label class="custom-control-label text-uppercase" for="delivery">{{translate('messages.delivery')}}</label>
-                        </div>                        
+                        </div>
                     @endif
 
                     <hr class="my-4">

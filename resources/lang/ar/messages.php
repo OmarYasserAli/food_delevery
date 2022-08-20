@@ -1414,4 +1414,8 @@
   'wishlists' => 'قوائم الامنيات',
   'withdraw_requests' => 'سحب الطلبات',
   'zones' => 'المناطق',
+  'searching_for_delivery_man' => 'البحث عن رجل التوصيل',
+  'accepted_by_delivery_man' => 'قبلها رجل التوصيل',
+  'preparing_in_restaurants' => 'التحضير في المطاعم',
+  'picked_up' => 'التقط',
 );

@@ -25,9 +25,16 @@
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/CentralLogics/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CentralLogics/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/messages.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin-views/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/category/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/category/sub-index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/category/sub-index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/category/sub-sub-index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/category/sub-sub-index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/customer/loyalty-point/report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/customer/loyalty-point/report.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/order/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/order/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/partials/_top-rated-foods.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/partials/_top-rated-foods.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/report/stock-report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/report/stock-report.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,7 +323,7 @@
       <workItem from="1660922729257" duration="596000" />
       <workItem from="1660926764021" duration="172000" />
       <workItem from="1660985150680" duration="962000" />
-      <workItem from="1660999574915" duration="5005000" />
+      <workItem from="1660999574915" duration="11719000" />
     </task>
     <servers />
   </component>

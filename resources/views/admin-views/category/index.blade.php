@@ -94,7 +94,7 @@
 
         <div class="card mt-3">
             <div class="card-header pb-2">
-                <h5 class="col">{{translate('messages.category')}} {{translate('messages.list')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$categories->total()}}</span></h5>
+                <h5 class="col">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.category'),translate('messages.list')) }}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$categories->total()}}</span></h5>
                 <div class="col">
                     <select name="module_id" class="form-control js-select2-custom" onchange="set_filter('{{url()->full()}}',this.value,'module_id')" title="{{translate('messages.select')}} {{translate('messages.modules')}}">
                         <option value="" {{!request('module_id') ? 'selected':''}}>{{translate('messages.all')}} {{translate('messages.modules')}}</option>

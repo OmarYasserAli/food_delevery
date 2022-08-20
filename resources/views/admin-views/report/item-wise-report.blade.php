@@ -8,7 +8,7 @@
 
 @section('content')
 
-    @php 
+    @php
         $from = session('from_date');
         $to = session('to_date');
     @endphp
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-sm-4 col-12">
                     <select name="store_id" onchange="set_store_filter('{{url()->full()}}',this.value)" data-placeholder="{{translate('messages.select')}} {{translate('messages.store')}}" class="js-data-example-ajax form-control">
-                        @if(isset($store))    
+                        @if(isset($store))
                         <option value="{{$store->id}}" selected>{{$store->name}}</option>
                         @else
                         <option value="all" selected>{{translate('messages.all')}} {{translate('messages.stores')}}</option>
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                 </form>
-            </div>            
+            </div>
         </div>
         <!-- End Stats -->
         <!-- Card -->
@@ -146,16 +146,16 @@
                     </thead>
 
                     <tbody id="set-rows">
-                    
+
                     @foreach($items as $key=>$item)
                         <tr>
                             <td>{{$key+$items->firstItem()}}</td>
                             <td>
                                 <a class="media align-items-center" href="{{route('admin.item.view',[$item['id']])}}">
-                                    <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/product')}}/{{$item['image']}}" 
+                                    <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/product')}}/{{$item['image']}}"
                                             onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'" alt="{{$item->name}} image">
                                     <div class="media-body">
-                                        <h5 class="text-hover-primary mb-0">{{$item['name']}}</h5>
+                                        <h5 class="text-hover-primary mb-0">{{\App\CentralLogics\Helpers::get_element_language('name',$item,'name')}}</h5>
                                     </div>
                                 </a>
                             </td>
@@ -435,7 +435,7 @@
                 }
             }
         })
-        
+
         $('#search-form').on('submit', function (e) {
             e.preventDefault();
             var formData = new FormData(this);
