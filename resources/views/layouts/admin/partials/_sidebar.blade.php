@@ -581,31 +581,31 @@
                     </a>
                 </li>
 
-                <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/customer/wallet*') ? 'active' : '' }}">
+{{--                <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/customer/wallet*') ? 'active' : '' }}">--}}
 
-                    <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:" title="{{ __('messages.addons') }}">
-                        <i class="tio-wallet nav-icon"></i>
-                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate  text-capitalize">
-                            {{ __('messages.customer') }} {{ __('messages.wallet') }}
-                        </span>
-                    </a>
+{{--                    <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:" title="{{ __('messages.addons') }}">--}}
+{{--                        <i class="tio-wallet nav-icon"></i>--}}
+{{--                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate  text-capitalize">--}}
+{{--                            {{ __('messages.customer') }} {{ __('messages.wallet') }}--}}
+{{--                        </span>--}}
+{{--                    </a>--}}
 
-                    <ul class="js-navbar-vertical-aside-submenu nav nav-sub" style="display: {{ Request::is('admin/customer/wallet*') ? 'block' : 'none' }}">
-                        <li class="nav-item {{ Request::is('admin/customer/wallet/add-fund') ? 'active' : '' }}">
-                            <a class="nav-link " href="{{ route('admin.customer.wallet.add-fund') }}" title="{{ __('messages.add_fund') }}">
-                                <span class="tio-circle nav-indicator-icon"></span>
-                                <span class="text-truncate text-capitalize">{{ __('messages.add_fund') }}</span>
-                            </a>
-                        </li>
+{{--                    <ul class="js-navbar-vertical-aside-submenu nav nav-sub" style="display: {{ Request::is('admin/customer/wallet*') ? 'block' : 'none' }}">--}}
+{{--                        <li class="nav-item {{ Request::is('admin/customer/wallet/add-fund') ? 'active' : '' }}">--}}
+{{--                            <a class="nav-link " href="{{ route('admin.customer.wallet.add-fund') }}" title="{{ __('messages.add_fund') }}">--}}
+{{--                                <span class="tio-circle nav-indicator-icon"></span>--}}
+{{--                                <span class="text-truncate text-capitalize">{{ __('messages.add_fund') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
-                        <li class="nav-item {{ Request::is('admin/customer/wallet/report*') ? 'active' : '' }}">
-                            <a class="nav-link " href="{{ route('admin.customer.wallet.report') }}" title="{{ __('messages.report') }}">
-                                <span class="tio-circle nav-indicator-icon"></span>
-                                <span class="text-truncate text-capitalize">{{ __('messages.report') }}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+{{--                        <li class="nav-item {{ Request::is('admin/customer/wallet/report*') ? 'active' : '' }}">--}}
+{{--                            <a class="nav-link " href="{{ route('admin.customer.wallet.report') }}" title="{{ __('messages.report') }}">--}}
+{{--                                <span class="tio-circle nav-indicator-icon"></span>--}}
+{{--                                <span class="text-truncate text-capitalize">{{ __('messages.report') }}</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
 
                 <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/customer/loyalty-point*') ? 'active' : '' }}">
                     <a class="js-navbar-vertical-aside-menu-link nav-link  nav-link-toggle" href="javascript:" title="{{ __('messages.customer_loyalty_point') }}">
