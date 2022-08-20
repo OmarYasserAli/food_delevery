@@ -144,13 +144,13 @@
                 <!-- End Card -->
             </div>
 
-            <div class="col-lg-6 mb-3">
-                <!-- Card -->
-                <div class="card h-100" id="popular-restaurants-view">
-                    @include('admin-views.partials._popular-restaurants',['popular'=>$data['popular']])
-                </div>
-                <!-- End Card -->
-            </div>
+{{--            <div class="col-lg-6 mb-3">--}}
+{{--                <!-- Card -->--}}
+{{--                <div class="card h-100" id="popular-restaurants-view">--}}
+{{--                    @include('admin-views.partials._popular-restaurants',['popular'=>$data['popular']])--}}
+{{--                </div>--}}
+{{--                <!-- End Card -->--}}
+{{--            </div>--}}
 
             <div class="col-lg-6 mt-3">
                 <!-- Card -->

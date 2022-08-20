@@ -69,7 +69,7 @@
                                 <select name="module_id" required class="form-control js-select2-custom"  data-placeholder="{{translate('messages.select')}} {{translate('messages.module')}}" onchange="modulChange(this.value)">
                                         <option value="" selected disabled>{{translate('messages.select')}} {{translate('messages.module')}}</option>
                                     @foreach(\App\Models\Module::notParcel()->get() as $module)
-                                        <option value="{{$module->id}}" >{{$module->module_name}}</option>
+                                        <option value="{{$module->id}}" >{{\App\CentralLogics\Helpers::get_element_language('module_name',$module,'module_name')}}</option>
                                     @endforeach
                                 </select>
                             </div>

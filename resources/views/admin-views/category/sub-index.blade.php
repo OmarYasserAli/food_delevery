@@ -58,7 +58,7 @@
                             <span class="input-label-secondary">*</span></label>
                         <select id="exampleFormControlSelect1" name="parent_id" class="form-control js-select2-custom" required>
                             @foreach(\App\Models\Category::with('module')->where(['position'=>0])->get() as $cat)
-                                <option value="{{$cat['id']}}" {{isset($category)?($category['parent_id']==$cat['id']?'selected':''):''}} >{{$cat['name']}} ({{Str::limit($cat->module->module_name, 15, '...')}})</option>
+                                <option value="{{$cat['id']}}" {{isset($category)?($category['parent_id']==$cat['id']?'selected':''):''}} >{{\App\CentralLogics\Helpers::get_element_language('name',$cat,'name')}} ({{Str::limit($cat->module->module_name, 15, '...')}})</option>
                             @endforeach
                         </select>
                     </div>
@@ -69,7 +69,7 @@
         </div>
         <div class="card mt-2">
             <div class="card-header pb-0">
-                <h5>{{translate('messages.sub_category')}} {{translate('messages.list')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$categories->total()}}</span></h5>
+                <h5> {{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.sub_category') ,translate('messages.list') )}} <span class="badge badge-soft-dark ml-2" id="itemCount">{{$categories->total()}}</span></h5>
                 <form id="dataSearch">
                     <!-- Search -->
                     <div class="input-group input-group-merge input-group-flush">
@@ -116,12 +116,12 @@
                                 <td>{{$category->id}}</td>
                                 <td>
                                     <span class="d-block font-size-sm text-body">
-                                        {{Str::limit($category->parent['name'],20,'...')}}
+                                        {{\App\CentralLogics\Helpers::get_element_language('name',$category->parent,'name')}}
                                     </span>
                                 </td>
                                 <td>
                                     <span class="d-block font-size-sm text-body">
-                                        {{Str::limit($category->name,20,'...')}}
+                                        {{\App\CentralLogics\Helpers::get_element_language('name',$category,'name')}}
                                     </span>
                                 </td>
                                 <td>
@@ -134,7 +134,7 @@
                                 </td>
                                 <td style="width:max-content;">
                                     <form action="{{route('admin.category.priority',$category->id)}}">
-                                    <select name="priority" id="priority" onchange="this.form.submit()"> 
+                                    <select name="priority" id="priority" onchange="this.form.submit()">
                                         <option value="0" {{$category->priority == 0?'selected':''}}>{{translate('messages.normal')}}</option>
                                         <option value="1" {{$category->priority == 1?'selected':''}}>{{translate('messages.medium')}}</option>
                                         <option value="2" {{$category->priority == 2?'selected':''}}>{{translate('messages.high')}}</option>
@@ -160,7 +160,7 @@
             </div>
             <div class="card-footer page-area">
                 <!-- Pagination -->
-                <div class="row justify-content-center justify-content-sm-between align-items-sm-center"> 
+                <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
                     <div class="col-sm-auto">
                         <div class="d-flex justify-content-center justify-content-sm-end">
                             <!-- Pagination -->
@@ -179,7 +179,7 @@
         $(document).on('ready', function () {
             // INITIALIZATION OF DATATABLES
             // =======================================================
-            
+
 
             $('#dataSearch').on('submit', function (e) {
                 e.preventDefault();

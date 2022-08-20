@@ -1565,4 +1565,12 @@ elseif(count($modale->translations()->where('key',$key)->get()) > 0 && App::getL
 }
 }
 
+  public static function get_local_language_translate($firstWord, $secondWord ){
+      if(App::getLocale() == 'en' ){
+        return $firstWord .' '. $secondWord;
+      }elseif (App::getLocale() == 'ar'){
+          return $secondWord .' '. $firstWord;
+      }
+  }
+
 }

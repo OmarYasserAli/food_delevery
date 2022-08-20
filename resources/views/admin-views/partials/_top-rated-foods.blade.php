@@ -28,7 +28,7 @@
                                  onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
                                  alt="{{$item->name}} image">
                             <span class="ml-2">
-                                {{Str::limit($item->name??translate('messages.Item deleted!'),20,'...')}}
+                                {{\App\CentralLogics\Helpers::get_element_language("name",$item,"name")}}
                             </span>
                         </td>
                         <td>
