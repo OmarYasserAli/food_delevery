@@ -37,7 +37,13 @@
                 <hr>
                 <div class="card">
                     <div class="card-header">
-                    <h5>{{translate('messages.attribute')}} {{translate('messages.list')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$attributes->total()}}</span></h5>
+                    <h5>
+                         @if(App::getLocale() == 'en')
+                            {{translate('messages.attribute')}} {{translate('messages.list')}}
+                        @else
+                            {{translate('messages.list')}} {{translate('messages.attribute')}} 
+                        @endif
+                        <span class="badge badge-soft-dark ml-2" id="itemCount">{{$attributes->total()}}</span></h5>
                         <form action="javascript:" id="search-form" >
                                         <!-- Search -->
                                         @csrf

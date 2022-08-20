@@ -207,7 +207,7 @@
                                 "isShowPaging": false,
                                 "paging":false
                             }'>
-                            <thead class="thead-light">
+                            <thead class="thead-light"> 
                             <tr>
                                 <th>{{translate('messages.#')}}</th>
                                 <th style="width: 20%">{{translate('messages.name')}}</th>
@@ -228,7 +228,13 @@
                                             <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/product')}}/{{$item['image']}}" 
                                                  onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'" alt="{{$item->name}} image">
                                             <div class="media-body">
+                                                @if(App::getLocale() == 'en')
                                                 <h5 class="text-hover-primary mb-0">{{Str::limit($item['name'],20,'...')}}</h5>
+                                                @else
+
+                                                <h5 class="text-hover-primary mb-0">dd</h5>
+
+                                                @endif
                                             </div>
                                         </a>
                                     </td>

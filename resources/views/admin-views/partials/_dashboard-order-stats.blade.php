@@ -14,7 +14,7 @@
        style="background: #0468A6;">
         <div class="card-body">
             <h6 class="card-subtitle"
-                style="color: white!important;">{{translate('order_texts.searching_for_delivery_man')}}</h6>
+                style="color: white!important;">{{translate('searching_for_delivery_man')}}</h6>
             <div class="row align-items-center gx-2 mb-1">
                 <div class="col-6">
                                         <span class="card-title h2" style="color: white!important;">
@@ -39,7 +39,7 @@
        style="background: #2AA26A;">
         <div class="card-body">
             <h6 class="card-subtitle"
-                style="color: white!important;">{{translate('order_texts.accepted_by_delivery_man')}}</h6>
+                style="color: white!important;">{{translate('accepted_by_delivery_man')}}</h6>
 
             <div class="row align-items-center gx-2 mb-1">
                 <div class="col-6">
@@ -66,7 +66,7 @@
        style="background: #308575;">
         <div class="card-body">
             <h6 class="card-subtitle"
-                style="color: white!important;">{{translate('order_texts.preparing_in_restaurants')}}</h6>
+                style="color: white!important;">{{translate('preparing_in_restaurants')}}</h6>
 
             <div class="row align-items-center gx-2 mb-1">
                 <div class="col-6">
@@ -93,7 +93,7 @@
        style="background: #4D6F72;">
         <div class="card-body">
             <h6 class="card-subtitle"
-                style="color: white!important;">{{translate('order_texts.picked_up')}}</h6>
+                style="color: white!important;">{{translate('picked_up')}}</h6>
 
             <div class="row align-items-center gx-2 mb-1">
                 <div class="col-6">

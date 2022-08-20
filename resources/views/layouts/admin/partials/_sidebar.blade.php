@@ -354,8 +354,13 @@
                             <li class="navbar-item {{ Request::is('admin/vendor/list') ? 'active' : '' }}">
                                 <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{ route('admin.vendor.list') }}" title="{{ translate('messages.store') }} {{ translate('messages.list') }}">
                                     <span class="tio-circle nav-indicator-icon"></span>
-                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{ translate('messages.stores') }}
-                                        {{ translate('list') }}</span>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                        @if(App::getLocale() == 'en')
+                                         {{ translate('messages.stores') }} {{ translate('list') }}
+                                        @else
+                                         {{ translate('list') }} {{ translate('messages.stores') }}
+                                        @endif
+                                    </span>
                                 </a>
                             </li>
 {{--                            <li class="nav-item {{ Request::is('admin/vendor/bulk-import') ? 'active' : '' }}">--}}
@@ -638,7 +643,11 @@
                     <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{ route('admin.customer.settings') }}" title="{{ __('messages.Customer') }} {{ __('messages.settings') }}">
                         <i class="tio-settings nav-icon"></i>
                         <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                            {{ __('messages.Customer') }} {{ __('messages.settings') }}
+                            @if(App::getLocale() == 'en')
+                             
+                            @else
+                            {{ __('messages.settings') }}  {{ __('messages.Customer') }}
+                            @endif 
                         </span>
                     </a>
                 </li>
@@ -702,7 +711,11 @@
                     <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{ route('admin.notification.add-new') }}" title="{{ translate('messages.send') }} {{ translate('messages.notification') }}">
                         <i class="tio-notifications nav-icon"></i>
                         <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                            {{ translate('messages.push') }} {{ translate('messages.notification') }}
+                            @if(App::getLocale() == 'en')
+                            
+                            @else
+                            {{ translate('messages.notification') }} {{ translate('messages.push') }} 
+                            @endif
                         </span>
                     </a>
                 </li>
@@ -762,8 +775,15 @@
                 <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/business-settings/business-setup') ? 'active' : '' }}">
                     <a class="nav-link " href="{{ route('admin.business-settings.business-setup') }}" title="{{ translate('messages.business') }} {{ translate('messages.setup') }}">
                         <span class="tio-settings nav-icon"></span>
-                        <span class="text-truncate">{{ translate('messages.business') }}
-                            {{ translate('messages.setup') }}</span>
+                        <span class="text-truncate">
+                            @if(App::getLocale() == 'en')
+                                {{ translate('messages.business') }}
+                                {{ translate('messages.setup') }}
+                            @else
+                                {{ translate('messages.setup') }}
+                                {{ translate('messages.business') }}
+                            @endif
+                        </span>
                     </a>
                 </li>
                 <li class="navbar-vertical-aside-has-menu {{Request::is('admin/business-settings/social-media')?'active':''}}">
@@ -775,8 +795,15 @@
                 <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/business-settings/payment-method') ? 'active' : '' }}">
                     <a class="nav-link " href="{{ route('admin.business-settings.payment-method') }}" title="{{ translate('messages.payment') }} {{ translate('messages.methods') }}">
                         <span class="tio-atm nav-icon"></span>
-                        <span class="text-truncate">{{ translate('messages.payment') }}
-                            {{ translate('messages.methods') }}</span>
+                        <span class="text-truncate">
+                        @if(App::getLocale() == 'en')
+                            {{ translate('messages.payment') }}
+                            {{ translate('messages.methods') }}
+                        @else
+                         {{ translate('messages.methods') }}
+                         {{ translate('messages.payment') }}
+                        @endif
+                    </span>
                     </a>
                 </li>
 {{--                <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/business-settings/mail-config') ? 'active' : '' }}">--}}

@@ -62,7 +62,7 @@ class DeliveryManController extends Controller
         } else {
             $identity_image = json_encode([]);
         }
-
+        
         $dm = New DeliveryMan();
         $dm->f_name = $request->f_name;
         $dm->l_name = $request->l_name;

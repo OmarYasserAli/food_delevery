@@ -40,7 +40,15 @@
                 <div class="card">
                     <!-- Header -->
                     <div class="card-header p-1">
-                        <h5>{{translate('messages.deliveryman')}} {{translate('messages.list')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$delivery_men->total()}}</span></h5>
+                        <h5>
+                        @if(App::getLocale() == 'en')
+                            {{translate('messages.deliveryman')}} {{translate('messages.list')}}
+                        @else
+                            {{translate('messages.list')}} {{translate('messages.deliveryman')}}
+                        @endif
+   
+
+                            <span class="badge badge-soft-dark ml-2" id="itemCount">{{$delivery_men->total()}}</span></h5>
                         <form action="javascript:" id="search-form" >
                                         <!-- Search -->
                             @csrf

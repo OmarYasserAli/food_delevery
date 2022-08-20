@@ -168,13 +168,15 @@
                 <!-- End Card -->
             </div>
 
-            <div class="col-lg-6 mt-3">
+           {{--
+             <div class="col-lg-6 mt-3">
                 <!-- Card -->
                 <div class="card h-100" id="top-restaurants-view">
                     @include('admin-views.partials._top-restaurants',['top_restaurants'=>$data['top_restaurants']])
                 </div>
                 <!-- End Card -->
             </div>
+            --}}
         </div>
         @else
         <!-- Page Header -->

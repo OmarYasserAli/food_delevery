@@ -103,7 +103,15 @@
                         </div>
                         <div class="col-md-12 col-12">
                             <div class="form-group">
-                                <label class="input-label" for="exampleFormControlInput1">{{translate('messages.identity')}} {{translate('messages.image')}}</label>
+                                <label class="input-label" for="exampleFormControlInput1">
+                                    @if(App::getLocale() == 'en')
+                                                {{translate('messages.identity')}} {{translate('messages.image')}}
+                                                @else
+
+                                                {{translate('messages.image')}} {{translate('messages.identity')}} 
+
+                                                @endif
+                               </label>
                                 <div>
                                     <div class="row" id="coba"></div>
                                 </div>

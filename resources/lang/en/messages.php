@@ -1374,4 +1374,9 @@
   'business_setting' => 'Business setting',
   'web_and_app_setting' => 'Web and app setting',
   'employee_section' => 'Employee section',
+  'searching_for_delivery_man'=>'Searching for Deliveryman',
+  'accepted_by_delivery_man'=>'Accepted by Deliveryman',
+  'preparing_in_restaurants'=>'Processing',
+  'picked_up'=>'Picked Up',
+  'dashboard_order_statistics'=>'Dashboard Order Statistics',
 );
