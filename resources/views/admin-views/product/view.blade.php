@@ -156,7 +156,7 @@
                         </span><br>
                         <span>
                             {{translate('messages.available')}} {{translate('messages.time')}} {{translate('messages.ends')}} : {{date(config('timeformat'), strtotime($product['available_time_ends']))}}
-                        </span>                            
+                        </span>
                         @endif
                         @if($product->variations && is_array(json_decode($product['variations'],true)))
                         <h4 class="border-bottom mt-2"> {{translate('messages.variations')}} </h4>
@@ -178,7 +178,7 @@
 
                     <div class="col-sm-8 col-12 pt-2 border-left">
                         <h4>{{translate('messages.short')}} {{translate('messages.description')}} : </h4>
-                        {!!$product['description'] !!}
+                        {!! \App\CentralLogics\Helpers::get_element_language("description",$product,"description") !!}
                     </div>
                 </div>
             </div>
@@ -298,7 +298,7 @@
     function status_form_alert(id, message, e) {
         e.preventDefault();
         Swal.fire({
-            title: '{{translate('messages.are_you_sure')}}',   
+            title: '{{translate('messages.are_you_sure')}}',
             text: message,
             type: 'warning',
             showCancelButton: true,
