@@ -118,7 +118,7 @@ class DeliveryManController extends Controller
         $dm->save();
 
         Toastr::success(translate('messages.deliveryman_added_successfully'));
-        return redirect()->route('admin.delivery-man.list');
+        return redirect()->route('admin.delivery-man.add');
     }
 
     public function edit($id)
