@@ -16,8 +16,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Laravelpkg\Laravelchk\Http\Controllers\LaravelchkController;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
+use Mcamara\LaravelLocalization\LaravelLocalization;
+
+use \Mcamara\LaravelLocalization\Traits\LoadsTranslatedCachedRoutes;
+
 
 class Helpers
 {
@@ -1543,5 +1548,21 @@ class Helpers
         }
         return $user_name . $user_id;
     }
+
+    public static function get_element_language($key,$modale,$attribute){
+  if(App::getLocale() == 'en' ){
+
+      return Str::limit($modale[$attribute], 20,'...');
+}
+
+elseif(count($modale->translations()->where('key',$key)->get()) > 0 && App::getLocale() == 'ar' ){
+
+    return Str::limit($modale->translations()->where('key',$key)->first()->value, 20,'...');
+} else
+    return Str::limit($modale[$attribute], 20,'...');
+{
+
+}
+}
 
 }

@@ -29,7 +29,7 @@
 
                 <div class="col-sm-4 col-6">
                     <select name="store_id" id="store" onchange="set_store_filter('{{url()->full()}}',this.value)" data-placeholder="{{translate('messages.select')}} {{translate('messages.store')}}" class="js-data-example-ajax form-control" onchange="getStoreData('{{url('/')}}/admin/vendor/get-addons?data[]=0&store_id=',this.value,'add_on')" required title="Select Store" oninvalid="this.setCustomValidity('{{translate('messages.please_select_store')}}')">
-                    @if($store)    
+                    @if($store)
                     <option value="{{$store->id}}" selected>{{$store->name}}</option>
                     @else
                     <option value="all" selected>{{translate('messages.all_stores')}}</option>
@@ -37,7 +37,7 @@
                     </select>
                 </div>
             </div>
-            
+
         </div>
         <!-- End Page Header -->
         <div class="row gx-2 gx-lg-3">
@@ -68,7 +68,7 @@
                                 <!-- Unfold -->
                                 <div class="hs-unfold mr-2" style="width: 306px;">
                                     <select name="category_id" id="category" onchange="set_filter('{{url()->full()}}',this.value, 'category_id')" data-placeholder="{{translate('messages.select_category')}}" class="js-data-example-ajax form-control">
-                                        @if($category)    
+                                        @if($category)
                                             <option value="{{$category->id}}" selected>{{$category->name}} ({{$category->position == 0?translate('messages.main'):translate('messages.sub')}})</option>
                                         @else
                                             <option value="all" selected>{{translate('messages.all_categories')}}</option>
@@ -139,7 +139,7 @@
                                                     <!-- End Checkbox Switch -->
                                                 </div>
 
-                                            
+
                                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                                     <span class="mr-2">{{translate('messages.status')}}</span>
 
@@ -202,12 +202,12 @@
                                 },
 
                                 "entries": "#datatableEntries",
-     
+
                                 "isResponsive": false,
                                 "isShowPaging": false,
                                 "paging":false
                             }'>
-                            <thead class="thead-light"> 
+                            <thead class="thead-light">
                             <tr>
                                 <th>{{translate('messages.#')}}</th>
                                 <th style="width: 20%">{{translate('messages.name')}}</th>
@@ -225,16 +225,12 @@
                                     <td>{{$key+$items->firstItem()}}</td>
                                     <td>
                                         <a class="media align-items-center" href="{{route('admin.item.view',[$item['id']])}}">
-                                            <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/product')}}/{{$item['image']}}" 
+                                            <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/product')}}/{{$item['image']}}"
                                                  onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'" alt="{{$item->name}} image">
                                             <div class="media-body">
-                                                @if(App::getLocale() == 'en')
-                                                <h5 class="text-hover-primary mb-0">{{Str::limit($item['name'],20,'...')}}</h5>
-                                                @else
 
-                                                <h5 class="text-hover-primary mb-0">dd</h5>
 
-                                                @endif
+                                                    {{\App\CentralLogics\Helpers::get_element_language("name",$item,"name")}}
                                             </div>
                                         </a>
                                     </td>

@@ -24,7 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/CentralLogics/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CentralLogics/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/category/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/view.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,6 +316,7 @@
       <workItem from="1660922729257" duration="596000" />
       <workItem from="1660926764021" duration="172000" />
       <workItem from="1660985150680" duration="962000" />
+      <workItem from="1660999574915" duration="5005000" />
     </task>
     <servers />
   </component>
@@ -367,12 +371,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php</url>
-          <line>714</line>
+          <line>727</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php</url>
-          <line>905</line>
+          <line>932</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
