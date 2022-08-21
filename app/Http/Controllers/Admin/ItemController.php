@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Storage;
 use App\CentralLogics\Helpers;
 use App\CentralLogics\ProductLogic;
 use App\Models\ItemCampaign;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Rap2hpoutre\FastExcel\FastExcel;
 use Illuminate\Support\Facades\DB;
 use App\Scopes\StoreScope;
@@ -555,16 +557,47 @@ class ItemController extends Controller
 
     public function search(Request $request)
     {
+
         $key = explode(' ', $request['search']);
+        if (LaravelLocalization::getCurrentLocale() == 'en') {
+
         $items = Item::withoutGlobalScope(StoreScope::class)->where(function ($q) use ($key) {
             foreach ($key as $value) {
                 $q->where('name', 'like', "%{$value}%");
             }
         })->limit(50)->get();
-        return response()->json([
-            'count' => count($items),
-            'view' => view('admin-views.product.partials._table', compact('items'))->render()
-        ]);
+            return response()->json([
+                'count' => count($items),
+                'view' => view('admin-views.product.partials._table', compact('items'))->render()
+            ]);
+        }elseif (LaravelLocalization::getCurrentLocale() == 'ar'){
+//
+//            $items = Item::withoutGlobalScope(StoreScope::class)->where(function ($q) use ($key) {
+//                foreach ($key as $value) {
+//                    $q->where('name', 'like', "%{$value}%");
+//
+//
+//                }
+//            })->limit(50)->get();
+            $items =  Translation::where(function ($q) use ($key) {
+                foreach ($key as $value) {
+                    $q->where('translationable_type','App\Models\Item')->where('value', 'like', "%{$value}%");
+
+
+                }
+            })->limit(50)->get();
+
+
+//            $items = $items->()->where('key','name')->get()->value;
+
+
+            return response()->json([
+                'count' => count($items),
+                'view' => view('admin-views.product.partials._table', compact('items'))->render()
+            ]);
+
+        }
+
     }
 
     public function review_list(Request $request)
@@ -699,7 +732,7 @@ class ItemController extends Controller
         $product->save();
         Toastr::success(translate("messages.product_updated_successfully"));
         return back();
-        
-        
+
+
     }
 }

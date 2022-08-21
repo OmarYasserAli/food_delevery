@@ -12,7 +12,7 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-sm-4 col-12">
-                    <h1 class="page-header-title"> {{translate('messages.item')}} {{translate('messages.list')}}<span class="badge badge-soft-dark ml-2" id="foodCount">{{$items->total()}}</span></h1>
+                    <h1 class="page-header-title"> {{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.item'),translate('messages.list'))}} <span class="badge badge-soft-dark ml-2" id="foodCount">{{$items->total()}}</span></h1>
                 </div>
 
                 <div class="col-sm-4 col-6">
@@ -235,7 +235,9 @@
                                         </a>
                                     </td>
                                     <td>
-                                    {{Str::limit($item->category?$item->category->name:translate('messages.category_deleted'),20,'...')}}
+                                        {{\App\CentralLogics\Helpers::get_element_language("name",$item->category,"name")}}
+
+{{--                                        {{Str::limit($item->category?$item->category->name:translate('messages.category_deleted'),20,'...')}}--}}
                                     </td>
                                     <td>
                                     {{Str::limit($item->store?$item->store->name:translate('messages.store deleted!'), 20, '...')}}

@@ -71,7 +71,7 @@ class POSController extends Controller
         $product = Item::withoutGlobalScope(StoreScope::class)->findOrFail($request->product_id);
         $item_key = $request->item_key;
         $cart_item = session()->get('cart')[$item_key];
-        
+
         return response()->json([
             'success' => 1,
             'view' => view('admin-views.pos._quick-view-cart-item', compact('product', 'cart_item', 'item_key'))->render(),
@@ -99,7 +99,7 @@ class POSController extends Controller
             foreach($request['addon_id'] as $id)
             {
                 $addon_price+= $request['addon-price'.$id]*$request['addon-quantity'.$id];
-            } 
+            }
         }
 
         if ($str != null) {
@@ -171,19 +171,19 @@ class POSController extends Controller
         $data['image'] = $product->image;
         $data['add_ons'] = [];
         $data['add_on_qtys'] = [];
-        
+
         if($request['addon_id'])
         {
             foreach($request['addon_id'] as $id)
             {
                 $addon_price+= $request['addon-price'.$id]*$request['addon-quantity'.$id];
                 $data['add_on_qtys'][]=$request['addon-quantity'.$id];
-            } 
+            }
             $data['add_ons'] = $request['addon_id'];
         }
 
         $data['addon_price'] = $addon_price;
-        
+
         if ($request->session()->has('cart')) {
             $cart = $request->session()->get('cart', collect([]));
 
@@ -255,7 +255,7 @@ class POSController extends Controller
     public function update_tax(Request $request)
     {
         $cart = $request->session()->get('cart', collect([]));
-        $cart['tax'] = $request->tax; 
+        $cart['tax'] = $request->tax;
         $request->session()->put('cart', $cart);
         return back();
     }
@@ -263,8 +263,8 @@ class POSController extends Controller
     public function update_discount(Request $request)
     {
         $cart = $request->session()->get('cart', collect([]));
-        $cart['discount'] = $request->discount; 
-        $cart['discount_type'] = $request->type; 
+        $cart['discount'] = $request->discount;
+        $cart['discount_type'] = $request->type;
         $request->session()->put('cart', $cart);
         return back();
     }
@@ -281,7 +281,7 @@ class POSController extends Controller
         })
         ->limit(8)
         ->get([DB::raw('id, CONCAT(f_name, " ", l_name, " (", phone ,")") as text')]);
-        
+
         $data[]=(object)['id'=>false, 'text'=>translate('messages.walk_in_customer')];
 
         return response()->json($data);
@@ -368,7 +368,7 @@ class POSController extends Controller
                             'item'=>clone $product,
                             'quantity'=>$c['quantity'],
                             'variant'=>count($c['variations'])>0?$c['variations']['type']:null
-                        ]; 
+                        ];
                     }
 
                     $price = $c['price'];
@@ -391,6 +391,10 @@ class POSController extends Controller
                         'created_at' => now(),
                         'updated_at' => now()
                     ];
+                    $order_item = Item::find($c['id'])->first()->order_count;
+                    $item = Item::find($c['id'])->update([
+                       'order_count' => ++$order_item
+                    ]);
                     $total_addon_price += $or_d['total_add_on_price'];
                     $product_price += $price*$or_d['quantity'];
                     $store_discount_amount += $or_d['discount_on_item']*$or_d['quantity'];
@@ -398,7 +402,7 @@ class POSController extends Controller
                 }
             }
         }
-        
+
 
         if(isset($cart['discount']))
         {

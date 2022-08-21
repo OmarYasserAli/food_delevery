@@ -348,6 +348,10 @@ class OrderController extends Controller
                             'created_at' => now(),
                             'updated_at' => now()
                         ];
+                        $order_item = Item::find($c['id'])->first()->order_count;
+                        $item = Item::find($c['id'])->update([
+                            'order_count' => ++$order_item
+                        ]);
                         $total_addon_price += $or_d['total_add_on_price'];
                         $product_price += $price * $or_d['quantity'];
                         $store_discount_amount += $or_d['discount_on_item'] * $or_d['quantity'];
