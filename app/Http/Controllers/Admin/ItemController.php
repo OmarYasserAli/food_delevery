@@ -475,9 +475,9 @@ class ItemController extends Controller
             ->when($request->sub_category, function ($query) {
                 $query->where('position', '>', '0');
             })
-            ->where(['parent_id' => $request->parent_id])->get([DB::raw('id, name as text')]);
-
-        return response()->json($cat);
+            ->where(['parent_id' => $request->parent_id])->get([DB::raw('id, name as text')]);  //
+           
+        return response()->json(Helpers::get_element_language_list('name',$cat,'text'));
     }
 
     public function get_items(Request $request)

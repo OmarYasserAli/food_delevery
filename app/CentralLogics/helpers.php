@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Laravelpkg\Laravelchk\Http\Controllers\LaravelchkController;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
-use Mcamara\LaravelLocalization\LaravelLocalization;
-
+// use Mcamara\LaravelLocalization\LaravelLocalization;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use \Mcamara\LaravelLocalization\Traits\LoadsTranslatedCachedRoutes;
 
 
@@ -1550,20 +1550,48 @@ class Helpers
     }
 
     public static function get_element_language($key,$modale,$attribute){
-  if(App::getLocale() == 'en' ){
 
-      return Str::limit($modale[$attribute], 20,'...');
-}
+      if(LaravelLocalization::getCurrentLocale() == 'en' ){
 
-elseif(count($modale->translations()->where('key',$key)->get()) > 0 && App::getLocale() == 'ar' ){
+          return Str::limit($modale[$attribute], 20,'...');
+        }
 
-    return Str::limit($modale->translations()->where('key',$key)->first()->value, 20,'...');
-} else
-    return Str::limit($modale[$attribute], 20,'...');
-{
+        elseif(count($modale->translations()->where('key',$key)->get()) > 0 && LaravelLocalization::getCurrentLocale() == 'ar' ){
 
-}
-}
+            return Str::limit($modale->translations()->where('key',$key)->first()->value, 20,'...');
+        } else
+            return Str::limit($modale[$attribute], 20,'...');
+        {
+
+        }
+    }
+    public static function get_element_language_list($key,$modales,$attribute){
+        if(1)
+        {
+
+            $result=[];
+            if(LaravelLocalization::getCurrentLocale() == 'en' ){
+
+              return $modales;
+            }
+            elseif(LaravelLocalization::getCurrentLocale() == 'ar' ){
+                foreach ($modales as $k => $modale) {
+                    if(count($modale->translations()->where('key',$key)->get()) > 0){
+                        $temp['id']=$modale->id;
+                        $temp[$attribute]=Str::limit($modale->translations()->where('key',$key)->first()->value, 20,'...');
+                    }else
+                    {
+                        $temp['id']=$modale->id;
+                        $temp[$attribute]=$modale->name;
+                    }
+                    array_push($result, $temp);
+                }
+                return $result;
+            } 
+            
+        }
+    return false;
+    }
 
   public static function get_local_language_translate($firstWord, $secondWord ){
       if(App::getLocale() == 'en' ){
