@@ -24,17 +24,18 @@
   <component name="ChangeListManager">
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/CentralLogics/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CentralLogics/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ItemController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/POSController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/POSController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Item.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ar/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/messages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/category/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/category/sub-index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/category/sub-index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/category/sub-sub-index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/category/sub-sub-index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/customer/loyalty-point/report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/customer/loyalty-point/report.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/order/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/order/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/partials/_top-rated-foods.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/partials/_top-rated-foods.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/order/order-view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/order/order-view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/order/partials/_invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/order/partials/_invoice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/partials/_top-selling-foods.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/partials/_top-selling-foods.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/report/stock-report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/report/stock-report.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/partials/_table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/partials/_table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/reviews-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/reviews-list.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,7 +324,8 @@
       <workItem from="1660922729257" duration="596000" />
       <workItem from="1660926764021" duration="172000" />
       <workItem from="1660985150680" duration="962000" />
-      <workItem from="1660999574915" duration="11719000" />
+      <workItem from="1660999574915" duration="16608000" />
+      <workItem from="1661063562585" duration="9777000" />
     </task>
     <servers />
   </component>
@@ -391,6 +393,11 @@
           <line>337</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/CentralLogics/helpers.php</url>
+          <line>21</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/Auth/CustomerAuthController.php</url>
           <line>259</line>
@@ -399,6 +406,33 @@
             <option name="methodName" value="login" />
           </properties>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php</url>
+          <line>544</line>
+          <properties>
+            <option name="className" value="\App\Http\Controllers\Admin\OrderController" />
+            <option name="methodName" value="add_to_cart" />
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php</url>
+          <line>651</line>
+          <properties>
+            <option name="className" value="\App\Http\Controllers\Admin\OrderController" />
+            <option name="methodName" value="edit" />
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/POSController.php</url>
+          <line>271</line>
+          <properties>
+            <option name="className" value="\App\Http\Controllers\Admin\POSController" />
+            <option name="methodName" value="get_customers" />
+          </properties>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

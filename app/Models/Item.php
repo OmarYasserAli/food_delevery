@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 class Item extends Model
 {
     use HasFactory;
-    
+
     protected $casts = [
         'tax' => 'float',
         'price' => 'float',
@@ -29,6 +29,7 @@ class Item extends Model
         'module_id'=>'integer',
         'stock'=>'integer',
     ];
+    protected $fillable  = ['order_count'];
 
     protected $appends = ['unit_type'];
 
@@ -83,7 +84,7 @@ class Item extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
-    
+
     public function orders()
     {
         return $this->hasMany(OrderDetail::class);
@@ -94,7 +95,7 @@ class Item extends Model
         if(auth('vendor')->check() || auth('vendor_employee')->check())
         {
             static::addGlobalScope(new StoreScope);
-        } 
+        }
 
         static::addGlobalScope(new ZoneScope);
 
@@ -116,8 +117,8 @@ class Item extends Model
         {
             return $query->where('veg', false);
         }
-        
+
         return $query;
     }
-    
+
 }

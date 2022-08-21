@@ -445,6 +445,7 @@
                                                     alt="Image Description">
                                             </a>
                                         @endif
+
                                         <div class="media-body">
                                             <div class="row">
                                                 <div class="col-md-6 mb-3 mb-md-0">
@@ -477,6 +478,7 @@
                                                         </div>
                                                         @php($total_addon_price += $addon['price'] * $addon['quantity'])
                                                     @endforeach
+
                                                 </div>
 
                                                 <div class="col col-md-2 align-self-center">
@@ -494,6 +496,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     @php($product_price += $amount)
                                     @php($store_discount_amount += $detail['discount_on_item'] * $detail['quantity'])
                                     <!-- End Media -->
@@ -526,6 +529,7 @@
                                                     alt="Image Description">
                                             </a>
                                         @endif
+
 
 
                                         <div class="media-body">
@@ -633,21 +637,21 @@
                             <div class="col-md-9 col-lg-8">
                                 <dl class="row text-sm-right">
                                     @if (!$parcel_order)
-                                        <dt class="col-sm-6">{{ translate('messages.items') }}
-                                            {{ translate('messages.price') }}:</dt>
+                                        <dt class="col-sm-6">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.items'),translate('messages.price'))  }}
+                                         :</dt>
                                         <dd class="col-sm-6">
                                             {{ \App\CentralLogics\Helpers::format_currency($product_price) }}</dd>
-                                        <dt class="col-sm-6">{{ translate('messages.addon') }}
-                                            {{ translate('messages.cost') }}:</dt>
-                                        <dd class="col-sm-6">
-                                            {{ \App\CentralLogics\Helpers::format_currency($total_addon_price) }}
-                                            <hr>
-                                        </dd>
+{{--                                        <dt class="col-sm-6">{{ translate('messages.addon') }}--}}
+{{--                                            {{ translate('messages.cost') }}:</dt>--}}
+{{--                                        <dd class="col-sm-6">--}}
+{{--                                            {{ \App\CentralLogics\Helpers::format_currency($total_addon_price) }}--}}
+{{--                                            <hr>--}}
+{{--                                        </dd>--}}
 
-                                        <dt class="col-sm-6">{{ translate('messages.subtotal') }}:</dt>
-                                        <dd class="col-sm-6">
-                                            {{ \App\CentralLogics\Helpers::format_currency($product_price + $total_addon_price) }}
-                                        </dd>
+{{--                                        <dt class="col-sm-6">{{ translate('messages.subtotal') }}:</dt>--}}
+{{--                                        <dd class="col-sm-6">--}}
+{{--                                            {{ \App\CentralLogics\Helpers::format_currency($product_price + $total_addon_price) }}--}}
+{{--                                        </dd>--}}
                                         <dt class="col-sm-6">{{ translate('messages.discount') }}:</dt>
                                         <dd class="col-sm-6">
                                             - {{ \App\CentralLogics\Helpers::format_currency($store_discount_amount) }}
@@ -657,13 +661,13 @@
                                         <dd class="col-sm-6">
                                             - {{ \App\CentralLogics\Helpers::format_currency($coupon_discount_amount) }}
                                         </dd>
-                                        <dt class="col-sm-6">{{ translate('messages.vat/tax') }}:</dt>
-                                        <dd class="col-sm-6">
-                                            + {{ \App\CentralLogics\Helpers::format_currency($total_tax_amount) }}</dd>
-                                        
-                                        <dt class="col-sm-6">{{ translate('messages.delivery_man_tips') }}</dt>
-                                        <dd class="col-sm-6">
-                                            + {{ \App\CentralLogics\Helpers::format_currency($deliverman_tips) }}</dd>
+{{--                                        <dt class="col-sm-6">{{ translate('messages.vat/tax') }}:</dt>--}}
+{{--                                        <dd class="col-sm-6">--}}
+{{--                                            + {{ \App\CentralLogics\Helpers::format_currency($total_tax_amount) }}</dd>--}}
+
+{{--                                        <dt class="col-sm-6">{{ translate('messages.delivery_man_tips') }}</dt>--}}
+{{--                                        <dd class="col-sm-6">--}}
+{{--                                            + {{ \App\CentralLogics\Helpers::format_currency($deliverman_tips) }}</dd>--}}
                                         <dt class="col-sm-6">{{ translate('messages.delivery') }}
                                             {{ translate('messages.fee') }}:</dt>
                                         <dd class="col-sm-6">
@@ -676,7 +680,7 @@
 
                                     <dt class="col-sm-6">{{ translate('messages.total') }}:</dt>
                                     <dd class="col-sm-6">
-                                        
+
                                         {{ \App\CentralLogics\Helpers::format_currency($product_price + $del_c + $total_tax_amount + $total_addon_price + $deliverman_tips - $coupon_discount_amount - $store_discount_amount) }}
                                     </dd>
                                 </dl>
@@ -1607,7 +1611,7 @@
                         @endif
                         infowindow.open(map, Restaurantmarker);
                     }
-                })(Restaurantmarker));                
+                })(Restaurantmarker));
             @endif
 
             map.fitBounds(dmbounds);

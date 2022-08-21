@@ -27,7 +27,9 @@
                          onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'"
                          alt="{{$item->name}} image">
                     <div class="text-center mt-2">
-                        <span class="" style="font-size: 10px">{{Str::limit($item['name'],20,'...')}}</span>
+                        <span class="" style="font-size: 10px">
+                            {{\App\CentralLogics\Helpers::get_element_language("name",$item,"name")}}
+</span>
                     </div>
                 </div>
             </div>

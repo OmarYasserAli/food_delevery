@@ -403,11 +403,14 @@
                     };
                 },
                 processResults: function (data) {
+
                     return {
-                    results: data
+                    results: data,
+
                     };
                 },
                 __port: function (params, success, failure) {
+
                     var $request = $.ajax(params);
 
                     $request.then(success);
@@ -479,14 +482,14 @@
         function combination_update() {
             $.ajaxSetup({
                 headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
                 }
             });
 
             $.ajax({
                 type: "POST",
                 url: "{{route('admin.item.variant-combination')}}",
-                data: $('#item_form').serialize()+'&stock='+stock,
+                data:{stok : $('#item_form').serialize()+'&stock='+stock ,  "_token": "{{ csrf_token() }}"} ,
                 beforeSend: function () {
                     $('#loading').show();
                 },

@@ -12,7 +12,7 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title">{{translate('messages.item')}} {{translate('messages.reviews')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$reviews->total()}}</span></h1>
+                    <h1 class="page-header-title">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.items'),translate('messages.reviews'))}}<span class="badge badge-soft-dark ml-2" id="itemCount"> {{$reviews->total()}}</span></h1>
                 </div>
             </div>
         </div>
@@ -54,10 +54,10 @@
                                     <td>
                                         @if ($review->item)
                                             <a class="media align-items-center" href="{{route('admin.item.view',[$review->item['id']])}}">
-                                                <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/product')}}/{{$review->item['image']}}" 
+                                                <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/product')}}/{{$review->item['image']}}"
                                                     onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'" alt="{{$review->item->name}} image">
                                                 <div class="media-body">
-                                                    <h5 class="text-hover-primary mb-0">{{Str::limit($review->item['name'],20,'...')}}</h5>
+                                                    <h5 class="text-hover-primary mb-0">{{\App\CentralLogics\Helpers::get_element_language('name',$review->item,'name')}}</h5>
                                                 </div>
                                             </a>
                                         @else
@@ -120,7 +120,7 @@
         function status_form_alert(id, message, e) {
             e.preventDefault();
             Swal.fire({
-                title: '{{translate('messages.are_you_sure')}}',   
+                title: '{{translate('messages.are_you_sure')}}',
                 text: message,
                 type: 'warning',
                 showCancelButton: true,
