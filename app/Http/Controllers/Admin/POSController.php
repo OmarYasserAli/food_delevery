@@ -391,7 +391,8 @@ class POSController extends Controller
                         'created_at' => now(),
                         'updated_at' => now()
                     ];
-                    $order_item = Item::find($c['id'])->first()->order_count;
+                    $order_item = Item::find($c['id'])->order_count;
+//                    dd($order_item);
                     $item = Item::find($c['id'])->update([
                        'order_count' => ++$order_item
                     ]);

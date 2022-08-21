@@ -348,7 +348,7 @@ class OrderController extends Controller
                             'created_at' => now(),
                             'updated_at' => now()
                         ];
-                        $order_item = Item::find($c['id'])->first()->order_count;
+                        $order_item = Item::find($c['id'])->order_count;
                         $item = Item::find($c['id'])->update([
                             'order_count' => ++$order_item
                         ]);
