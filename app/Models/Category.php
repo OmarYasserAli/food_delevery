@@ -26,7 +26,7 @@ class Category extends Model
     {
         return $this->belongsTo(Module::class);
     }
-    
+
     public function scopeModule($query, $module_id)
     {
         return $query->where('module_id', $module_id);

@@ -24,18 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ItemController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/POSController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/POSController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ar/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/messages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/order/order-view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/order/order-view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/order/partials/_invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/order/partials/_invoice.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/partials/_top-selling-foods.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/partials/_top-selling-foods.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/partials/_table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/partials/_table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/reviews-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/reviews-list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -325,7 +315,7 @@
       <workItem from="1660926764021" duration="172000" />
       <workItem from="1660985150680" duration="962000" />
       <workItem from="1660999574915" duration="16608000" />
-      <workItem from="1661063562585" duration="9777000" />
+      <workItem from="1661063562585" duration="16460000" />
     </task>
     <servers />
   </component>
