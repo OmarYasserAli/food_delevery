@@ -68,13 +68,13 @@
                                         <label class="input-label" for="exampleFormControlSelect1">{{translate('messages.store')}}<span
                                                 class="input-label-secondary"></span></label>
                                         <select name="store_id" class="js-data-example-ajax form-control"  title="Select Restaurant">
-                                            
+
                                         </select>
                                     </div>
                                     <div class="form-group" id="item_wise">
                                         <label class="input-label" for="exampleFormControlInput1">{{translate('messages.select')}} {{translate('messages.item')}}</label>
                                         <select name="item_id" id="choice_item" class="form-control js-select2-custom" placeholder="{{translate('messages.select_item')}}">
-                                            
+
                                         </select>
                                     </div>
                                 </div>
@@ -100,13 +100,13 @@
                         </form>
                     </div>
                 </div>
-                
+
             </div>
 
             <div class="col-sm-12 col-lg-12 mb-3 mb-lg-2">
                 <div class="card">
                     <div class="card-header">
-                        <h5>{{translate('messages.banner')}} {{translate('messages.list')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$banners->count()}}</span></h5>
+                        <h5>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.banners'),translate('messages.list'))}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$banners->count()}}</span></h5>
                         <form id="search-form">
                             @csrf
                             <!-- Search -->
@@ -154,14 +154,14 @@
                                     <td>{{$key+$banners->firstItem()}}</td>
                                     <td>
                                         <span class="media align-items-center">
-                                            <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/banner')}}/{{$banner['image']}}" 
+                                            <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/banner')}}/{{$banner['image']}}"
                                                  onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'" alt="{{$banner->name}} image">
                                             <div class="media-body">
                                                 <h5 class="text-hover-primary mb-0">{{Str::limit($banner['title'], 25, '...')}}</h5>
                                             </div>
                                         </span>
                                     <span class="d-block font-size-sm text-body">
-                                        
+
                                     </span>
                                     </td>
                                     <td>{{Str::limit($banner->module->module_name, 15, '...')}}</td>
@@ -204,7 +204,7 @@
                                 </tfoot>
                             </table>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -251,7 +251,7 @@
             success: function (data) {
                 $('#choice_item').empty().append(data.options);
             }
-        });   
+        });
     }
     $(document).on('ready', function () {
 

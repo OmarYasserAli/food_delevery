@@ -55,7 +55,7 @@
                                     <div class="form-group" id="store_wise">
                                         <label class="input-label" for="exampleFormControlSelect1">{{translate('messages.store')}}<span
                                                 class="input-label-secondary"></span></label>
-                                        <select name="store_ids[]" class="js-data-example-ajax form-control" data-placeholder="{{translate('messages.select_store')}}" title="{{translate('messages.select_store')}}">                                            
+                                        <select name="store_ids[]" class="js-data-example-ajax form-control" data-placeholder="{{translate('messages.select_store')}}" title="{{translate('messages.select_store')}}">
                                         </select>
                                     </div>
                                     <div class="form-group" id="zone_wise">
@@ -127,19 +127,19 @@
                                         <input type="number" step="0.01" name="min_purchase" value="0" min="0" max="999999999999.99" class="form-control"
                                             placeholder="100">
                                     </div>
-                                </div>                                
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary">{{translate('messages.submit')}}</button>
                         </form>
                     </div>
                 </div>
-                
+
             </div>
 
             <div class="col-sm-12 col-lg-12 mb-3 mb-lg-2">
                 <div class="card">
                     <div class="card-header">
-                    <h5>{{translate('messages.coupon')}} {{translate('messages.list')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$coupons->total()}}</span></h5>
+                    <h5> {{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.coupons'),translate('messages.list'))}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$coupons->total()}}</span></h5>
                         <form id="dataSearch">
                         @csrf
                             <!-- Search -->
@@ -162,7 +162,7 @@
                                data-hs-datatables-options='{
                                 "order": [],
                                 "orderCellsTop": true,
-                                
+
                                 "entries": "#datatableEntries",
                                 "isResponsive": false,
                                 "isShowPaging": false,
@@ -252,7 +252,7 @@
     $("#date_to").on("change", function () {
         $('#date_from').attr('max',$(this).val());
     });
-    
+
     $(document).on('ready', function () {
         $('#discount_type').on('change', function() {
          if($('#discount_type').val() == 'amount')
@@ -265,7 +265,7 @@
                 $('#max_discount').removeAttr("readonly");
             }
         });
-        
+
         $('#date_from').attr('min',(new Date()).toISOString().split('T')[0]);
         $('#date_to').attr('min',(new Date()).toISOString().split('T')[0]);
 
