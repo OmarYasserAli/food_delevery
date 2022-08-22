@@ -65,8 +65,8 @@ class OrderController extends Controller
             'receiver_details' => 'required_if:order_type,parcel',
             'charge_payer' => 'required_if:order_type,parcel|in:sender,receiver',
             'dm_tips' => 'nullable|numeric',
-            'building' => 'nullable',
-            'flat' => 'nullable'
+//            'building' => 'nullable',
+//            'flat' => 'nullable'
         ]);
 
         if ($validator->fails()) {
@@ -232,8 +232,8 @@ class OrderController extends Controller
         $order->created_at = now();
         $order->updated_at = now();
         $order->charge_payer = $request->charge_payer;
-        $order->flat = $request->flat;
-        $order->building = $request->building;
+//        $order->flat = $request->flat;
+//        $order->building = $request->building;
         //Added DM TIPS
         $dm_tips_manage_status = BusinessSetting::where('key', 'dm_tips_status')->first()->value;
         if ($dm_tips_manage_status == 1) {
@@ -348,8 +348,8 @@ class OrderController extends Controller
                             'created_at' => now(),
                             'updated_at' => now()
                         ];
-                        $order_item = Item::find($c['id'])->order_count;
-                        $item = Item::find($c['id'])->update([
+                        $order_item = Item::find($c['item_id'])->order_count;
+                        $item = Item::find($c['item_id'])->update([
                             'order_count' => ++$order_item
                         ]);
                         $total_addon_price += $or_d['total_add_on_price'];
