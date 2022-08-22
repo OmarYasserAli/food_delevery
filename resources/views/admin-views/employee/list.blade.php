@@ -17,7 +17,7 @@
     <div class="d-md-flex_ align-items-center justify-content-between mb-2">
         <div class="row">
             <div class="col-md-8">
-                <h3 class="h3 mb-0 text-black-50">{{translate('messages.Employee')}} {{translate('messages.list')}}</h3>
+                <h3 class="h3 mb-0 text-black-50">{{translate('messages.Employee_table')}}</h3>
             </div>
 
             <div class="col-md-4">

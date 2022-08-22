@@ -447,6 +447,7 @@
   'Role' => 'منصب',
   'employee_management' => 'إدارة شؤون الموظفين',
   'Employee' => 'موظف',
+    'Employee_table' => 'جدول الموظفين',
   'role_management' => 'إدارة المنصب',
   'custom_role' => 'اعداد المنصب',
   'employee_handle' => 'معالج الموظفين',

@@ -12,12 +12,12 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title"><i class="tio-filter-list"></i> {{translate('messages.campaign')}}</h1>
+                    <h1 class="page-header-title"><i class="tio-filter-list"></i> {{translate('messages.campaigns')}}</h1>
                 </div>
 
                 <div class="col-sm-auto">
                     <a class="btn btn-primary" href="{{route('admin.campaign.add-new', 'item')}}">
-                        <i class="tio-add-circle"></i> {{translate('messages.add')}} {{translate('messages.new')}} {{translate('messages.campaign')}}
+                        <i class="tio-add-circle"></i> {{translate('messages.add')}} {{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.new'),translate('messages.campaign')) }}
                     </a>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <!-- Card -->
                 <div class="card">
                     <div class="card-header">
-                        <h5>{{translate('messages.campaign')}} {{translate('messages.list')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$campaigns->total()}}</span></h5>
+                        <h5>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.campaigns'),translate('messages.list')) }} <span class="badge badge-soft-dark ml-2" id="itemCount">{{$campaigns->total()}}</span></h5>
                         <form id="search-form">
                             @csrf
                             <!-- Search -->
