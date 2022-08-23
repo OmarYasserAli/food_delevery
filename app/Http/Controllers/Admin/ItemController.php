@@ -396,6 +396,10 @@ class ItemController extends Controller
 
     public function variant_combination(Request $request)
     {
+        
+
+
+
         $options = [];
         $price = $request->price;
         $product_name = $request->name;
@@ -407,7 +411,7 @@ class ItemController extends Controller
                 array_push($options, explode(',', $my_str));
             }
         }
-
+ 
         $result = [[]];
         foreach ($options as $property => $property_values) {
             $tmp = [];
@@ -418,6 +422,7 @@ class ItemController extends Controller
             }
             $result = $tmp;
         }
+
         $combinations = $result;
         $stock = $request->stock == 'true' ? true : false;
         return response()->json([

@@ -553,6 +553,7 @@
                     $('#loading').show();
                 },
                 success: function (data) {
+                    console.log(data);
                     $('#loading').hide();
                     $('#variant_combination').html(data.view);
                     if (data.length < 1) {

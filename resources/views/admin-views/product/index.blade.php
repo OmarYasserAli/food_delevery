@@ -185,8 +185,9 @@
                             </div>
                         </div>
                         <div class="col-md-12 mt-2 mb-2">
+                           
                             <div class="variant_combination" id="variant_combination">
-
+                                @include('admin-views.product.partials._edit-combinations',['combinations'=>[],'stock'=>1])
                             </div>
                         </div>
                     </div>
@@ -489,7 +490,8 @@
             $.ajax({
                 type: "POST",
                 url: "{{route('admin.item.variant-combination')}}",
-                data:{stok : $('#item_form').serialize()+'&stock='+stock ,  "_token": "{{ csrf_token() }}"} ,
+                // data:{stok : $('#item_form').serialize()+'&stock='+stock ,  "_token": "{{ csrf_token() }}"} ,
+                 data: $('#item_form').serialize()+'&stock='+stock,
                 beforeSend: function () {
                     $('#loading').show();
                 },

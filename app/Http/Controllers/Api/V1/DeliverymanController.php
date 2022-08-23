@@ -407,8 +407,8 @@ class DeliverymanController extends Controller
     public function get_all_orders(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'limit' => 'required',
-            'offset' => 'required',
+            //'limit' => 'required',
+            //'offset' => 'required',
         ]);
 
         if ($validator->fails()) {
