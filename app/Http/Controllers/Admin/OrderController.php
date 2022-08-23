@@ -413,7 +413,7 @@ class OrderController extends Controller
                 ]);
             }
             $order->delivery_man_id = $delivery_man_id;
-            $order->order_status = in_array($order->order_status, ['pending', 'confirmed']) ? 'accepted' : $order->order_status;
+            $order->order_status = 'accepted';
             $order->accepted = now();
             $order->save();
 

@@ -253,7 +253,7 @@
                                         <input id="datatableSearch" type="search" value="{{$keyword?$keyword:''}}" name="search" class="form-control" placeholder="{{translate('messages.search_here')}}" aria-label="{{translate('messages.search_here')}}">
                                     </div>
                                     <!-- End Search -->
-                                </form>                                
+                                </form>
                             </div>
                             <div class="col-sm-6 col-12 mb-2">
                                 <select name="module_id" class="form-control js-select2-custom" onchange="set_filter('{{url()->full()}}',this.value,'module_id')" title="{{translate('messages.select')}} {{translate('messages.modules')}}">
@@ -268,7 +268,7 @@
                             </div>
                             <div class="col-sm-6 col-12 mb-2">
                                 <select name="store_id" id="store_select" onchange="set_filter('{{url()->full()}}',this.value, 'store_id')" data-placeholder="{{translate('messages.select')}} {{translate('messages.store')}}" class="js-data-example-ajax form-control">
-                                    @if($store)    
+                                    @if($store)
                                     <option value="{{$store->id}}" selected>{{$store->name}}</option>
                                     @endif
                                 </select>
@@ -279,7 +279,7 @@
                                     @foreach ($categories as $item)
                                     <option value="{{$item->id}}" {{$category==$item->id?'selected':''}}>{{Str::limit($item->name,20 ,'...')}}</option>
                                     @endforeach
-                                </select>                              
+                                </select>
                             </div>
                         </div>
 
@@ -322,7 +322,7 @@
                         <div class='w-100' id="cart">
                             @include('admin-views.pos._cart',['store'=>$store])
                         </div>
-                    </div> 
+                    </div>
 				</div>
 			</div>
 		</div><!-- container //  -->
@@ -691,7 +691,7 @@
                             text: "{{translate('messages.product_already_added_in_cart')}}"
                         });
                         return false;
-                    } 
+                    }
                     else if (data.data == 2) {
                         updateCart();
                         Swal.fire({
@@ -699,9 +699,9 @@
                             title: 'Cart',
                             text: "{{translate('messages.product_has_been_updated_in_cart')}}"
                         });
-                        
+
                         return false;
-                    } 
+                    }
                     else if (data.data == 0) {
                         Swal.fire({
                             icon: 'error',
@@ -810,7 +810,7 @@
         //     });
         //     $(this).val($(this).data('oldValue'));
         // }
-    
+
 
         // Allow: backspace, delete, tab, escape, enter and .
         if(e.type == 'keydown')
@@ -904,7 +904,7 @@
         let map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 13,
                 center: { lat: {{$store?$store['latitude']:'23.757989'}}, lng: {{$store?$store['longitude']:'90.360587'}} }
-            });   
+            });
 
         //get current location block
         let infoWindow = new google.maps.InfoWindow();
@@ -1014,9 +1014,9 @@
                         document.getElementById('latitude').value = coordinates['lat'];
                         document.getElementById('longitude').value = coordinates['lng'];
                         infoWindow.open(map);
-                    });    
+                    });
                 },
-            });            
+            });
         @endif
 
     }
