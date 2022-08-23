@@ -24,14 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/POSController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/POSController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ar/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/messages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/campaign/item/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/campaign/item/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/pos/_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/pos/_cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/pos/_quick-view-cart-item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/pos/_quick-view-cart-item.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/pos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/pos/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/pos/order/invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/pos/order/invoice.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
