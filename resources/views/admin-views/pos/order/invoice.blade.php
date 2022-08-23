@@ -34,23 +34,23 @@
             @if(!empty($address))
 
                 <h5>
-                    {{translate('messages.contact_person_name')}} : {{isset($address['contact_person_name'])?$address['contact_person_name']:''}}
+                    اسم جهة الاتصال  : {{isset($address['contact_person_name'])?$address['contact_person_name']:''}}
                 </h5>
                 <h5>
-                    {{translate('messages.phone')}} : {{isset($address['contact_person_number'])? $address['contact_person_number'] : ''}}
+                    هاتف  : {{isset($address['contact_person_number'])? $address['contact_person_number'] : ''}}
                 </h5>
                 <h5>
-                    {{translate('messages.floor')}} : {{isset($address['floor'])? $address['floor'] : ''}}
+                    دار  : {{isset($address['floor'])? $address['floor'] : ''}}
                 </h5>
                 <h5>
-                    {{translate('messages.road')}} : {{isset($address['road'])? $address['road'] : ''}}
+                    الشقة : {{isset($address['road'])? $address['road'] : ''}}
                 </h5>
                 <h5>
-                    {{translate('messages.house')}} : {{isset($address['house'])? $address['house'] : ''}}
+                    بلوك  : {{isset($address['house'])? $address['house'] : ''}}
                 </h5>
             @endif
             <h5 class="text-break">
-                {{translate('messages.address')}} : {{isset($order->delivery_address)?json_decode($order->delivery_address, true)['address']:''}}
+                زون  : {{isset($order->delivery_address)?json_decode($order->delivery_address, true)['address']:''}}
             </h5>
         </div>
         @if($order->customer)
