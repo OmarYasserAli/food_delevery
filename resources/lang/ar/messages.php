@@ -1422,4 +1422,8 @@
   'preparing_in_restaurants' => 'جاري التحضير',
   'picked_up' => 'الطلب على الطريق',
   'order_already_assign_to_this_deliveryman' => 'Order already assign to this deliveryman',
+    'floor' => 'دار',
+    'flat' => 'عمارة',
+    'road' => 'الشقة',
+    'house' => 'بلوك'
 );
