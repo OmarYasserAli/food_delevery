@@ -16,16 +16,41 @@
             @endif
         </div>
 
-        <span>---------------------------------------------------------------------------------</span>            
+        <span>---------------------------------------------------------------------------------</span>
     @endif
 
     <div class="row mt-3">
         <div class="col-6">
-            <h5>Order ID : {{$order['id']}}</h5>
+            <h5>{{translate('messages.order_id')}} : {{$order['id']}}</h5>
+
         </div>
         <div class="col-6">
             <h5 style="font-weight: lighter">
                 {{date('d/M/Y '.config('timeformat'),strtotime($order['created_at']))}}
+            </h5>
+        </div>
+        <div class="col-12">
+            @php($address = json_decode($order->delivery_address, true))
+            @if(!empty($address))
+
+                <h5>
+                    {{translate('messages.contact_person_name')}} : {{isset($address['contact_person_name'])?$address['contact_person_name']:''}}
+                </h5>
+                <h5>
+                    {{translate('messages.phone')}} : {{isset($address['contact_person_number'])? $address['contact_person_number'] : ''}}
+                </h5>
+                <h5>
+                    {{translate('messages.Floor')}} : {{isset($address['floor'])? $address['floor'] : ''}}
+                </h5>
+                <h5>
+                    {{translate('messages.Road')}} : {{isset($address['road'])? $address['road'] : ''}}
+                </h5>
+                <h5>
+                    {{translate('messages.House')}} : {{isset($address['house'])? $address['house'] : ''}}
+                </h5>
+            @endif
+            <h5 class="text-break">
+                {{translate('messages.address')}} : {{isset($order->delivery_address)?json_decode($order->delivery_address, true)['address']:''}}
             </h5>
         </div>
         @if($order->customer)
@@ -73,7 +98,7 @@
                                     <div class="font-size-sm text-body">
                                         <span>{{$key1}} :  </span>
                                         <span class="font-weight-bold">{{$key1=='price'?\App\CentralLogics\Helpers::format_currency($variation):$variation}}</span>
-                                    </div>                                
+                                    </div>
                                 @endif
                             @endforeach
                         @else
@@ -101,7 +126,7 @@
                 </tr>
                 @php($sub_total+=$amount)
                 @php($total_tax+=$detail['tax_amount']*$detail['quantity'])
-            
+
             @elseif($detail->campaign)
                 <tr>
                     <td class="">
@@ -152,22 +177,15 @@
             <dl class="row text-right">
                 <dt class="col-6">{{translate('messages.item_price')}}:</dt>
                 <dd class="col-6">{{\App\CentralLogics\Helpers::format_currency($sub_total)}}</dd>
-                <dt class="col-6">{{translate('messages.addon_cost')}}:</dt>
-                <dd class="col-6">
-                    {{\App\CentralLogics\Helpers::format_currency($add_ons_cost)}}
-                    <hr>
-                </dd>
-                <dt class="col-6">{{translate('messages.subtotal')}}:</dt>
-                <dd class="col-6">
-                    {{\App\CentralLogics\Helpers::format_currency($sub_total+$add_ons_cost)}}</dd>
+                <dt class="col-6">{{translate('messages.Delivery address')}}:</dt>
+                <dd class="col-6">{{\App\CentralLogics\Helpers::format_currency($sub_total)}}</dd>
+
                 <dt class="col-6">{{translate('messages.discount')}}:</dt>
                 <dd class="col-6">
                     - {{\App\CentralLogics\Helpers::format_currency($order['store_discount_amount'])}}</dd>
                 <dt class="col-6">{{translate('messages.coupon_discount')}}:</dt>
                 <dd class="col-6">
                     - {{\App\CentralLogics\Helpers::format_currency($order['coupon_discount_amount'])}}</dd>
-                <dt class="col-6">{{translate('messages.vat/tax')}}:</dt>
-                <dd class="col-6">+ {{\App\CentralLogics\Helpers::format_currency($order['total_tax_amount'])}}</dd>
                 <dt class="col-6">{{translate('messages.delivery_charge')}}:</dt>
                 <dd class="col-6">
                     @php($del_c=$order['delivery_charge'])
@@ -177,6 +195,9 @@
 
                 <dt class="col-6" style="font-size: 20px">{{translate('messages.total')}}:</dt>
                 <dd class="col-6" style="font-size: 20px">{{\App\CentralLogics\Helpers::format_currency($sub_total+$del_c+$order['total_tax_amount']+$add_ons_cost-$order['coupon_discount_amount'] - $order['store_discount_amount'])}}</dd>
+
+
+
             </dl>
         </div>
     </div>

@@ -310,6 +310,7 @@ class POSController extends Controller
             'address' => $request->address,
             'floor' => $request->floor,
             'road' => $request->road,
+            'flat' => $request->flat,
             'house' => $request->house,
             'longitude' => (string)$request->longitude??'',
             'latitude' => (string)$request->latitude??'',
