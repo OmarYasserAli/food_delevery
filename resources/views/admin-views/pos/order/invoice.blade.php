@@ -48,6 +48,10 @@
                 <h5>
                     بلوك  : {{isset($address['house'])? $address['house'] : ''}}
                 </h5>
+
+                <h5>
+                    عمارة  : {{isset($address['flat'])? $address['flat'] : ''}}
+                </h5>
             @endif
             <h5 class="text-break">
                 زون  : {{isset($order->delivery_address)?json_decode($order->delivery_address, true)['address']:''}}

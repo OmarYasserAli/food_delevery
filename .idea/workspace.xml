@@ -24,8 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ar/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/order/invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/order/invoice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/order/partials/_invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/order/partials/_invoice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/pos/order/invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/pos/order/invoice.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,7 +321,8 @@
       <workItem from="1661153956125" duration="2572000" />
       <workItem from="1661172991652" duration="2724000" />
       <workItem from="1661236691907" duration="6578000" />
-      <workItem from="1661325550952" duration="1007000" />
+      <workItem from="1661325550952" duration="2262000" />
+      <workItem from="1661346507621" duration="1361000" />
     </task>
     <servers />
   </component>
@@ -398,7 +401,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/admin-views/pos/order/invoice.blade.php</url>
-          <line>187</line>
+          <line>191</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">

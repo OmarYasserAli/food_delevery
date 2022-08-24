@@ -75,17 +75,17 @@
                             {{translate('messages.phone')}} : {{isset($address['contact_person_number'])? $address['contact_person_number'] : ''}}
                         </h5>
                         <h5>
-                            {{translate('messages.Floor')}} : {{isset($address['floor'])? $address['floor'] : ''}}
+                            {{translate('messages.Address')}} : {{isset($address['floor'])? $address['floor'] : ''}}
                         </h5>
                         <h5>
-                            {{translate('messages.Road')}} : {{isset($address['road'])? $address['road'] : ''}}
+                            {{translate('messages.address')}} : {{isset($address['road'])? $address['road'] : ''}}
                         </h5>
                         <h5>
                             {{translate('messages.House')}} : {{isset($address['house'])? $address['house'] : ''}}
                         </h5>
                         @endif
                         <h5 class="text-break">
-                            {{translate('messages.address')}} : {{isset($order->delivery_address)?json_decode($order->delivery_address, true)['address']:''}}
+                            {{translate('messages.Site')}} : {{isset($order->delivery_address)?json_decode($order->delivery_address, true)['address']:''}}
                         </h5>
                     </div>
                     @endif
