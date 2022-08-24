@@ -324,6 +324,7 @@
   'received_by' => 'استلمت من قبل',
   'remember' => 'تذكر',
   'remove_sub_categories_first' => 'قم بإزالة الفئات الفرعية أولاً!',
+    'remove_items_first' => 'قم بإزالة المنتجات المرتبطة مع هذه الفئة  أولاً!',
   'request' => 'الطلب',
   'request_time' => 'وقت الطلب',
   'required' => 'مطلوب',

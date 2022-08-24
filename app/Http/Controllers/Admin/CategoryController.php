@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Item;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use App\CentralLogics\Helpers;
@@ -128,12 +129,18 @@ class CategoryController extends Controller
     public function delete(Request $request)
     {
         $category = Category::findOrFail($request->id);
-        if ($category->childes->count()==0){
-            $category->delete();
-            Toastr::success('Category removed!');
+        $items = Item::where("category_id",$request->id)->get();
+        if (count($items) >0){
+            Toastr::warning(translate('messages.remove_items_first'));
         }else{
-            Toastr::warning(translate('messages.remove_sub_categories_first'));
+            if ($category->childes->count()==0){
+                $category->delete();
+                Toastr::success('Category removed!');
+            }else{
+                Toastr::warning(translate('messages.remove_sub_categories_first'));
+            }
         }
+
         return back();
     }
 

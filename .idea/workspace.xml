@@ -22,7 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="" />
+    <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/messages.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -315,6 +319,7 @@
       <workItem from="1661153956125" duration="2572000" />
       <workItem from="1661172991652" duration="2724000" />
       <workItem from="1661236691907" duration="6578000" />
+      <workItem from="1661325550952" duration="1007000" />
     </task>
     <servers />
   </component>
@@ -441,6 +446,15 @@
             <option name="methodName" value="get_customers" />
           </properties>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php</url>
+          <line>155</line>
+          <properties>
+            <option name="className" value="\App\Http\Controllers\Admin\CategoryController" />
+            <option name="methodName" value="update_priority" />
+          </properties>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
