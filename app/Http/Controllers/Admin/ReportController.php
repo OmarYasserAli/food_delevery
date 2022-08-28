@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\CentralLogics\Helpers;
 use App\Http\Controllers\Controller;
 use App\Models\Item;
 use App\Models\OrderTransaction;
+use App\Models\Translation;
 use App\Models\Zone;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use App\Scopes\StoreScope;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class ReportController extends Controller
 {
@@ -67,6 +70,7 @@ class ReportController extends Controller
 
     public function stock_report(Request $request)
     {
+
         $zone_id = $request->query('zone_id', isset(auth('admin')->user()->zone_id)?auth('admin')->user()->zone_id:'all');
         $store_id = $request->query('store_id', 'all');
         $zone = is_numeric($zone_id)?Zone::findOrFail($zone_id):null;
@@ -75,29 +79,47 @@ class ReportController extends Controller
                 if(isset($var['stock']) && $var['stock']) return $var;
             }));
         $key = isset($request['search'])?explode(' ', $request['search']):[];
-        
-        $items = Item::withoutGlobalScope(StoreScope::class)->whereHas('store.module', function($query)use($stock_modules){
-            $query->whereIn('module_type', $stock_modules);
-        })
-        ->when($request->query('module_id', null), function($query)use($request){
-            return $query->module($request->query('module_id'));
-        })
-        ->when(isset($zone), function($query)use($zone){
-            return $query->whereIn('store_id', $zone->stores->pluck('id'));
-        })
-        ->when(isset($store), function($query)use($store){
-            return $query->where('store_id', $store->id);
-        })
-        ->when(count($key), function($query)use($key){
-            return $query->where(function ($q) use ($key) {
+        if (LaravelLocalization::getCurrentLocale() == 'en') {
+            $items = Item::withoutGlobalScope(StoreScope::class)->whereHas('store.module', function ($query) use ($stock_modules) {
+                $query->whereIn('module_type', $stock_modules);
+            })
+                ->when($request->query('module_id', null), function ($query) use ($request) {
+                    return $query->module($request->query('module_id'));
+                })
+                ->when(isset($zone), function ($query) use ($zone) {
+                    return $query->whereIn('store_id', $zone->stores->pluck('id'));
+                })
+                ->when(isset($store), function ($query) use ($store) {
+                    return $query->where('store_id', $store->id);
+                })
+                ->when(count($key), function ($query) use ($key) {
+                    return $query->where(function ($q) use ($key) {
+                        foreach ($key as $value) {
+                            $q->orWhere('name', 'like', "%{$value}%");
+                        }
+                    });
+                })
+                ->orderBy('stock')
+                ->paginate(config('default_pagination'))->withQueryString();
+        }
+        elseif (LaravelLocalization::getCurrentLocale() == 'ar') {
+//
+//            $items = Item::withoutGlobalScope(StoreScope::class)->where(function ($q) use ($key) {
+//                foreach ($key as $value) {
+//                    $q->where('name', 'like', "%{$value}%");
+//
+//
+//                }
+//            })->limit(50)->get();
+            $items = Translation::where(function ($q) use ($key) {
                 foreach ($key as $value) {
-                    $q->orWhere('name', 'like', "%{$value}%");
-                }
-            });
-        })
-        ->orderBy('stock')
-        ->paginate(config('default_pagination'))->withQueryString();
+                    $q->where('translationable_type', 'App\Models\Item')->where('value', 'like', "%{$value}%");
 
+
+                }
+            })->limit(50)->get();
+        }
+dd($items);
         return view('admin-views.report.stock-report', compact('zone', 'store', 'items'));
     }
 
