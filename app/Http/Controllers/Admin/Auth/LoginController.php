@@ -9,7 +9,7 @@ use Gregwar\Captcha\CaptchaBuilder;
 use Illuminate\Support\Facades\Session;
 use App\CentralLogics\Helpers;
 
-class LoginController extends Controller
+class  LoginController extends Controller
 {
     public function __construct()
     {

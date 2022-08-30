@@ -134,6 +134,7 @@ class CategoryController extends Controller
             Toastr::warning(translate('messages.remove_items_first'));
         }else{
             if ($category->childes->count()==0){
+                $category->translations()->delete();
                 $category->delete();
                 Toastr::success('Category removed!');
             }else{
