@@ -8,6 +8,7 @@ use App\Models\Item;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use App\CentralLogics\Helpers;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Rap2hpoutre\FastExcel\FastExcel;
 use Illuminate\Support\Facades\DB;
 use App\Models\Translation;
@@ -146,13 +147,31 @@ class CategoryController extends Controller
     }
 
     public function get_all(Request $request){
-        $data = Category::where('name', 'like', '%'.$request->q.'%')->limit(8)->get([DB::raw('id, CONCAT(name, " (", if(position = 0, "'.translate('messages.main').'", "'.translate('messages.sub').'"),")") as text')]);
-        if(isset($request->all))
+        if (LaravelLocalization::getCurrentLocale() == 'en') {
+
+            $data = Category::where('name', 'like', '%' . $request->q . '%')->limit(8)->get([DB::raw('id, CONCAT(name, " (", if(position = 0, "' . translate('messages.main') . '", "' . translate('messages.sub') . '"),")") as text')]);
+        }
+        elseif (LaravelLocalization::getCurrentLocale() == 'ar'){
+            $data = Category::join('translations', 'translations.translationable_id', '=', 'categories.id')
+                ->where(function ($q) use($request)  {
+
+                    $q->where('translations.translationable_type','App\Models\Category')->where('translations.value', 'like', "%{$request->q}%");
+                })
+                ->select(
+                    'categories.id as id',
+                    'translations.value as text'
+                )
+                ->limit(8)
+                ->get([DB::raw('id, CONCAT(name, " (", if(position = 0, "' . translate('messages.main') . '", "' . translate('messages.sub') . '"),")") as text')]);
+
+        }
+
+            if(isset($request->all))
         {
             $data[]=(object)['id'=>'all', 'text'=>'All'];
         }
-      $res =response()->json(Helpers::get_element_language_list('name',$data,'text'));
-        
+      $res =response()->json($data);
+
       return $res;
        // return response()->json($data);
     }
@@ -232,16 +251,36 @@ class CategoryController extends Controller
 
     public function search(Request $request){
         $key = explode(' ', $request['search']);
-        $categories=Category::
-        when($request->sub_category, function($query){
-            return $query->where('position','1');
-        })
-        ->where(function ($q) use ($key) {
-            foreach ($key as $value) {
-                $q->orWhere('name', 'like', "%{$value}%");
-            }
-        })->limit(50)->get();
+        if (LaravelLocalization::getCurrentLocale() == 'en') {
 
+            $categories = Category::
+            when($request->sub_category, function ($query) {
+                return $query->where('position', '1');
+            })
+                ->where(function ($q) use ($key) {
+                    foreach ($key as $value) {
+                        $q->orWhere('name', 'like', "%{$value}%");
+                    }
+                })->limit(50)->get();
+        }else{
+            $categories = Category::when($request->sub_category, function ($query) {
+                return $query->where('position', '1');
+            })
+                ->join('translations', 'translations.translationable_id', '=', 'categories.id')
+                ->where(function ($q) use ($key) {
+                    foreach ($key as $value) {
+                        $q->where('translations.translationable_type','App\Models\Category')->where('translations.value', 'like', "%{$value}%");
+
+
+                    }
+                })
+                ->select(
+                    'categories.*',
+                    'translations.value as name'
+                )
+                ->limit(50)->get();
+
+        }
         if($request->sub_category)
         {
             return response()->json([
