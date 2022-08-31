@@ -23,7 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ReportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ReportController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/messages.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -326,7 +329,11 @@
       <workItem from="1661524225912" duration="595000" />
       <workItem from="1661530443190" duration="156000" />
       <workItem from="1661530682315" duration="593000" />
-      <workItem from="1661695196677" duration="3058000" />
+      <workItem from="1661695196677" duration="3759000" />
+      <workItem from="1661758093061" duration="597000" />
+      <workItem from="1661771671005" duration="1228000" />
+      <workItem from="1661843385404" duration="741000" />
+      <workItem from="1661864971404" duration="1526000" />
     </task>
     <servers />
   </component>
@@ -460,7 +467,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php</url>
-          <line>155</line>
+          <line>156</line>
           <properties>
             <option name="className" value="\App\Http\Controllers\Admin\CategoryController" />
             <option name="methodName" value="update_priority" />
