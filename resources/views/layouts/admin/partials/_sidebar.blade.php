@@ -631,23 +631,23 @@
                 </li>
 
                 <!-- End Custommer -->
-                <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/customer/subscribed') ? 'active' : '' }}">
-                    <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{ route('admin.customer.subscribed') }}" title="Subscribed emails">
-                        <i class="tio-email-outlined nav-icon"></i>
-                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                            {{ translate('messages.subscribed_mail_list') }}
-                        </span>
-                    </a>
-                </li>
+{{--                <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/customer/subscribed') ? 'active' : '' }}">--}}
+{{--                    <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{ route('admin.customer.subscribed') }}" title="Subscribed emails">--}}
+{{--                        <i class="tio-email-outlined nav-icon"></i>--}}
+{{--                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">--}}
+{{--                            {{ translate('messages.subscribed_mail_list') }}--}}
+{{--                        </span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/customer/settings') ? 'active' : '' }}">
                     <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{ route('admin.customer.settings') }}" title="{{ __('messages.Customer') }} {{ __('messages.settings') }}">
                         <i class="tio-settings nav-icon"></i>
                         <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
                             @if(App::getLocale() == 'en')
-                             
+
                             @else
                             {{ __('messages.settings') }}  {{ __('messages.Customer') }}
-                            @endif 
+                            @endif
                         </span>
                     </a>
                 </li>
@@ -712,9 +712,9 @@
                         <i class="tio-notifications nav-icon"></i>
                         <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
                             @if(App::getLocale() == 'en')
-                            
+
                             @else
-                            {{ translate('messages.notification') }} {{ translate('messages.push') }} 
+                            {{ translate('messages.notification') }} {{ translate('messages.push') }}
                             @endif
                         </span>
                     </a>
