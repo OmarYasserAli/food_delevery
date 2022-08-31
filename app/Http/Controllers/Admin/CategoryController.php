@@ -150,7 +150,10 @@ class CategoryController extends Controller
         {
             $data[]=(object)['id'=>'all', 'text'=>'All'];
         }
-        return response()->json($data);
+      $res =response()->json(Helpers::get_element_language_list('name',$data,'text'));
+        
+      return $res;
+       // return response()->json($data);
     }
 
     public function update_priority(Category $category, Request $request)

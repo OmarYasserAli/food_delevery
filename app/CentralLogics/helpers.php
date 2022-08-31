@@ -1563,7 +1563,7 @@ class Helpers
             return Str::limit($modale[$attribute], 20,'...');
         {
 
-        }
+        } 
     }
     public static function get_element_language_list($key,$modales,$attribute){
         if(1)
@@ -1576,6 +1576,13 @@ class Helpers
             }
             elseif(LaravelLocalization::getCurrentLocale() == 'ar' ){
                 foreach ($modales as $k => $modale) {
+                    if($modale->id =='all') {
+                        $temp['id']='all';
+                        $temp[$attribute]=translate('messages.all_categories');
+                        array_push($result, $temp);
+                        continue;
+                    }
+                   
                     if(count($modale->translations()->where('key',$key)->get()) > 0){
                         $temp['id']=$modale->id;
                         $temp[$attribute]=Str::limit($modale->translations()->where('key',$key)->first()->value, 20,'...');

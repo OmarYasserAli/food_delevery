@@ -562,7 +562,7 @@ class ItemController extends Controller
 
     public function search(Request $request)
     {
-
+        
         $key = explode(' ', $request['search']);
         if (LaravelLocalization::getCurrentLocale() == 'en') {
 
@@ -570,38 +570,48 @@ class ItemController extends Controller
             foreach ($key as $value) {
                 $q->where('name', 'like', "%{$value}%");
             }
-        })->limit(50)->get();
+        })->limit(50)->get(); 
+       
             return response()->json([
                 'count' => count($items),
                 'view' => view('admin-views.product.partials._table', compact('items'))->render()
             ]);
         }elseif (LaravelLocalization::getCurrentLocale() == 'ar'){
-//
-//            $items = Item::withoutGlobalScope(StoreScope::class)->where(function ($q) use ($key) {
-//                foreach ($key as $value) {
-//                    $q->where('name', 'like', "%{$value}%");
-//
-//
-//                }
-//            })->limit(50)->get();
-            $items =  Translation::where(function ($q) use ($key) {
+            
+          
+            $translations =  Translation::where(function ($q) use ($key) {
                 foreach ($key as $value) {
                     $q->where('translationable_type','App\Models\Item')->where('value', 'like', "%{$value}%");
 
 
                 }
-            })->limit(50)->get();
+            })->get()->pluck('translationable_id')->toArray();
+
+            $items = Item::withoutGlobalScope(StoreScope::class)
+            ->join('translations', 'translations.translationable_id', '=', 'items.id')
+            ->where(function ($q) use ($key) {
+                foreach ($key as $value) {
+                    $q->where('translations.translationable_type','App\Models\Item')->where('translations.value', 'like', "%{$value}%");
 
 
-//            $items = $items->()->where('key','name')->get()->value;
-
-
-            return response()->json([
-                'count' => count($items),
-                'view' => view('admin-views.product.partials._table', compact('items'))->render()
-            ]);
+                }
+            })    
+            ->select(
+                'items.*',
+                'translations.value as name'
+                )
+            ->limit(50)->get();
+           
+        
+           
+           
+return response()->json([
+    'count' => count($items),
+    'view' => view('admin-views.product.partials._table', compact('items'))->render()
+]);
 
         }
+       
 
     }
 
