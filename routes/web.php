@@ -19,7 +19,7 @@ Route::get('/clear-cache',function(){
     // Artisan::call('jwt:secret');
     return "cache clear";
 });
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'Admin\Auth\LoginController@login')->name('home');
 Route::get('terms-and-conditions', 'HomeController@terms_and_conditions')->name('terms-and-conditions');
 Route::get('about-us', 'HomeController@about_us')->name('about-us');
 Route::get('contact-us', 'HomeController@contact_us')->name('contact-us');
