@@ -9,6 +9,7 @@ use App\Models\Zone;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use App\Scopes\StoreScope;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class ReportController extends Controller
 {
@@ -74,8 +75,9 @@ class ReportController extends Controller
         $stock_modules = array_keys(array_filter(config('module'), function($var){
                 if(isset($var['stock']) && $var['stock']) return $var;
             }));
-        $key = isset($request['search'])?explode(' ', $request['search']):[];
 
+        $key = isset($request['search'])?explode(' ', $request['search']):[];
+        if (LaravelLocalization::getCurrentLocale() == 'en') {
         $items = Item::withoutGlobalScope(StoreScope::class)->whereHas('store.module', function($query)use($stock_modules){
             $query->whereIn('module_type', $stock_modules);
         })
@@ -97,7 +99,35 @@ class ReportController extends Controller
         })
         ->orderBy('stock')
         ->paginate(config('default_pagination'))->withQueryString();
+        }elseif (LaravelLocalization::getCurrentLocale() == 'ar'){
+            $items = Item::withoutGlobalScope(StoreScope::class)->whereHas('store.module', function($query)use($stock_modules){
+                $query->whereIn('module_type', $stock_modules);
+            })
+                ->when($request->query('module_id', null), function($query)use($request){
+                    return $query->module($request->query('module_id'));
+                })
+                ->when(isset($zone), function($query)use($zone){
+                    return $query->whereIn('store_id', $zone->stores->pluck('id'));
+                })
+                ->when(isset($store), function($query)use($store){
+                    return $query->where('store_id', $store->id);
+                })
+                ->join('translations', 'translations.translationable_id', '=', 'items.id')
+                ->where(function ($q) use ($key) {
+                    foreach ($key as $value) {
+                        $q->where('translations.translationable_type','App\Models\Item')->where('translations.value', 'like', "%{$value}%");
 
+
+                    }
+                })
+                ->select(
+                    'items.*',
+                    'translations.value as name'
+                )
+
+                ->orderBy('stock')
+                ->paginate(config('default_pagination'))->withQueryString();
+        }
         return view('admin-views.report.stock-report', compact('zone', 'store', 'items'));
     }
 
