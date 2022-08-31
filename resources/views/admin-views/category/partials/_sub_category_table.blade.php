@@ -4,7 +4,8 @@
         <td>{{$category->id}}</td>
         <td>
             <span class="d-block font-size-sm text-body">
-                {{Str::limit($category->parent['name'],20, '...')}}
+{{--                {{Str::limit($category->parent['name'],20, '...')}}--}}
+                {{\App\CentralLogics\Helpers::get_element_language('name',$category->parent,'name')}}
             </span>
         </td>
         <td>
@@ -22,7 +23,7 @@
         </td>
         <td style="width:max-content;">
             <form action="{{route('admin.category.priority',$category->id)}}">
-            <select name="priority" id="priority" onchange="this.form.submit()"> 
+            <select name="priority" id="priority" onchange="this.form.submit()">
                 <option value="0" {{$category->priority == 0?'selected':''}}>{{translate('messages.normal')}}</option>
                 <option value="1" {{$category->priority == 1?'selected':''}}>{{translate('messages.medium')}}</option>
                 <option value="2" {{$category->priority == 2?'selected':''}}>{{translate('messages.high')}}</option>
