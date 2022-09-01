@@ -15,7 +15,7 @@ use App\CentralLogics\ProductLogic;
 use Rap2hpoutre\FastExcel\FastExcel;
 use Illuminate\Support\Facades\DB;
 use App\Models\Translation;
-
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 class ItemController extends Controller
 {
     public function index()
@@ -25,7 +25,19 @@ class ItemController extends Controller
             Toastr::warning(translate('messages.permission_denied'));
             return back();
         }
-        $categories = Category::where(['position' => 0])->module(Helpers::get_store_data()->module_id)->get();
+        
+        if (LaravelLocalization::getCurrentLocale() == 'ar')
+            $categories = Category::where(['position' => 0])
+                ->join('translations', 'translations.translationable_id', '=', 'categories.id')
+                ->module(Helpers::get_store_data()->module_id)
+                ->select(
+                    'categories.*',
+                    'translations.value as name'
+                    )->get();
+        else
+            $categories = Category::where(['position' => 0])->module(Helpers::get_store_data()->module_id)->get();
+           
+
         $module_data = config('module.'. Helpers::get_store_data()->module->module_type);
         return view('vendor-views.product.index', compact('categories','module_data'));
     }
@@ -442,7 +454,19 @@ class ItemController extends Controller
 
     public function get_categories(Request $request)
     {
+       $lang= LaravelLocalization::getCurrentLocale();
+       if(isset($request->lang))
+             $lang = $request->lang;
         $cat = Category::where(['parent_id' => $request->parent_id])->get();
+         if ($lang == 'ar')
+            $cat = Category::where(['parent_id' => $request->parent_id])
+                ->join('translations', 'translations.translationable_id', '=', 'categories.id')
+                ->select(
+                    'categories.*',
+                    'translations.value as name'
+                    )->get();
+        else
+            $cat = Category::where(['parent_id' => $request->parent_id])->get();
         $res = '<option value="' . 0 . '" disabled selected>---Select---</option>';
         foreach ($cat as $row) {
             if ($row->id == $request->sub_category) {

@@ -24,7 +24,8 @@ use App\Models\Translation;
 class ItemController extends Controller
 {
     public function index()
-    {
+    {   
+        
         $categories = Category::where(['position' => 0])->get();
         return view('admin-views.product.index', compact('categories'));
     }
@@ -592,8 +593,6 @@ class ItemController extends Controller
             ->where(function ($q) use ($key) {
                 foreach ($key as $value) {
                     $q->where('translations.translationable_type','App\Models\Item')->where('translations.value', 'like', "%{$value}%");
-
-
                 }
             })    
             ->select(

@@ -13,6 +13,7 @@
         "doctrine/dbal": "^3.3",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
+        "genealabs/laravel-sign-in-with-apple": "*",
         "gregwar/captcha": "^1.1",
         "grimzy/laravel-mysql-spatial": "5.0",
         "guzzlehttp/guzzle": "^7.0.1",

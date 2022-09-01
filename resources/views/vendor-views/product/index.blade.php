@@ -121,7 +121,7 @@
                                 <label class="input-label" for="exampleFormControlSelect1">{{translate('messages.category')}}<span
                                         class="input-label-secondary">*</span></label>
                                 <select name="category_id" class="form-control js-select2-custom"
-                                        onchange="getRequest('{{url('/')}}/vendor-panel/item/get-categories?parent_id='+this.value,'sub-categories')">
+                                        onchange="getRequest('{{url('/')}}/vendor-panel/item/get-categories?parent_id='+this.value+'&lang='+'{{LaravelLocalization::getCurrentLocale()}}','sub-categories')">
                                     <option value="">---{{translate('messages.select')}}---</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category['id']}}">{{$category['name']}}</option>
