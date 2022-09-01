@@ -395,7 +395,9 @@
 
         $('#category_id').select2({
             ajax: {
-                url: '{{url('/')}}/admin/item/get-categories?parent_id=0',
+               // url: '{{url('/')}}/admin/item/get-categories?parent_id=0',
+                url: "{{route('admin.item.get-categories')}}?parent_id=0",
+
                 data: function (params) {
                     return {
                         q: params.term, // search term
@@ -424,7 +426,8 @@
 
         $('#sub-categories').select2({
             ajax: {
-                url: '{{url('/')}}/admin/item/get-categories',
+                //url: '{{url('/')}}/admin/item/get-categories',
+                 url: "{{route('admin.item.get-categories')}}",
                 data: function (params) {
                     return {
                         q: params.term, // search term
