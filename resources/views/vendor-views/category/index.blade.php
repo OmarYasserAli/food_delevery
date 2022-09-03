@@ -63,6 +63,7 @@
                                         <td>
                                         <span class="d-block font-size-sm text-body">
                                             {{Str::limit($category['name'],20,'...')}}
+
                                         </span>
                                         </td>
                                     </tr>
@@ -73,7 +74,7 @@
                     </div>
                     <div class="card-footer page-area">
                         <!-- Pagination -->
-                        <div class="row justify-content-center justify-content-sm-between align-items-sm-center"> 
+                        <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
                             <div class="col-sm-auto">
                                 <div class="d-flex justify-content-center justify-content-sm-end">
                                     <!-- Pagination -->

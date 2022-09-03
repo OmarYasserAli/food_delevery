@@ -30,7 +30,7 @@
                     <a href="{{route('vendor.item.add-new')}}" class="btn btn-primary pull-right"><i
                                 class="tio-add-circle"></i> {{translate('messages.add')}} {{translate('messages.new')}} {{translate('messages.item')}}</a>
                 </div>
-                
+
             </div>
         </div>
         <!-- End Page Header -->
@@ -62,7 +62,7 @@
                                 <!-- Unfold -->
                                 <div class="hs-unfold mr-2" style="width: 306px;">
                                     <select name="category_id" id="category" onchange="set_filter('{{url()->full()}}',this.value, 'category_id')" data-placeholder="{{translate('messages.select_category')}}" class="js-data-example-ajax form-control">
-                                        @if($category)    
+                                        @if($category)
                                             <option value="{{$category->id}}" selected>{{$category->name}} ({{$category->position == 0?translate('messages.main'):translate('messages.sub')}})</option>
                                         @else
                                             <option value="all" selected>{{translate('messages.all_categories')}}</option>
@@ -119,7 +119,7 @@
                                                 </label>
                                             <!-- End Checkbox Switch -->
                                             </div>
-                                        
+
                                             <div class="d-flex justify-content-between align-items-center mb-3">
                                                 <span class="mr-2">Stock</span>
 
@@ -203,15 +203,17 @@
                                     <td>{{$key+$items->firstItem()}}</td>
                                     <td>
                                         <a class="media align-items-center" href="{{route('vendor.item.view',[$item['id']])}}">
-                                            <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/product')}}/{{$item['image']}}" 
+                                            <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/public/product')}}/{{$item['image']}}"
                                                  onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'" alt="{{$item->name}} image">
                                             <div class="media-body">
-                                                <h5 class="text-hover-primary mb-0">{{Str::limit($item['name'],20,'...')}}</h5>
+                                                <h5 class="text-hover-primary mb-0">{{\App\CentralLogics\Helpers::get_element_language('name',$item,'name')}}</h5>
                                             </div>
                                         </a>
                                     </td>
                                     <td>
-                                    {{Str::limit($item->category?$item->category->name:translate('messages.category_deleted'),20,'...')}}
+                                        {{\App\CentralLogics\Helpers::get_element_language('name',$item->category,'name')}}
+
+{{--                                        {{Str::limit($item->category?$item->category->name:translate('messages.category_deleted'),20,'...')}}--}}
                                     </td>
                                     <td>{{($item['price'])}}</td>
                                     <td>
@@ -283,7 +285,7 @@
 
 <script>
     function update_quantity(val) {
-     
+
         $.get({
             url: '{{url('/')}}/vendor-panel/item/get-variations?id='+val,
             dataType: 'json',

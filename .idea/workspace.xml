@@ -24,8 +24,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/vendor/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/vendor/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Vendor/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Vendor/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Vendor/ItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Vendor/ItemController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/module/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/module/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor-views/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor-views/category/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor-views/category/sub-index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor-views/category/sub-index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor-views/product/stock_limit_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor-views/product/stock_limit_list.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,16 +250,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/installation/backup" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Api/V2" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/installation" />
       <recent name="$PROJECT_DIR$/installation/backup" />
       <recent name="$PROJECT_DIR$/public/assets/landing/image" />
       <recent name="$PROJECT_DIR$/routes" />
       <recent name="$PROJECT_DIR$/resources/views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/installation/backup" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Api/V2" />
     </key>
   </component>
   <component name="RunManager">
@@ -336,7 +341,9 @@
       <workItem from="1661927576678" duration="6275000" />
       <workItem from="1661950084403" duration="2888000" />
       <workItem from="1662016893619" duration="1623000" />
-      <workItem from="1662030833292" duration="1376000" />
+      <workItem from="1662030833292" duration="3493000" />
+      <workItem from="1662134206975" duration="197000" />
+      <workItem from="1662218426593" duration="3450000" />
     </task>
     <servers />
   </component>
@@ -359,10 +366,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1661933533915">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1662223248376">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1661933533915" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1662223248376" />
     <state x="530" y="277" key="VCS.ChangelistChooser" timestamp="1660808405722">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -399,12 +406,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php</url>
-          <line>727</line>
+          <line>722</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php</url>
-          <line>932</line>
+          <line>927</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -431,6 +438,11 @@
           <url>file://$PROJECT_DIR$/resources/views/admin-views/pos/order/invoice.blade.php</url>
           <line>22</line>
           <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/Vendor/ItemController.php</url>
+          <line>593</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/Auth/CustomerAuthController.php</url>
@@ -467,6 +479,15 @@
             <option name="methodName" value="get_customers" />
           </properties>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/ItemController.php</url>
+          <line>224</line>
+          <properties>
+            <option name="className" value="\App\Http\Controllers\Admin\ItemController" />
+            <option name="methodName" value="update" />
+          </properties>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

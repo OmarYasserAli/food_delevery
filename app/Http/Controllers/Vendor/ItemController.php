@@ -25,7 +25,7 @@ class ItemController extends Controller
             Toastr::warning(translate('messages.permission_denied'));
             return back();
         }
-        
+
         $categories = Helpers::model_join_translation(Category::where(['position' => 0])->module(Helpers::get_store_data()->module_id), 0);
         $module_data = config('module.'. Helpers::get_store_data()->module->module_type);
         return view('vendor-views.product.index', compact('categories','module_data'));
@@ -54,7 +54,7 @@ class ItemController extends Controller
         ], [
             'name.0.required' => translate('messages.item_name_required'),
             'category_id.required' => translate('messages.category_required'),
-            'description.*.max' => translate('messages.description_length_warning'),   
+            'description.*.max' => translate('messages.description_length_warning'),
         ]);
 
         if ($request['discount_type'] == 'percent') {
@@ -215,7 +215,7 @@ class ItemController extends Controller
        
         $product_category = json_decode($product->category_ids);
         $categories = Helpers::model_join_translation(Category::where(['parent_id' => 0])->module(Helpers::get_store_data()->module_id));
-      
+
         $module_data = config('module.'. Helpers::get_store_data()->module->module_type);
         return view('vendor-views.product.edit', compact('product', 'product_category', 'categories','module_data'));
     }
@@ -256,7 +256,7 @@ class ItemController extends Controller
         ], [
             'name.0.required' => translate('messages.item_name_required'),
             'category_id.required' => translate('messages.category_required'),
-            'description.*.max' => translate('messages.description_length_warning'),   
+            'description.*.max' => translate('messages.description_length_warning'),
         ]);
 
         if ($request['discount_type'] == 'percent') {
@@ -352,7 +352,7 @@ class ItemController extends Controller
                 $image = Helpers::upload('product/', 'png', $img);
                 array_push($images, $image);
             }
-        } 
+        }
         $p->variations = json_encode($variations);
         $p->price = $request->price;
         $p->veg = $request->veg??0;
@@ -472,7 +472,7 @@ class ItemController extends Controller
         })
         ->type($type)->latest();
         $items = Helpers::model_join_translation($q, 1);
-        $category =$category_id !='all'? Category::findOrFail($category_id):null;   
+        $category =$category_id !='all'? Category::findOrFail($category_id):null;
         return view('vendor-views.product.list', compact('items', 'category', 'type'));
     }
 
@@ -497,6 +497,8 @@ class ItemController extends Controller
             'view'=>view('vendor-views.product.partials._table',compact('items'))->render()
         ]);
     }
+
+
 
     public function remove_image(Request $request)
     {
@@ -628,7 +630,7 @@ class ItemController extends Controller
             });
         })
         ->type($type)->latest()->paginate(config('default_pagination'));
-        $category =$category_id !='all'? Category::findOrFail($category_id):null;  
+        $category =$category_id !='all'? Category::findOrFail($category_id):null;
         return view('vendor-views.product.stock_limit_list', compact('items', 'category', 'type'));
 
     }
@@ -664,7 +666,7 @@ class ItemController extends Controller
         $product->save();
         Toastr::success(translate("messages.product_updated_successfully"));
         return back();
-        
-        
+
+
     }
 }

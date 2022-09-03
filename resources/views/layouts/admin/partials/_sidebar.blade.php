@@ -354,12 +354,7 @@
                             <li class="navbar-item {{ Request::is('admin/vendor/list') ? 'active' : '' }}">
                                 <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{ route('admin.vendor.list') }}" title="{{ translate('messages.store') }} {{ translate('messages.list') }}">
                                     <span class="tio-circle nav-indicator-icon"></span>
-                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                        @if(App::getLocale() == 'en')
-                                         {{ translate('messages.stores') }} {{ translate('list') }}
-                                        @else
-                                         {{ translate('list') }} {{ translate('messages.stores') }}
-                                        @endif
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">@if(App::getLocale() == 'en'){{ translate('messages.stores') }} @else{{ translate('messages.stores') }}@endif
                                     </span>
                                 </a>
                             </li>
