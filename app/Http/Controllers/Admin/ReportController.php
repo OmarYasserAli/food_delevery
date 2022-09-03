@@ -10,7 +10,7 @@ use App\Models\Store;
 use Illuminate\Http\Request;
 use App\Scopes\StoreScope;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
+use App\CentralLogics\Helpers;
 class ReportController extends Controller
 {
     public function order_index()
@@ -155,23 +155,53 @@ class ReportController extends Controller
         $store_id = $request->query('store_id', 'all');
         $zone = is_numeric($zone_id)?Zone::findOrFail($zone_id):null;
         $store = is_numeric($store_id)?Store::findOrFail($store_id):null;
-        $items = \App\Models\Item::withoutGlobalScope(StoreScope::class)->withCount([
-            'orders as order_count' => function($query)use($from, $to) {
-                $query->whereBetween('created_at', [$from, $to]);
-            },
-        ])
-        ->when(isset($zone), function($query)use($zone){
-            return $query->whereIn('store_id', $zone->stores->pluck('id'));
-        })
-        ->when(isset($store), function($query)use($store){
-            return $query->where('store_id', $store->id);
-        })
-        ->where(function ($q) use ($key) {
-            foreach ($key as $value) {
-                $q->orWhere('name', 'like', "%{$value}%");
-            }
-        })
-        ->limit(25)->get();
+        
+        if(LaravelLocalization::getCurrentLocale() == 'en'){
+            $items = \App\Models\Item::withoutGlobalScope(StoreScope::class)->withCount([
+                    'orders as order_count' => function($query)use($from, $to) {
+                        $query->whereBetween('created_at', [$from, $to]);
+                    },
+                ])
+                ->when(isset($zone), function($query)use($zone){
+                    return $query->whereIn('store_id', $zone->stores->pluck('id'));
+                })
+                ->when(isset($store), function($query)use($store){
+                    return $query->where('store_id', $store->id);
+                })
+                ->where(function ($q) use ($key) {
+                    foreach ($key as $value) {
+                        $q->orWhere('name', 'like', "%{$value}%");
+                    }
+                })
+                ->limit(25)->get();
+        }else{
+            $items = \App\Models\Item::withoutGlobalScope(StoreScope::class)->withCount([
+                    'orders as order_count' => function($query)use($from, $to) {
+                        $query->whereBetween('created_at', [$from, $to]);
+                    },
+                ])
+                ->join('translations', 'translations.translationable_id', '=', 'items.id') 
+                ->when(isset($zone), function($query)use($zone){
+                    return $query->whereIn('store_id', $zone->stores->pluck('id'));
+                })
+                ->when(isset($store), function($query)use($store){
+                    return $query->where('store_id', $store->id);
+                })
+                ->where(function ($q) use ($key) {
+                    foreach ($key as $value) {
+                       
+                         $q->orWhere('translations.translationable_type','App\Models\Item')->where('translations.value', 'like', "%{$value}%");
+                    }
+                })
+                ->select(
+                    'items.*',
+                    'translations.value as name'
+                )
+                ->limit(25)->get();
+
+
+        }
+        
 
         return response()->json(['count'=>count($items),
             'view'=>view('admin-views.report.partials._item_table',compact('items'))->render()

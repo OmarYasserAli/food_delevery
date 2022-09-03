@@ -11,9 +11,9 @@
             </a>
         </td>
         <td>
-        {{Str::limit($item->restaurant->name,25,'...')}}
+        {{Str::limit($item->store->name,25,'...')}}
         </td>
-        <td>{{$item->restaurant->zone->name}}</td>
+        <td>{{$item->store->zone->name}}</td>
         <td>
             {{$item->order_count}}
         </td>

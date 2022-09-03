@@ -270,8 +270,6 @@ class CategoryController extends Controller
                 ->where(function ($q) use ($key) {
                     foreach ($key as $value) {
                         $q->where('translations.translationable_type','App\Models\Category')->where('translations.value', 'like', "%{$value}%");
-
-
                     }
                 })
                 ->select(

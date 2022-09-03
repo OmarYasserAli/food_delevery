@@ -212,7 +212,7 @@ class ItemController extends Controller
         }
 
         $product =Helpers::model_join_translation(Item::withoutGlobalScope('translate'),-1)->findOrFail($id);
-       // dd($product);
+       
         $product_category = json_decode($product->category_ids);
         $categories = Helpers::model_join_translation(Category::where(['parent_id' => 0])->module(Helpers::get_store_data()->module_id));
       
