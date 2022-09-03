@@ -18,6 +18,9 @@
 
     @if(LaravelLocalization::getCurrentLocale() == 'ar')
         <link rel="stylesheet" href="{{asset('public/assets/admin/css/theme.minc619-ar.css?v=1.0')}}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
     @else
         <link rel="stylesheet" href="{{asset('public/assets/admin/css/theme.minc619.css?v=1.0')}}">
     @endif
@@ -91,7 +94,14 @@
             cursor: pointer;
         }
     </style>
+    @if(LaravelLocalization::getCurrentLocale() == 'ar')
+        <style>
+            body{
+                font-family: 'Cairo', sans-serif !important;
 
+            }
+        </style>
+    @endif
     <script src="{{asset('public/assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
     <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/toastr.css">
 </head>
