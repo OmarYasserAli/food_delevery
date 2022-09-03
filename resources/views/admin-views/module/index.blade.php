@@ -84,7 +84,7 @@
                                             {!!  Str::limit($module->translations()->where('key','description')->first()->value, 20,'...')  !!}
 
                                         @else
-                                            <p>لا يوجد</p>
+                                            <p> {{Str::limit($module['module_type'], 20,'...')}}</p>
                                         @endif
 
                                     </span>

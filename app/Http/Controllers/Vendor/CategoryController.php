@@ -8,23 +8,45 @@ use App\Models\Category;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class CategoryController extends Controller
 {
     function index()
     {
-       
+
         $categories=  Helpers::model_join_translation(Category::where(['position'=>0])->module(Helpers::get_store_data()->module_id)->latest(), 1);
         return view('vendor-views.category.index',compact('categories'));
     }
 
     public function get_all(Request $request){
-        $data = Category::where('name', 'like', '%'.$request->q.'%')->module(Helpers::get_store_data()->module_id)->limit(8)->get([DB::raw('id, CONCAT(name, " (", if(position = 0, "'.translate('messages.main').'", "'.translate('messages.sub').'"),")") as text')]);
+        if (LaravelLocalization::getCurrentLocale() == 'en') {
+
+            $data = Category::where('name', 'like', '%' . $request->q . '%')->module(Helpers::get_store_data()->module_id)->limit(8)->get([DB::raw('id, CONCAT(name, " (", if(position = 0, "' . translate('messages.main') . '", "' . translate('messages.sub') . '"),")") as text')]);
+        }
+        elseif (LaravelLocalization::getCurrentLocale() == 'ar'){
+            $data = Category::join('translations', 'translations.translationable_id', '=', 'categories.id')
+                ->where(function ($q) use($request)  {
+
+                    $q->where('translations.translationable_type','App\Models\Category')->where('translations.value', 'like', "%{$request->q}%");
+                })
+                ->select(
+                    'categories.id as id',
+                    'translations.value as text'
+                )->module(Helpers::get_store_data()->module_id)
+                ->limit(8)
+                ->get([DB::raw('id, CONCAT(name, " (", if(position = 0, "' . translate('messages.main') . '", "' . translate('messages.sub') . '"),")") as text')]);
+
+        }
+
         if(isset($request->all))
         {
             $data[]=(object)['id'=>'all', 'text'=>'All'];
         }
-        return response()->json($data);
+        $res =response()->json($data);
+
+        return $res;
+        // return response()->json($data);
     }
 
     function sub_index()
@@ -48,5 +70,5 @@ class CategoryController extends Controller
             'view'=>view('vendor-views.category.partials._table',compact('categories'))->render(),
             'count'=>$categories->count()
         ]);
-    } 
+    }
 }
