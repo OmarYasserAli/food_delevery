@@ -24,7 +24,7 @@ class POSController extends Controller
         $category = $request->query('category_id', 0);
         $module_id = $request->query('module_id', null);
         $store_id = $request->query('store_id', null);
-        $categories = Category::active()->module($module_id)->get();
+        $categories =  Helpers::model_join_translation(Category::active()->module($module_id));
         $store = Store::active()->find($store_id);
         $keyword = $request->query('keyword', false);
         $key = explode(' ', $keyword);
@@ -36,7 +36,7 @@ class POSController extends Controller
             }
         }
 
-        $products = Item::withoutGlobalScope(StoreScope::class)->active()
+        $products = Helpers::model_join_translation(Item::withoutGlobalScope(StoreScope::class)->active()
         ->when($category, function($query)use($category){
             $query->whereHas('category',function($q)use($category){
                 return $q->whereId($category)->orWhere('parent_id', $category);
@@ -52,7 +52,7 @@ class POSController extends Controller
         ->whereHas('store', function($query)use($store_id, $module_id){
             return $query->where(['id'=>$store_id, 'module_id'=>$module_id]);
         })
-        ->latest()->paginate(10);
+        ->latest(),10);
         return view('admin-views.pos.index', compact('categories', 'products','category', 'keyword', 'store', 'module_id'));
     }
 

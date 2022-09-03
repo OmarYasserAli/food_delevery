@@ -258,10 +258,11 @@
                             <div class="col-sm-6 col-12 mb-2">
                                 <select name="module_id" class="form-control js-select2-custom" onchange="set_filter('{{url()->full()}}',this.value,'module_id')" title="{{translate('messages.select')}} {{translate('messages.modules')}}">
                                     <option value="" {{!request('module_id') ? 'selected':''}}>{{translate('messages.select_a_module')}}</option>
-                                    @foreach (\App\Models\Module::notParcel()->get() as $module)
+                                    @foreach (App\CentralLogics\Helpers::model_join_translation(\App\Models\Module::notParcel()) as $module)
+
                                         <option
                                             value="{{$module->id}}" {{request('module_id') == $module->id?'selected':''}}>
-                                            {{$module['module_name']}}
+                                            {{$module->name}}
                                         </option>
                                     @endforeach
                                 </select>

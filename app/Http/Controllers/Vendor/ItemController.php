@@ -26,18 +26,7 @@ class ItemController extends Controller
             return back();
         }
         
-        if (LaravelLocalization::getCurrentLocale() == 'ar')
-            $categories = Category::where(['position' => 0])
-                ->join('translations', 'translations.translationable_id', '=', 'categories.id')
-                ->module(Helpers::get_store_data()->module_id)
-                ->select(
-                    'categories.*',
-                    'translations.value as name'
-                    )->get();
-        else
-            $categories = Category::where(['position' => 0])->module(Helpers::get_store_data()->module_id)->get();
-           
-
+        $categories = Helpers::model_join_translation(Category::where(['position' => 0])->module(Helpers::get_store_data()->module_id), 0);
         $module_data = config('module.'. Helpers::get_store_data()->module->module_type);
         return view('vendor-views.product.index', compact('categories','module_data'));
     }
@@ -222,9 +211,11 @@ class ItemController extends Controller
             return back();
         }
 
-        $product = Item::withoutGlobalScope('translate')->findOrFail($id);
+        $product =Helpers::model_join_translation(Item::withoutGlobalScope('translate'),-1)->findOrFail($id);
+       // dd($product);
         $product_category = json_decode($product->category_ids);
-        $categories = Category::where(['parent_id' => 0])->module(Helpers::get_store_data()->module_id)->get();
+        $categories = Helpers::model_join_translation(Category::where(['parent_id' => 0])->module(Helpers::get_store_data()->module_id));
+      
         $module_data = config('module.'. Helpers::get_store_data()->module->module_type);
         return view('vendor-views.product.edit', compact('product', 'product_category', 'categories','module_data'));
     }
@@ -454,19 +445,8 @@ class ItemController extends Controller
 
     public function get_categories(Request $request)
     {
-       $lang= LaravelLocalization::getCurrentLocale();
-       if(isset($request->lang))
-             $lang = $request->lang;
-        $cat = Category::where(['parent_id' => $request->parent_id])->get();
-         if ($lang == 'ar')
-            $cat = Category::where(['parent_id' => $request->parent_id])
-                ->join('translations', 'translations.translationable_id', '=', 'categories.id')
-                ->select(
-                    'categories.*',
-                    'translations.value as name'
-                    )->get();
-        else
-            $cat = Category::where(['parent_id' => $request->parent_id])->get();
+
+        $cat = Helpers::model_join_translation(Category::where(['parent_id' => $request->parent_id]));
         $res = '<option value="' . 0 . '" disabled selected>---Select---</option>';
         foreach ($cat as $row) {
             if ($row->id == $request->sub_category) {
@@ -484,24 +464,35 @@ class ItemController extends Controller
     {
         $category_id = $request->query('category_id', 'all');
         $type = $request->query('type', 'all');
-        $items = Item::
+        $q = Item::
         when(is_numeric($category_id), function($query)use($category_id){
             return $query->whereHas('category',function($q)use($category_id){
                 return $q->whereId($category_id)->orWhere('parent_id', $category_id);
             });
         })
-        ->type($type)->latest()->paginate(config('default_pagination'));
+        ->type($type)->latest();
+        $items = Helpers::model_join_translation($q, 1);
         $category =$category_id !='all'? Category::findOrFail($category_id):null;   
         return view('vendor-views.product.list', compact('items', 'category', 'type'));
     }
 
     public function search(Request $request){
+
         $key = explode(' ', $request['search']);
-        $items=Item::where(function ($q) use ($key) {
+        $q=Item::where(function ($q) use ($key) {
             foreach ($key as $value) {
                 $q->where('name', 'like', "%{$value}%");
             }
-        })->limit(50)->get();
+        });
+        if(LaravelLocalization::getCurrentLocale() == 'ar'){
+           $q= $q->orWhere(function ($q) use ($key) {
+            foreach ($key as $value) {
+                $q->where('translationable_type','App\Models\Item')
+                ->where('translations.value', 'like', "%{$value}%");
+            }
+        });
+        }
+        $items = Helpers::model_join_translation($q);
         return response()->json([
             'view'=>view('vendor-views.product.partials._table',compact('items'))->render()
         ]);

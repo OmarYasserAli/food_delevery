@@ -210,7 +210,8 @@
                                         </a>
                                     </td>
                                     <td>
-                                    {{Str::limit($item->category?$item->category->name:translate('messages.category_deleted'),20,'...')}}
+                                        {{\App\CentralLogics\Helpers::get_element_language("name",$item->category,"name")}}
+                                    <!-- {{Str::limit($item->category?$item->category->name:translate('messages.category_deleted'),20,'...')}} -->
                                     </td>
                                     <td>{{($item['price'])}}</td>
                                     <td>

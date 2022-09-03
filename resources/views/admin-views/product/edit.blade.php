@@ -163,7 +163,9 @@
                                         class="input-label-secondary">*</span></label>
                                 <select name="category_id" class="js-data-example-ajax form-control" id="category_id" onchange="categoryChange(this.value)">
                                     @if($category)
-                                        <option value="{{$category['id']}}" >{{$category['name']}}</option>
+                                        <option value="{{$category['id']}}" >  
+                                       {{App\CentralLogics\Helpers::get_element_language('name',$category,'name') }}
+                                   </option>
                                     @endif
                                 </select>
                             </div>
@@ -174,7 +176,9 @@
                                         class="input-label-secondary" title="{{translate('messages.category_required_warning')}}"><img src="{{asset('/public/assets/admin/img/info-circle.svg')}}" alt="{{translate('messages.category_required_warning')}}"></span></label>
                                 <select name="sub_category_id" class="js-data-example-ajax form-control" id="sub-categories">
                                     @if(isset($sub_category))
-                                    <option value="{{$sub_category['id']}}" >{{$sub_category['name']}}</option>
+                                    <option value="{{$sub_category['id']}}" >
+                                     {{App\CentralLogics\Helpers::get_element_language('name',$sub_category,'name') }}
+                                 </option>
                                     @endif
                                 </select>
                             </div>

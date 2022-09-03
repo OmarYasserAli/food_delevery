@@ -1608,4 +1608,30 @@ class Helpers
       }
   }
 
+
+   public static function model_join_translation( $query , $paginate=0){
+  
+        $table = $query->getModel() ->getTable();
+
+      if (LaravelLocalization::getCurrentLocale() == 'ar')
+            $result = $query  ->join('translations', 'translations.translationable_id', '=', "{$table}.id")
+                    ->select(
+                    "{$table}.*",
+                    'translations.value as name'
+                    );
+         else 
+           $result =  $query;
+       if($paginate ==-1){
+         return $result;
+       }
+        elseif($paginate ){
+            $limit=config('default_pagination');
+            if($paginate  > 1) $limit = $paginate;
+            return $result->paginate($limit);
+        }
+        else
+            return $result->get();
+
+  }  
+
 }

@@ -13,7 +13,8 @@ class CategoryController extends Controller
 {
     function index()
     {
-        $categories=Category::where(['position'=>0])->module(Helpers::get_store_data()->module_id)->latest()->paginate(config('default_pagination'));
+       
+        $categories=  Helpers::model_join_translation(Category::where(['position'=>0])->module(Helpers::get_store_data()->module_id)->latest(), 1);
         return view('vendor-views.category.index',compact('categories'));
     }
 

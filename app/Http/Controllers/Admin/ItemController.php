@@ -209,7 +209,7 @@ class ItemController extends Controller
             $category = $temp;
             $sub_category = null;
         }
-
+       
         return view('admin-views.product.edit', compact('product', 'sub_category', 'category'));
     }
 
@@ -578,15 +578,11 @@ class ItemController extends Controller
                 'view' => view('admin-views.product.partials._table', compact('items'))->render()
             ]);
         }elseif (LaravelLocalization::getCurrentLocale() == 'ar'){
-            
-          
-            $translations =  Translation::where(function ($q) use ($key) {
-                foreach ($key as $value) {
-                    $q->where('translationable_type','App\Models\Item')->where('value', 'like', "%{$value}%");
-
-
-                }
-            })->get()->pluck('translationable_id')->toArray();
+            // $translations =  Translation::where(function ($q) use ($key) {
+            //     foreach ($key as $value) {
+            //         $q->where('translationable_type','App\Models\Item')->where('value', 'like', "%{$value}%");
+            //     }
+            // })->get()->pluck('translationable_id')->toArray();
 
             $items = Item::withoutGlobalScope(StoreScope::class)
             ->join('translations', 'translations.translationable_id', '=', 'items.id')
