@@ -1563,7 +1563,7 @@ class Helpers
             return Str::limit($modale[$attribute], 20,'...');
         {
 
-        } 
+        }
     }
     public static function get_element_language_list($key,$modales,$attribute){
         if(1)
@@ -1582,7 +1582,7 @@ class Helpers
                         array_push($result, $temp);
                         continue;
                     }
-                   
+
                     if(count($modale->translations()->where('key',$key)->get()) > 0){
                         $temp['id']=$modale->id;
                         $temp[$attribute]=Str::limit($modale->translations()->where('key',$key)->first()->value, 20,'...');
@@ -1594,8 +1594,8 @@ class Helpers
                     array_push($result, $temp);
                 }
                 return $result;
-            } 
-            
+            }
+
         }
     return false;
     }
@@ -1610,7 +1610,7 @@ class Helpers
 
 
    public static function model_join_translation( $query , $paginate=0){
-  
+
         $table = $query->getModel() ->getTable();
 
       if (LaravelLocalization::getCurrentLocale() == 'ar')
@@ -1619,7 +1619,7 @@ class Helpers
                     "{$table}.*",
                     'translations.value as name'
                     );
-         else 
+         else
            $result =  $query;
        if($paginate ==-1){
          return $result;
@@ -1632,6 +1632,6 @@ class Helpers
         else
             return $result->get();
 
-  }  
+  }
 
 }

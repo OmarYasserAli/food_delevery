@@ -23,14 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Auth/AppleSigninController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Auth/AppleSigninController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/stackfood.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stackfood.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Vendor/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Vendor/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Vendor/ItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Vendor/ItemController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/module/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/module/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor-views/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor-views/category/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor-views/category/sub-index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor-views/category/sub-index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor-views/product/stock_limit_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor-views/product/stock_limit_list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/CentralLogics/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CentralLogics/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/POSController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/POSController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/pos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/pos/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,6 +228,9 @@
       <path value="$PROJECT_DIR$/vendor/league/uri" />
       <path value="$PROJECT_DIR$/vendor/league/uri-interfaces" />
       <path value="$PROJECT_DIR$/vendor/mcamara/laravel-localization" />
+      <path value="$PROJECT_DIR$/vendor/genealabs/laravel-sign-in-with-apple" />
+      <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
     </include_path>
   </component>
   <component name="ProjectId" id="1so3PMyTUJvxPdKFIlLR0f0vb9q" />
@@ -240,7 +246,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/installation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Admin/Auth" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -250,16 +256,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/installation/backup" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Api/V2" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\xampp\htdocs\food_delevery\app\Http\Controllers\Admin\Auth" />
       <recent name="$PROJECT_DIR$/installation" />
       <recent name="$PROJECT_DIR$/installation/backup" />
       <recent name="$PROJECT_DIR$/public/assets/landing/image" />
       <recent name="$PROJECT_DIR$/routes" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/installation/backup" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Api/V2" />
     </key>
   </component>
   <component name="RunManager">
@@ -343,7 +349,8 @@
       <workItem from="1662016893619" duration="1623000" />
       <workItem from="1662030833292" duration="3493000" />
       <workItem from="1662134206975" duration="197000" />
-      <workItem from="1662218426593" duration="3450000" />
+      <workItem from="1662218426593" duration="4295000" />
+      <workItem from="1662284000760" duration="8926000" />
     </task>
     <servers />
   </component>
@@ -470,15 +477,6 @@
             <option name="methodName" value="edit" />
           </properties>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/POSController.php</url>
-          <line>271</line>
-          <properties>
-            <option name="className" value="\App\Http\Controllers\Admin\POSController" />
-            <option name="methodName" value="get_customers" />
-          </properties>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/ItemController.php</url>
