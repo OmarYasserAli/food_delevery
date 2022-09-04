@@ -116,6 +116,7 @@
                                 </div>
                             </div>
                             <!-- End Checkbox -->
+                            @signInWithApple("black",false, "sign-in", 6)
 
                             {{-- recaptcha --}}
                             @php($recaptcha = \App\CentralLogics\Helpers::get_business_settings('recaptcha'))

@@ -14,6 +14,9 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.' ], function () {
         Route::get('login', 'LoginController@login')->name('login');
         Route::post('login', 'LoginController@submit')->middleware('actch');
         Route::get('logout', 'LoginController@logout')->name('logout');
+        Route::get('login/apple', 'AppleSigninController@login')->name('login.apple');
+        Route::post('login/apple/callback', 'AppleSigninController@callback')->name('login.callback');
+
 
     });
     /*authentication*/

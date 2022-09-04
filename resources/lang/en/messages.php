@@ -1379,4 +1379,5 @@
   'preparing_in_restaurants' => 'Processing',
   'picked_up' => 'Picked Up',
   'remove_items_first' => 'Remove items first',
+  'Flat' => 'Flat',
 );
