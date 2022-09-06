@@ -15,14 +15,14 @@
                     <h1 class="page-header-title">{{translate('messages.category')}}</h1>
                 </div>
                 @if(isset($category))
-                <a href="{{route('admin.category.add')}}" class="btn btn-primary pull-right"><i class="tio-add-circle"></i> {{translate('messages.add')}} {{translate('messages.new')}} {{translate('messages.category')}}</a>
+                <a href="{{route('admin.category.add')}}" class="btn btn-primary pull-right"><i class="tio-add-circle"></i> {{translate('messages.Add new category')}}</a>
                 @endif
             </div>
         </div>
         <!-- End Page Header -->
 
         <div class="card">
-            <div class="card-header"><h5>{{isset($category)?translate('messages.update'):translate('messages.add').' '.translate('messages.new')}} {{translate('messages.category')}}</h5></div>
+            <div class="card-header"><h5>{{isset($category)?translate('messages.update'):translate('messages.Add new category')}} </h5></div>
             <div class="card-body">
                 <form action="{{isset($category)?route('admin.category.update',[$category['id']]):route('admin.category.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
@@ -156,6 +156,7 @@
                                 <td>
                                     <span class="d-block font-size-sm text-body">
                                         {{Str::limit($category->module->module_name, 15,'...')}}
+                                        
                                     </span>
                                 </td>
                                 <td>

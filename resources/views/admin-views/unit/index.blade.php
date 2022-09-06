@@ -12,7 +12,7 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title"><i class="tio-add-circle-outlined"></i> {{translate('messages.add')}} {{translate('messages.new')}} {{translate('messages.unit')}}</h1>
+                    <h1 class="page-header-title"><i class="tio-add-circle-outlined"></i>{{\App\CentralLogics\Helpers::get_local_language_translate_three(translate('messages.add'),translate('messages.new'),translate('messages.unit'))}}</h1>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                 <hr>
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="text-capitalize">{{translate('messages.unit')}} {{translate('messages.list')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$units->total()}}</span></h5>
+                        <h5 class="text-capitalize">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.unit'),translate('messages.list'))}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$units->total()}}</span></h5>
                         {{--<form action="javascript:" id="search-form" >
                             <!-- Search -->
                             @csrf
@@ -69,7 +69,7 @@
                                 <th style="width: 50%">{{translate('messages.unit')}}</th>
                                 <th style="width: 10%">{{translate('messages.action')}}</th>
                             </tr>
-                            
+
                             </thead>
 
                             <tbody id="set-rows">

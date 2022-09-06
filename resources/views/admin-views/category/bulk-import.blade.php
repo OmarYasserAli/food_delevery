@@ -23,22 +23,22 @@
         <div class="row">
             <div class="col-12">
                 <div class="jumbotron pt-1" style="background: white">
-                    <h3>Instructions : </h3>
-                    <p> 1. Download the format file and fill it with proper data.</p>
+                    <h3>{{translate('messages.Instructions')}} : </h3>
+                    <p> 1.{{translate('messages.Download the format file and fill it with proper data.')}} </p>
 
-                    <p>2. You can download the example file to understand how the data must be filled.</p>
+                    <p>2.{{translate('messages.You can download the example file to understand how the data must be filled')}} .</p>
 
-                    <p>3. Once you have downloaded and filled the format file, upload it in the form below and
-                        submit.</p>
+                    <p>3.{{translate('messages.Once you have downloaded and filled the format file, upload it in the form below and
+                        submit.')}} </p>
 
-                    <p> 4. After uploading categories you need to edit them and set category's images.</p>
+                    <p> 4.{{translate('messages.After uploading categories you need to edit them and set category\'s images.')}} </p>
 
-                    <p> 5. For parent category "position" will 0 and for sub category it will be 1.</p>
+                    <p> 5.{{translate('messages.For parent category "position" will 0 and for sub category it will be 1.')}} </p>
 
-                    <p> 6. By default status will be 1, please input the right ids.</p>
-                    <p> 7. For a category parent_id will be empty, for sub category it will be the category id.</p>
+                    <p> 6.{{translate('messages.By default status will be 1, please input the right ids.')}} </p>
+                    <p> 7.{{translate('messages.For a category parent_id will be empty, for sub category it will be the category id.')}} </p>
 
-                    <p> 8. For a sub category module id will it's parents module id.</p>
+                    <p> 8.{{translate('messages.For a sub category module id will it\'s parents module id.')}} </p>
 
                 </div>
             </div>

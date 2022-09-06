@@ -336,10 +336,10 @@
                         @else
                             <th>{{translate('messages.store')}}</th>
                         @endif
-                        <th>{{translate('messages.payment')}} {{translate('messages.status')}}</th>
+                        <th> {{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.payment'),translate('messages.status'))}}</th>
                         <th>{{translate('messages.total')}}</th>
-                        <th>{{translate('messages.order')}} {{translate('messages.status')}}</th>
-                        <th>{{translate('messages.order')}} {{translate('messages.type')}}</th>
+                        <th>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.order'),translate('messages.status'))}}</th>
+                        <th> {{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.order'),translate('messages.type'))}}</th>
                         <th>{{translate('messages.actions')}}</th>
                     </tr>
                     </thead>

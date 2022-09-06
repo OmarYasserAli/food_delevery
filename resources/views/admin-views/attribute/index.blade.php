@@ -12,7 +12,7 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title"><i class="tio-add-circle-outlined"></i> {{translate('messages.add')}} {{translate('messages.new')}} {{translate('messages.attribute')}}</h1>
+                    <h1 class="page-header-title"><i class="tio-add-circle-outlined"></i>{{\App\CentralLogics\Helpers::get_local_language_translate_three(translate('messages.add'),translate('messages.new'),translate('messages.attribute'))}}</h1>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                          @if(App::getLocale() == 'en')
                             {{translate('messages.attribute')}} {{translate('messages.list')}}
                         @else
-                            {{translate('messages.list')}} {{translate('messages.attribute')}} 
+                            {{translate('messages.list')}} {{translate('messages.attribute')}}
                         @endif
                         <span class="badge badge-soft-dark ml-2" id="itemCount">{{$attributes->total()}}</span></h5>
                         <form action="javascript:" id="search-form" >
@@ -75,7 +75,7 @@
                                 <th style="width: 50%">{{translate('messages.name')}}</th>
                                 <th style="width: 10%">{{translate('messages.action')}}</th>
                             </tr>
-                            
+
                             </thead>
 
                             <tbody id="set-rows">

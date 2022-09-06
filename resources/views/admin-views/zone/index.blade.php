@@ -13,7 +13,7 @@
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
                     <h1 class="page-header-title"><i
-                            class="tio-add-circle-outlined"></i> {{translate('messages.add')}} {{translate('messages.new')}} {{translate('messages.zone')}}
+                            class="tio-add-circle-outlined"></i>{{\App\CentralLogics\Helpers::get_local_language_translate_three(translate('messages.add'),translate('messages.new'),translate('messages.zone'))}}
                     </h1>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="input-label"
-                                       for="exampleFormControlInput1">Coordinates<span class="input-label-secondary" title="{{translate('messages.draw_your_zone_on_the_map')}}">{{translate('messages.draw_your_zone_on_the_map')}}</span></label>
+                                       for="exampleFormControlInput1">{{translate("Coordinates")}}<span class="input-label-secondary" title="{{translate('messages.draw_your_zone_on_the_map')}}">{{translate('messages.draw_your_zone_on_the_map')}}</span></label>
                                        <textarea type="text" rows="8" name="coordinates"  id="coordinates" class="form-control" readonly></textarea>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
             <div class="col-sm-12 col-lg-12 mb-3 my-lg-2">
                 <div class="card">
                     <div class="card-header">
-                        <h5>{{translate('messages.zone')}} {{translate('messages.list')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$zones->total()}}</span></h5>
+                        <h5> {{ \App\CentralLogics\Helpers::get_local_language_translate(translate('messages.zone'),translate('messages.list')) }}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$zones->total()}}</span></h5>
                         <form action="javascript:" id="search-form" >
                                         <!-- Search -->
                             @csrf
@@ -146,7 +146,7 @@
         function status_form_alert(id, message, e) {
             e.preventDefault();
             Swal.fire({
-                title: '{{translate('messages.are_you_sure')}}',   
+                title: '{{translate('messages.are_you_sure')}}',
                 text: message,
                 type: 'warning',
                 showCancelButton: true,
@@ -240,7 +240,7 @@
             controlUI.addEventListener("click", () => {
                 lastpolygon.setMap(null);
                 $('#coordinates').val('');
-                
+
             });
         }
 
@@ -376,14 +376,14 @@
                         }));
                         polygons[i].setMap(map);
                     }
-  
+
                 },
             });
         }
         $(document).on('ready', function(){
             set_all_zones();
         });
-        
+
     </script>
     <script>
         $('#search-form').on('submit', function () {

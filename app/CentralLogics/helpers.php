@@ -1608,6 +1608,14 @@ class Helpers
       }
   }
 
+    public static function get_local_language_translate_three($firstWord, $secondWord,$thirdWord ){
+        if(App::getLocale() == 'en' ){
+            return $firstWord .' '. $secondWord .' '.$thirdWord;
+        }elseif (App::getLocale() == 'ar'){
+            return $firstWord.' '.$thirdWord .' '. $secondWord;
+        }
+    }
+
 
    public static function model_join_translation( $query , $paginate=0){
 

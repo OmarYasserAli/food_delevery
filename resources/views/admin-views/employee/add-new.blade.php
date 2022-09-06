@@ -8,7 +8,7 @@
               width: 367px !important;
             margin-left: 0 !important;
         }
-       
+
         }
 
    @media(max-width:500px){
@@ -16,18 +16,18 @@
               width: 400px !important;
             margin-left: 0 !important;
         }
-      
-      
+
+
    }
     </style>
 @endpush
 
 @section('content')
-<div class="content container-fluid"> 
+<div class="content container-fluid">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{translate('messages.dashboard')}}</a></li>
-            <li class="breadcrumb-item" aria-current="page">{{translate('messages.add')}} {{translate('messages.Employee')}}</li>
+            <li class="breadcrumb-item" aria-current="page">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.add'),translate('messages.Employee'))}}</li>
         </ol>
     </nav>
     <!-- Page Heading -->
@@ -48,12 +48,12 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="input-label qcont" for="fname">{{translate('messages.first')}} {{translate('messages.name')}}</label>
+                                    <label class="input-label qcont" for="fname">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.first'),translate('messages.name'))}}</label>
                                     <input type="text" name="f_name" class="form-control" id="fname"
                                            placeholder="{{translate('messages.first_name')}}" value="{{old('f_name')}}" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="input-label qcont" for="lname">{{translate('messages.last')}} {{translate('messages.name')}}</label>
+                                    <label class="input-label qcont" for="lname">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.last'),translate('messages.name'))}}</label>
                                     <input type="text" name="l_name" class="form-control" id="lname" value="{{old('l_name')}}"
                                            placeholder="{{translate('messages.last_name')}}" value="{{old('name')}}">
                                 </div>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <small class="nav-subtitle border-bottom">{{translate('messages.login')}} {{translate('messages.info')}}</small>
                         <br>
                         <div class="form-group">
@@ -118,11 +118,11 @@
                                                 accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" value="{{old('image')}}" required>
                                             <label class="custom-file-label" for="customFileUpload">{{translate('messages.choose')}} {{translate('messages.file')}}</label>
                                         </div>
-                                    </div> 
+                                    </div>
                                     <center>
                                         <img style="width: auto;border: 1px solid; border-radius: 10px; max-height:200px;" id="viewer"
                                             src="{{asset('public\assets\admin\img\400x400\img2.jpg')}}" alt="Employee thumbnail"/>
-                                    </center>   
+                                    </center>
                                 </div>
                             </div>
                         </div>

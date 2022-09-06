@@ -271,7 +271,8 @@
                                     <td class="text-capitalize">
                                         @if($r['modules']!=null)
                                             @foreach((array)json_decode($r['modules']) as $key=>$m)
-                                               {{str_replace('_',' ',$m)}},
+{{--                                               {{str_replace('_',' ',$m)}},--}}
+                                                {{translate('messages.'.$m). " - " }}
                                             @endforeach
                                         @endif
                                     </td>

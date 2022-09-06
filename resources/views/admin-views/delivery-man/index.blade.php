@@ -17,7 +17,7 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title"><i class="tio-add-circle-outlined"></i> {{translate('messages.add')}} {{translate('messages.new')}} {{translate('messages.deliveryman')}}</h1>
+                    <h1 class="page-header-title"><i class="tio-add-circle-outlined"></i>{{\App\CentralLogics\Helpers::get_local_language_translate_three(translate('messages.add'),translate('messages.new'),translate('messages.deliveryman'))}}</h1>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label class="input-label" for="exampleFormControlInput1">{{translate('messages.first')}} {{translate('messages.name')}}</label>
+                                <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.first'),translate('messages.name'))}}</label>
                                 <input type="text" name="f_name" class="form-control" placeholder="{{translate('messages.first')}} {{translate('messages.name')}}"
                                        required>
                             </div>
@@ -54,7 +54,7 @@
 
                         <div class="col-sm-4 col-12">
                             <div class="form-group">
-                                <label class="input-label" for="exampleFormControlInput1">{{translate('messages.deliveryman')}} {{translate('messages.type')}}</label>
+                                <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.deliveryman'),translate('messages.type'))}}</label>
                                 <select name="earning" class="form-control">
                                     <option value="1">{{translate('messages.freelancer')}}</option>
                                     <option value="0">{{translate('messages.salary_based')}}</option>
@@ -66,7 +66,7 @@
                             <div class="form-group">
                                 <label class="input-label" for="exampleFormControlInput1">{{translate('messages.zone')}}</label>
                                 <select name="zone_id" class="form-control" required data-placeholder="{{translate('messages.select')}} {{translate('messages.zone')}}">
-                                <option value="" readonly="true" hidden="true">{{translate('messages.select')}} {{translate('messages.zone')}}</option>
+                                <option value="" readonly="true" hidden="true">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.select'),translate('messages.zone'))}}</option>
                                 @foreach(\App\Models\Zone::all() as $zone)
                                     @if(isset(auth('admin')->user()->zone_id))
                                         @if(auth('admin')->user()->zone_id == $zone->id)
@@ -84,18 +84,16 @@
                     <div class="row">
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label class="input-label" for="exampleFormControlInput1">{{translate('messages.identity')}} {{translate('messages.type')}}</label>
+                                <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.identity'),translate('messages.type'))}}</label>
                                 <select name="identity_type" class="form-control">
                                     <option value="passport">{{translate('messages.passport')}}</option>
-                                    <option value="driving_license">{{translate('messages.driving')}} {{translate('messages.license')}}</option>
                                     <option value="nid">{{translate('messages.nid')}}</option>
-                                    <option value="store_id">{{translate('messages.store')}} {{translate('messages.id')}}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label class="input-label" for="exampleFormControlInput1">{{translate('messages.identity')}} {{translate('messages.number')}}</label>
+                                <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.identity'),translate('messages.number'))}}</label>
                                 <input type="text" name="identity_number" class="form-control"
                                        placeholder="Ex : DH-23434-LS"
                                        required>
@@ -108,7 +106,7 @@
                                                 {{translate('messages.identity')}} {{translate('messages.image')}}
                                                 @else
 
-                                                {{translate('messages.image')}} {{translate('messages.identity')}} 
+                                                {{translate('messages.image')}} {{translate('messages.identity')}}
 
                                                 @endif
                                </label>
@@ -137,16 +135,16 @@
                             </div>
                         </div>
                     </div>
- 
+
 
                     <div class="form-group">
-                        <label>{{translate('messages.deliveryman')}} {{translate('messages.image')}}</label><small style="color: red">* ( {{translate('messages.ratio')}} 1:1 )</small>
+                        <label>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.deliveryman'),translate('messages.image'))}}</label><small style="color: red">* ( {{translate('messages.ratio')}} 1:1 )</small>
                         <div class="custom-file">
                             <input type="file" name="image" id="customFileEg1" class="custom-file-input"
                                    accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" required>
                             <label class="custom-file-label" for="customFileEg1">{{translate('messages.choose')}} {{translate('messages.file')}}</label>
                         </div>
-                        
+
                         <center class="pt-4">
                             <img style="height: 200px;border: 1px solid; border-radius: 10px;" id="viewer"
                                  src="{{asset('public/assets/admin/img/400x400/img2.jpg')}}" alt="delivery-man image"/>
@@ -199,7 +197,7 @@
         //     $(this).val(phone.getNumber());
         // })
 
-        
+
     </script>
 
     <script src="{{asset('public/assets/admin/js/spartan-multi-image-picker.js')}}"></script>

@@ -42,7 +42,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="input-label" for="tergat">{{translate('messages.send')}} {{translate('messages.to')}}</label>
-                        
+
                                 <select name="tergat" class="form-control" id="tergat" data-placeholder="{{translate('messages.select')}} {{translate('messages.tergat')}}" required>
                                     <option value="customer">{{translate('messages.customer')}}</option>
                                     <option value="deliveryman">{{translate('messages.deliveryman')}}</option>
@@ -78,7 +78,7 @@
                 <div class="card">
                     <div class="card-header py-1">
                         <div class="row justify-content-between align-items-center flex-grow-1">
-                        <h3>Notification list<span
+                        <h3>{{translate('messages.Notification list')}}<span
                             class="badge badge-soft-dark ml-2">{{$notifications->total()}}</span></h3>
                             <div class="col-md-4 mb-3 mb-md-0">
                                 <form>
@@ -96,7 +96,7 @@
                                 <!-- End Search -->
                                 </form>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                     <!-- Table -->
                     <div class="table-responsive datatable-custom">
@@ -114,7 +114,7 @@
                                     <th>{{translate('messages.description')}}</th>
                                     <th>{{translate('messages.image')}}</th>
                                     <th>{{translate('messages.zone')}}</th>
-                                    <th>{{translate('messages.tergat')}}</th>
+                                    <th>{{translate('messages.target')}}</th>
                                     <th>{{translate('messages.status')}}</th>
                                     <th style="width: 10%">{{translate('messages.action')}}</th>
                                 </tr>
@@ -144,7 +144,7 @@
                                         {{$notification->zone_id==null?translate('messages.all'):($notification->zone?$notification->zone->name:translate('messages.zone').' '.translate('messages.deleted'))}}
                                     </td>
                                     <td class="text-uppercase">
-                                        {{$notification->tergat}}
+                                        {{translate('messages.'.$notification->tergat)}}
                                     </td>
                                     <td>
                                         <label class="toggle-switch toggle-switch-sm" for="stocksCheckbox{{$notification->id}}">
@@ -234,10 +234,10 @@
         });
 
         $('#notification').on('submit', function (e) {
-            
+
             e.preventDefault();
             var formData = new FormData(this);
-            
+
             Swal.fire({
                 title: '{{translate('messages.are_you_sure')}}',
                 text: '{{translate('messages.you want to sent notification to')}}'+$('#tergat').val()+'?',

@@ -8,7 +8,7 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title"><i class="tio-add-circle-outlined"></i> {{translate('messages.add')}} {{translate('messages.new')}} {{translate('messages.coupon')}}</h1>
+                    <h1 class="page-header-title"><i class="tio-add-circle-outlined"></i>{{\App\CentralLogics\Helpers::get_local_language_translate_three(translate('messages.add'),translate('messages.new'),translate('messages.coupon'))}} </h1>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label class="input-label" for="exampleFormControlInput1">{{translate('messages.coupon')}} {{translate('messages.type')}}</label>
+                                        <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.coupon'),translate('messages.type'))}}</label>
                                         <select name="coupon_type" class="form-control" onchange="coupon_type_change(this.value)">
                                             <option value="store_wise">{{translate('messages.store')}} {{translate('messages.wise')}}</option>
                                             <option value="zone_wise">{{translate('messages.zone')}} {{translate('messages.wise')}}</option>
@@ -59,7 +59,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group" id="zone_wise">
-                                        <label class="input-label" for="exampleFormControlInput1">{{translate('messages.select')}} {{translate('messages.zone')}}</label>
+                                        <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.select'),translate('messages.zone'))}}</label>
                                         <select name="zone_ids[]" id="choice_zones"
                                             class="form-control js-select2-custom"
                                             multiple="multiple" data-placeholder="{{translate('messages.select_zone')}}">
@@ -87,13 +87,13 @@
                                 </div>
                                 <div class="col-md-3 col-6">
                                     <div class="form-group">
-                                        <label class="input-label" for="exampleFormControlInput1">{{translate('messages.start')}} {{translate('messages.date')}}</label>
+                                        <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.start'),translate('messages.date'))}}</label>
                                         <input type="date" name="start_date" class="form-control" id="date_from" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-6">
                                     <div class="form-group">
-                                        <label class="input-label" for="exampleFormControlInput1">{{translate('messages.expire')}} {{translate('messages.date')}}</label>
+                                        <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.expire'),translate('messages.date'))}}</label>
                                         <input type="date" name="expire_date" class="form-control" id="date_to" required>
                                     </div>
                                 </div>
@@ -102,7 +102,7 @@
                             <div class="row">
                                 <div class="col-md-3 col-6">
                                     <div class="form-group">
-                                        <label class="input-label" for="exampleFormControlInput1">{{translate('messages.discount')}} {{translate('messages.type')}}</label>
+                                        <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.discount'),translate('messages.type'))}}</label>
                                         <select name="discount_type" class="form-control" id="discount_type">
                                             <option value="amount">{{translate('messages.amount')}}</option>
                                             <option value="percent">{{translate('messages.percent')}}</option>
@@ -117,13 +117,13 @@
                                 </div>
                                 <div class="col-md-3 col-6">
                                     <div class="form-group">
-                                        <label class="input-label" for="max_discount">{{translate('messages.max')}} {{translate('messages.discount')}}</label>
+                                        <label class="input-label" for="max_discount">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.max'),translate('messages.discount'))}}</label>
                                         <input type="number" step="0.01" min="0" value="0" max="999999999999.99" name="max_discount" id="max_discount" class="form-control" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-6">
                                     <div class="form-group">
-                                        <label class="input-label" for="exampleFormControlInput1">{{translate('messages.min')}} {{translate('messages.purchase')}}</label>
+                                        <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.min'),translate('messages.purchase'))}}</label>
                                         <input type="number" step="0.01" name="min_purchase" value="0" min="0" max="999999999999.99" class="form-control"
                                             placeholder="100">
                                     </div>
@@ -176,12 +176,12 @@
                                 <th>{{translate('messages.module')}}</th>
                                 <th>{{translate('messages.type')}}</th>
                                 <th>{{translate('messages.total_uses')}}</th>
-                                <th>{{translate('messages.min')}} {{translate('messages.purchase')}}</th>
-                                <th>{{translate('messages.max')}} {{translate('messages.discount')}}</th>
+                                <th>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.min'),translate('messages.purchase'))}}</th>
+                                <th>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.max'),translate('messages.discount'))}}</th>
                                 <th>{{translate('messages.discount')}}</th>
-                                <th>{{translate('messages.discount')}} {{translate('messages.type')}}</th>
-                                <th>{{translate('messages.start')}} {{translate('messages.date')}}</th>
-                                <th>{{translate('messages.expire')}} {{translate('messages.date')}}</th>
+                                <th>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.discount'),translate('messages.type'))}}</th>
+                                <th>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.start'),translate('messages.date'))}}</th>
+                                <th>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.expire'),translate('messages.date'))}}</th>
                                 <th>{{translate('messages.status')}}</th>
                                 <th>{{translate('messages.action')}}</th>
                             </tr>

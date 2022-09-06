@@ -13,7 +13,7 @@
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
                     <h1 class="page-header-title"><i
-                            class="tio-add-circle-outlined"></i> {{translate('messages.add')}} {{translate('messages.new')}} {{translate('messages.sub_category')}}
+                            class="tio-add-circle-outlined"></i> {{translate('messages.Add new sub category')}}
                     </h1>
                 </div>
             </div>
@@ -21,7 +21,7 @@
         <!-- End Page Header -->
         <div class="card">
             <div class="card-header">
-                <h5>{{isset($category)?translate('messages.update'):translate('messages.add').' '.translate('messages.new')}} {{translate('messages.sub_category')}}</h5>
+                <h5>{{isset($category)?translate('messages.update'):translate('messages.Add new sub category')}}</h5>
             </div>
             <div class="card-body">
                 <form action="{{isset($category)?route('admin.category.update',[$category['id']]):route('admin.category.store')}}" method="post">

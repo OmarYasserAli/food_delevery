@@ -16,7 +16,7 @@
                 </div>
                 {{--<a href="{{route('admin.delivery-man.add')}}" class="btn btn-primary pull-right"><i
                                 class="tio-add-circle"></i> {{translate('messages.add')}} {{translate('messages.deliveryman')}}</a>--}}
-                
+
                 @if(!isset(auth('admin')->user()->zone_id))
                 <div class="col-sm-auto" style="width: 306px;">
                     <select name="zone_id" class="form-control js-select2-custom"
@@ -42,11 +42,11 @@
                     <div class="card-header p-1">
                         <h5>
                         @if(App::getLocale() == 'en')
-                            {{translate('messages.deliveryman')}} {{translate('messages.list')}}
+                                {{translate('messages.deliverymen')}} {{translate('messages.list')}}
                         @else
-                            {{translate('messages.list')}} {{translate('messages.deliveryman')}}
+                            {{translate('messages.list')}} {{translate('messages.deliverymen')}}
                         @endif
-   
+
 
                             <span class="badge badge-soft-dark ml-2" id="itemCount">{{$delivery_men->total()}}</span></h5>
                         <form action="javascript:" id="search-form" >
@@ -82,7 +82,7 @@
                                 <th class="text-capitalize">{{translate('messages.#')}}</th>
                                 <th class="text-capitalize">{{translate('messages.name')}}</th>
                                 <th class="text-capitalize">{{translate('messages.zone')}}</th>
-                                <th class="text-capitalize">{{translate('messages.availability')}} {{translate('messages.status')}}</th>
+                                <th class="text-capitalize">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.availability'),translate('messages.status'))}}</th>
                                 <th class="text-capitalize">{{translate('messages.phone')}}</th>
                                 <th class="text-capitalize">{{translate('messages.action')}}</th>
                             </tr>

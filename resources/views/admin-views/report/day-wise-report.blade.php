@@ -51,7 +51,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">{{translate('messages.show')}} {{translate('messages.data')}} by {{translate('messages.date')}}
+                                    <label for="exampleInputEmail1" class="form-label">{{translate('messages.show')}} {{translate('messages.data')}} {{translate('messages.by')}}  {{translate('messages.date')}}
                                         {{translate('messages.range')}}</label>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@
                                         <i class="tio-user nav-icon"></i>
 
                                         <div class="media-body">
-                                            <h4 class="mb-1">{{translate('messages.admin')}} {{translate('messages.earned')}}</h4>
+                                            <h4 class="mb-1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.admin'),translate('messages.earned'))}}</h4>
                                             <span class="font-size-sm text-success">
                                                 {{\App\CentralLogics\Helpers::format_currency($admin_earned)}}
                                             </span>
@@ -142,7 +142,7 @@
                                         <i class="tio-shop nav-icon"></i>
 
                                         <div class="media-body">
-                                            <h4 class="mb-1 text-capitalize">{{translate('messages.store')}} {{translate('messages.earned')}}</h4>
+                                            <h4 class="mb-1 text-capitalize">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.store'),translate('messages.earned'))}}</h4>
                                             <span class="font-size-sm text-warning">
                                                 {{\App\CentralLogics\Helpers::format_currency($store_earned)}}
                                             </span>
@@ -169,7 +169,7 @@
                                         <i class="tio-running nav-icon"></i>
 
                                         <div class="media-body">
-                                            <h4 class="mb-1 text-capitalize">{{translate('messages.delivery')}} {{translate('messages.fee')}} {{translate('messages.earned')}}</h4>
+                                            <h4 class="mb-1 text-capitalize">{{\App\CentralLogics\Helpers::get_local_language_translate_three(translate('messages.delivery'),translate('messages.fee'),translate('messages.earned'))}}</h4>
                                             <span class="font-size-sm text-danger">
                                                 {{\App\CentralLogics\Helpers::format_currency($deliveryman_earned)}}
                                             </span>
@@ -436,7 +436,7 @@
                     <!-- End Card -->
                 </div>
                 <!--canceled End-->
-                
+
             </div>
         </div>
 
@@ -497,7 +497,7 @@
             <!-- End Body -->
             <div class="card-footer">
                 {!!$order_transactions->links()!!}
-            </div>    
+            </div>
         </div>
         <!-- End Card -->
     </div>

@@ -706,11 +706,8 @@
                     <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{ route('admin.notification.add-new') }}" title="{{ translate('messages.send') }} {{ translate('messages.notification') }}">
                         <i class="tio-notifications nav-icon"></i>
                         <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                            @if(App::getLocale() == 'en')
+                        {{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.notification'),translate('messages.push'))}}
 
-                            @else
-                            {{ translate('messages.notification') }} {{ translate('messages.push') }}
-                            @endif
                         </span>
                     </a>
                 </li>
@@ -819,8 +816,8 @@
                 <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/business-settings/fcm-index') ? 'active' : '' }}">
                     <a class="nav-link " href="{{ route('admin.business-settings.fcm-index') }}" title="{{ translate('messages.push') }} {{ translate('messages.notification') }}">
                         <span class="tio-notifications nav-icon"></span>
-                        <span class="text-truncate">{{ translate('messages.notification') }}
-                            {{ translate('messages.settings') }}</span>
+                        <span class="text-truncate">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.notification'),translate('messages.settings'))}}
+                          </span>
                     </a>
                 </li>
                 @endif
@@ -965,8 +962,8 @@
                 <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/custom-role*') ? 'active' : '' }}">
                     <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{ route('admin.custom-role.create') }}" title="{{ translate('messages.employee') }} {{ translate('messages.Role') }}">
                         <i class="tio-incognito nav-icon"></i>
-                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{ translate('messages.employee') }}
-                            {{ translate('messages.Role') }}</span>
+                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.employee'),translate('messages.Role'))}}
+                            </span>
                     </a>
                 </li>
                 @endif
