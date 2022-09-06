@@ -24,7 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/v1/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v1/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/module/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/module/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/order/distaptch_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/order/distaptch_list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/order/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/order/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/pos/order/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/pos/order/list.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -346,7 +349,7 @@
       <workItem from="1662361152315" duration="2296000" />
       <workItem from="1662382932403" duration="9335000" />
       <workItem from="1662445437151" duration="9108000" />
-      <workItem from="1662466298665" duration="1525000" />
+      <workItem from="1662466298665" duration="4776000" />
     </task>
     <servers />
   </component>
@@ -381,10 +384,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1660831207280" />
-    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1660721010134">
+    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1662470593410">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1660721010134" />
+    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1662470593410" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1661931884041">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
