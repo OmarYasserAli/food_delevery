@@ -50,7 +50,7 @@
                 <div class="card">
                     <!-- Header -->
                     <div class="card-header pb-1 pt-1" >
-                        <h5>{{translate('messages.stores')}} {{translate('messages.list')}}</h5>
+                        <h5>{{translate('messages.stores')}}</h5>
                         <form action="javascript:" id="search-form" >
                                         <!-- Search -->
                             @csrf
@@ -157,7 +157,7 @@
                                             <span class="badge badge-soft-danger">{{translate('messages.pending')}}</span>
                                         @endif
                                     </td>
-                                    
+
                                     <td>
                                         <a class="btn btn-sm btn-white"
                                             href="{{route('admin.vendor.view',[$store['id']])}}" title="{{translate('messages.view')}} {{translate('messages.store')}}"><i class="tio-visible text-success"></i>

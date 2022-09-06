@@ -12,7 +12,7 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title"><i class="tio-add-circle-outlined"></i> {{translate('messages.add')}} {{translate('messages.new')}} {{translate('messages.banner')}}</h1>
+                    <h1 class="page-header-title"><i class="tio-add-circle-outlined"></i>{{\App\CentralLogics\Helpers::get_local_language_translate_three(translate('messages.add'),translate('messages.new'),translate('messages.banner'))}}</h1>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label class="input-label" for="exampleFormControlInput1">{{translate('messages.banner')}} {{translate('messages.type')}}</label>
+                                        <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.banner'),translate('messages.type'))}}</label>
                                         <select name="banner_type" class="form-control" onchange="banner_type_change(this.value)">
                                             <option value="store_wise">{{translate('messages.store')}} {{translate('messages.wise')}}</option>
                                             <option value="item_wise">{{translate('messages.item')}} {{translate('messages.wise')}}</option>
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>{{translate('messages.campaign')}} {{translate('messages.image')}}</label>
+                                        <label>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.campaign'),translate('messages.image'))}}</label>
                                         <small style="color: red">* ( {{translate('messages.ratio')}} 3:1 )</small>
                                         <div class="custom-file">
                                             <input type="file" name="image" id="customFileEg1" class="custom-file-input"

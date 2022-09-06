@@ -1,5 +1,4 @@
 @extends('layouts.admin.app')
-
 @section('title', translate('business_setup'))
 
 @push('css_or_js')
@@ -86,7 +85,7 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title text-capitalize">{{ translate('messages.business') }} {{ translate('messages.setup') }}
+                    <h1 class="page-header-title text-capitalize">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.business'),translate('messages.setup'))}}
                     </h1>
                 </div>
             </div>

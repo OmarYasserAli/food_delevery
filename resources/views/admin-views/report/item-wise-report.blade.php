@@ -64,7 +64,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">{{translate('messages.show')}} {{translate('messages.data')}} by {{translate('messages.date')}}
+                                <label for="exampleInputEmail1" class="form-label">{{translate('messages.show')}} {{translate('messages.data')}} {{translate('messages.by')}}  {{translate('messages.date')}}
                                     {{translate('messages.range')}}</label>
                             </div>
                         </div>

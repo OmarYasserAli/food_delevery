@@ -84,7 +84,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>{{ translate('messages.account_transaction')}} {{ translate('messages.table')}}</h5>
+                    <h5>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.account_transaction'),translate('messages.table'))}}</h5>
                 </div>
                 <div class="card-body" style="padding: 0">
                     <div class="table-responsive">
@@ -115,7 +115,7 @@
                                             {{translate('messages.not_found')}}
                                         @endif
                                     </td>
-                                    <td><label class="text-uppercase">{{$at['from_type']}}</label></td>
+                                    <td><label class="text-uppercase">{{translate('messages.'.$at['from_type'])}}</label></td>
                                     <td>{{$at->created_at->format('Y-m-d '.config('timeformat'))}}</td>
                                     <td>{{$at['amount']}}</td>
                                     <td>{{$at['ref']}}</td>

@@ -243,7 +243,7 @@
                             <th class="table-column-pl-0">{{ translate('messages.name') }}</th>
                             <th>{{ translate('messages.email') }}</th>
                             <th>{{ translate('messages.phone') }}</th>
-                            <th>{{ translate('messages.total') }} {{ translate('messages.order') }}</th>
+                            <th>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.total'),translate('messages.order'))}}</th>
                             <th>{{ translate('messages.active') }}/{{ translate('messages.inactive') }}</th>
                             <th>{{ translate('messages.actions') }}</th>
                         </tr>

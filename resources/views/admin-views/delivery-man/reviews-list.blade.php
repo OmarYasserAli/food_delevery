@@ -12,7 +12,7 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title">{{translate('messages.deliveryman')}} {{translate('messages.reviews')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$reviews->total()}}</span></h1>
+                    <h1 class="page-header-title">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.deliveryman'),translate('messages.reviews'))}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$reviews->total()}}</span></h1>
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
                                             @if ($review->customer)
                                             <a href="{{route('admin.customer.view',[$review->user_id])}}">
                                                 {{$review->customer?$review->customer->f_name:""}} {{$review->customer?$review->customer->l_name:""}}
-                                            </a>                                                
+                                            </a>
                                             @else
                                                 {{translate('messages.customer_not_found')}}
                                             @endif
@@ -120,7 +120,7 @@
         function status_form_alert(id, message, e) {
             e.preventDefault();
             Swal.fire({
-                title: '{{translate('messages.are_you_sure')}}',   
+                title: '{{translate('messages.are_you_sure')}}',
                 text: message,
                 type: 'warning',
                 showCancelButton: true,

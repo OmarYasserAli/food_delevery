@@ -23,17 +23,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de7019d-e2bb-4d1b-9272-623980507709" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Auth/AppleSigninController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Auth/AppleSigninController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/stackfood.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stackfood.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/CentralLogics/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CentralLogics/helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/POSController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/POSController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/messages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/pos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/pos/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/account/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/account/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/attribute/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/attribute/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/banner/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/banner/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/business-settings/business-index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/business-settings/business-index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/campaign/item/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/campaign/item/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/category/bulk-import.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/category/bulk-import.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/category/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/category/sub-index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/category/sub-index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/coupon/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/coupon/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/custom-role/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/custom-role/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/customer/customer-view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/customer/customer-view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/customer/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/customer/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/delivery-man/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/delivery-man/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/delivery-man/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/delivery-man/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/delivery-man/reviews-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/delivery-man/reviews-list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/employee/add-new.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/employee/add-new.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/employee/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/employee/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/notification/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/notification/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/order/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/order/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/bulk-import.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/bulk-import.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/product/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/product/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/report/day-wise-report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/report/day-wise-report.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/report/item-wise-report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/report/item-wise-report.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/unit/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/unit/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/vendor/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/vendor/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin-views/zone/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin-views/zone/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -350,7 +369,11 @@
       <workItem from="1662030833292" duration="3493000" />
       <workItem from="1662134206975" duration="197000" />
       <workItem from="1662218426593" duration="4295000" />
-      <workItem from="1662284000760" duration="8926000" />
+      <workItem from="1662284000760" duration="10589000" />
+      <workItem from="1662307255559" duration="386000" />
+      <workItem from="1662361152315" duration="2296000" />
+      <workItem from="1662382932403" duration="9335000" />
+      <workItem from="1662445437151" duration="3628000" />
     </task>
     <servers />
   </component>
@@ -413,12 +436,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php</url>
-          <line>722</line>
+          <line>719</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/admin/partials/_sidebar.blade.php</url>
-          <line>927</line>
+          <line>924</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">

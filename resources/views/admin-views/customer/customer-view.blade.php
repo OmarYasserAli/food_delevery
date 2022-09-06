@@ -20,7 +20,7 @@
                                     {{translate('messages.customers')}}
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">{{translate('messages.customer')}} {{translate('messages.details')}}</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.customer'),translate('messages.details'))}}</li>
                         </ol>
                     </nav>
 
@@ -31,7 +31,7 @@
                         </i> {{translate('messages.joined_at')}} : {{date('d M Y '.config('timeformat'),strtotime($customer['created_at']))}}
                         </span>
                     </div>
-                    
+
                 </div>
 
                 <div class="col-sm-auto">
