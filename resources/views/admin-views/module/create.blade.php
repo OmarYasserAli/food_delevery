@@ -21,7 +21,7 @@
 
     <div class="card">
         <div class="card-header">
-            <h5>{{translate('messages.add').' '.translate('messages.new')}} {{translate('messages.module')}}</h5>
+            <h5>{{\App\CentralLogics\Helpers::get_local_language_translate_three(translate('messages.add'),translate('messages.new'),translate('messages.module'))}}</h5>
         </div>
         <div class="card-body">
             <form action="{{route('admin.module.store')}}" method="post" enctype="multipart/form-data">
@@ -43,20 +43,20 @@
                 @foreach(json_decode($language) as $lang)
                 <div class="card card-body {{$lang != $default_lang ? 'd-none':''}} lang_form p-1 mb-2" id="{{$lang}}-form">
                     <div class="form-group">
-                        <label class="input-label text-capitalize" for="exampleFormControlInput1">{{translate('messages.module')}} {{translate('messages.name')}} ({{strtoupper($lang)}})</label>
+                        <label class="input-label text-capitalize" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.module'),translate('messages.name'))}} ({{strtoupper($lang)}})</label>
                         <input type="text" name="module_name[]" class="form-control" maxlength="191" {{$lang == $default_lang? 'required':''}} oninvalid="document.getElementById('en-link').click()">
                     </div>
                     <div class="form-group">
                         <label class="input-label" for="module_type">{{translate('messages.description')}} ({{strtoupper($lang)}})</label>
                         <textarea class="ckeditor form-control" name="description[]"></textarea>
-                    </div>                
+                    </div>
                 </div>
 
                 <input type="hidden" name="lang[]" value="{{$lang}}">
                 @endforeach
                 @else
                 <div class="form-group">
-                    <label class="input-label" for="exampleFormControlInput1">{{translate('messages.module')}} {{translate('messages.name')}}</label>
+                    <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.module'),translate('messages.name'))}}</label>
                     <input type="text" name="module_name" class="form-control" placeholder="{{translate('messages.new_category')}}" value="{{old('name')}}" required maxlength="191">
                 </div>
                 <div class="form-group">
@@ -83,7 +83,7 @@
                             <div class="card mt-1" id="module_des_card" style="display: none;">
                                 <div class="card-body" id="module_description"></div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group" id="zone_check">
@@ -188,7 +188,7 @@
                 if(data.data.description.length)
                 {
                     $('#module_des_card').show();
-                    $('#module_description').html(data.data.description);                    
+                    $('#module_description').html(data.data.description);
                 }
                 else
                 {
@@ -222,7 +222,7 @@
     $("#customFileEg1").change(function() {
         readURL(this, 'viewer');
     });
-    
+
     $("#customFileEg2").change(function() {
         readURL(this, 'viewer2');
     });

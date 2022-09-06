@@ -421,7 +421,7 @@
             <!-- Footer -->
             <div class="card-footer">
                 <!-- Pagination -->
-                <div class="row justify-content-center justify-content-sm-between align-items-sm-center"> 
+                <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
                     <div class="col-sm-auto">
                         <div class="d-flex justify-content-center justify-content-sm-end">
                             <!-- Pagination -->
@@ -571,7 +571,15 @@
 @push('script_2')
     <!-- <script src="{{asset('public/assets/admin')}}/js/bootstrap-select.min.js"></script> -->
     <script>
-        <?php 
+        pdfMake.fonts = {
+            Roboto: {
+                normal: '{{asset('public/assets/JF-Flat-Regular.ttf')}}',
+                bold: '{{asset('public/assets/JF-Flat-Regular.ttf')}}',
+                italics: '{{asset('public/assets/JF-Flat-Regular.ttf')}}',
+                bolditalics: '{{asset('public/assets/JF-Flat-Regular.ttf')}}'
+            }
+        }
+        <?php
             $filter_count=0;
             if(isset($zone_ids) && count($zone_ids) > 0) $filter_count += 1;
             if(isset($vendor_ids) && count($vendor_ids)>0) $filter_count += 1;
@@ -583,7 +591,7 @@
 
             if(isset($from_date) && isset($to_date)) $filter_count += 1;
             if(isset($order_type)) $filter_count += 1;
-            
+
         ?>
 
             @if($filter_count>0)
@@ -599,7 +607,7 @@
             $('.js-select2-custom').each(function () {
                 var select2 = $.HSCore.components.HSSelect2.init($(this));
             });
-            
+
             var zone_id = [];
             $('#zone_ids').on('change', function(){
                 if($(this).val())
@@ -612,7 +620,7 @@
                 }
             });
 
-            
+
             $('#vendor_ids').select2({
                 ajax: {
                     url: '{{url('/')}}/admin/vendor/get-restaurants',
@@ -658,7 +666,11 @@
                     },
                     {
                         extend: 'pdf',
-                        className: 'd-none'
+                        className: 'd-none',
+
+                        defaultStyle: {
+                            font: 'Roboto'
+                        }
                     },
                     {
                         extend: 'print',

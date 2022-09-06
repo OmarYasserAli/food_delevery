@@ -615,6 +615,14 @@
 @push('script_2')
     <!-- <script src="{{asset('public/assets/admin')}}/js/bootstrap-select.min.js"></script> -->
     <script>
+        pdfMake.fonts = {
+            Roboto: {
+                normal: '{{asset('public/assets/JF-Flat-Regular.ttf')}}',
+                bold: '{{asset('public/assets/JF-Flat-Regular.ttf')}}',
+                italics: '{{asset('public/assets/JF-Flat-Regular.ttf')}}',
+                bolditalics: '{{asset('public/assets/JF-Flat-Regular.ttf')}}'
+            }
+        }
         $(document).on('ready', function () {
             @if($filter_count>0)
             $('#filter_count').html({{$filter_count}});
@@ -689,10 +697,13 @@
                             window.location.href = '{{route("admin.order.export",['status'=>$status,'file_type'=>'csv','type'=>$parcel_order?'parcel':'order'])}}';
                         }
                     },
-                    // {
-                    //     extend: 'pdf',
-                    //     className: 'd-none'
-                    // },
+                    {
+                        extend: 'pdf',
+                        className: 'd-none',
+                        defaultStyle: {
+                            font: 'Roboto'
+                        }
+                    },
                     {
                         extend: 'print',
                         className: 'd-none'

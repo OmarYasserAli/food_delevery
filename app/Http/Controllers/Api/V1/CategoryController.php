@@ -37,6 +37,7 @@ class CategoryController extends Controller
                 $query->setRelation('items', $query->items->take(5));
                 return $query;
             });
+            $categories = json_decode($categories);
 
             return response()->json([
                 'status' => "success",

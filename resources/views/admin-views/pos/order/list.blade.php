@@ -436,6 +436,14 @@
 
 @push('script_2')
     <script>
+        pdfMake.fonts = {
+            Roboto: {
+                normal: '{{asset('public/assets/JF-Flat-Regular.ttf')}}',
+                bold: '{{asset('public/assets/JF-Flat-Regular.ttf')}}',
+                italics: '{{asset('public/assets/JF-Flat-Regular.ttf')}}',
+                bolditalics: '{{asset('public/assets/JF-Flat-Regular.ttf')}}'
+            }
+        };
         $(document).on('ready', function () {
             // INITIALIZATION OF NAV SCROLLER
             // =======================================================
@@ -469,7 +477,11 @@
                     },
                     {
                         extend: 'pdf',
-                        className: 'd-none'
+                        className: 'd-none',
+
+                        defaultStyle: {
+                            font: 'Roboto'
+                        }
                     },
                     {
                         extend: 'print',
