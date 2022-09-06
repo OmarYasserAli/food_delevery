@@ -8,11 +8,11 @@
             <td class="text-center">
                 <label for="" class="control-label">{{translate('messages.Variant Price')}}</label>
             </td>
-            @if($stock)
+
             <td class="text-center">
                 <label for="" class="control-label text-capitalize">{{translate('messages.stock')}}</label>
             </td>
-            @endif
+
         </tr>
         </thead>
         <tbody>
@@ -38,10 +38,9 @@
                         <input type="number" name="price_{{ $str }}" value="{{ $price }}" min="0" step="0.01"
                                class="form-control" required>
                     </td>
-                    @if ($stock)
+
                         <td><input type="number" name="stock_{{ $str }}" value="1" min="0" step="0.01"
                                class="form-control" required></td>
-                    @endif
 
                 </tr>
             @endif

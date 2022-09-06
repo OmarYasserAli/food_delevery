@@ -6,8 +6,11 @@ use App\CentralLogics\CategoryLogic;
 use App\CentralLogics\Helpers;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Pagination\Paginator;
+
 
 class CategoryController extends Controller
 {
@@ -23,6 +26,33 @@ class CategoryController extends Controller
         } catch (\Exception $e) {
             return response()->json([], 200);
         }
+    }
+    public function get_category_with_product(){
+        try {
+             $categories = Category::with("items")->paginate(2);
+            $current_page =  $categories->currentPage();
+            $lastPage = $categories->lastPage();
+            $hasMorePages = $categories->hasMorePages();
+              $categories=  $categories ->map(function ($query) {
+                $query->setRelation('items', $query->items->take(5));
+                return $query;
+            });
+
+            return response()->json([
+                'status' => "success",
+                "currentPage" => $current_page,
+                'lastPage' => $lastPage,
+                'hasMorePages' =>$hasMorePages,
+                'category' => $categories,
+
+
+            ], 200);
+
+        }catch (\Exception $e) {
+
+            return response()->json([], 200);
+        }
+
     }
 
     public function get_childes($id)
