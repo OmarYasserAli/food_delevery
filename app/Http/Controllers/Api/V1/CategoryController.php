@@ -44,6 +44,7 @@ class CategoryController extends Controller
                 "currentPage" => $current_page,
                 'lastPage' => $lastPage,
                 'hasMorePages' =>$hasMorePages,
+                'totalCategories' =>count($categories),
                 'category' => $categories,
 
 
