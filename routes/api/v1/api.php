@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function () {
+    Route::get('categories/products', 'CategoryController@get_category_with_product');
+
     Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
         Route::post('sign-up', 'CustomerAuthController@register');
         Route::post('login', 'CustomerAuthController@login');
