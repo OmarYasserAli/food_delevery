@@ -28,6 +28,7 @@ class Item extends Model
         'images'=>'array',
         'module_id'=>'integer',
         'stock'=>'integer',
+        'category_ids'=>'array',
     ];
     protected $fillable  = ['order_count'];
 
@@ -74,6 +75,7 @@ class Item extends Model
     {
         return $this->unit?$this->unit->unit:null;
     }
+
 
     public function store()
     {

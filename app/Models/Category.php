@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\AsCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -14,7 +15,7 @@ class Category extends Model
         'parent_id' => 'integer',
         'position' => 'integer',
         'priority' => 'integer',
-        'status' => 'integer'
+        'status' => 'integer',
     ];
 
     public function translations()
