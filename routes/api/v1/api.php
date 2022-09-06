@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function () {
-    Route::get('categories/products', 'CategoryController@get_category_with_product');
+    Route::get('category/products', 'CategoryController@get_category_with_product');
 
     Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
         Route::post('sign-up', 'CustomerAuthController@register');
@@ -127,7 +127,6 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
         Route::group(['prefix' => 'categories'], function () {
             Route::get('/', 'CategoryController@get_categories');
             Route::get('childes/{category_id}', 'CategoryController@get_childes');
-            Route::get('/products', 'CategoryController@get_category_with_product');
 
         });
 
