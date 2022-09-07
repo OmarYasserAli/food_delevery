@@ -116,7 +116,7 @@
                             </div>
                         </div>
                     </div>
-                    <small class="nav-subtitle text-secondary border-bottom">{{translate('messages.login')}} {{translate('messages.info')}}</small>
+                    <small class="nav-subtitle text-secondary border-bottom">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.login'),translate('messages.info'))}}</small>
                     <br>
                     <div class="row">
                         <div class="col-md-6 col-12">

@@ -54,7 +54,7 @@
                 @endif
                     <div class="form-group">
                         <label class="input-label"
-                            for="exampleFormControlSelect1">{{translate('messages.main')}} {{translate('messages.category')}}
+                            for="exampleFormControlSelect1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.main'),translate('messages.category'))}}
                             <span class="input-label-secondary">*</span></label>
                         <select id="exampleFormControlSelect1" name="parent_id" class="form-control js-select2-custom" required>
                             @foreach(\App\Models\Category::with('module')->where(['position'=>0])->get() as $cat)

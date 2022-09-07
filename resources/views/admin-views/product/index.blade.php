@@ -14,7 +14,7 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title"><i class="tio-add-circle-outlined"></i> {{translate('messages.add')}} {{translate('messages.new')}} {{translate('messages.item')}}</h1>
+                    <h1 class="page-header-title"><i class="tio-add-circle-outlined"></i>{{\App\CentralLogics\Helpers::get_local_language_translate_three(translate('messages.add'),translate('messages.new'),translate('messages.item'))}}</h1>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                                 </div>
                                 <input type="hidden" name="lang[]" value="{{$lang}}">
                                 <div class="form-group pt-4">
-                                    <label class="input-label" for="exampleFormControlInput1">{{translate('messages.short')}} {{translate('messages.description')}} ({{strtoupper($lang)}})</label>
+                                    <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.short'),translate('messages.description'))}} ({{strtoupper($lang)}})</label>
                                     <textarea type="text" name="description[]" class="form-control ckeditor"></textarea>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="col-sm-4 col-6">
                             <div class="form-group">
-                                <label class="input-label" for="exampleFormControlInput1">{{translate('messages.discount')}} {{translate('messages.type')}}</label>
+                                <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.discount'),translate('messages.type'))}}</label>
                                 <select name="discount_type" class="form-control js-select2-custom">
                                     <option value="percent">{{translate('messages.percent')}}</option>
                                     <option value="amount">{{translate('messages.amount')}}</option>
@@ -185,7 +185,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 mt-2 mb-2">
-                           
+
                             <div class="variant_combination" id="variant_combination">
                                 @include('admin-views.product.partials._edit-combinations',['combinations'=>[],'stock'=>1])
                             </div>
@@ -228,7 +228,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="text-dark">{{translate('messages.item')}} {{translate('messages.thumbnail')}}</label><small style="color: red">* ( {{translate('messages.ratio')}} 1:1 )</small>
+                        <label class="text-dark">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.item'),translate('messages.thumbnail'))}}</label><small style="color: red">* ( {{translate('messages.ratio')}} 1:1 )</small>
                         <div class="custom-file">
                             <input type="file" name="image" id="customFileEg1" class="custom-file-input"
                                    accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" required>
@@ -241,7 +241,7 @@
                         </center>
                     </div>
                     <div class="form-group">
-                        <label class="input-label" for="exampleFormControlInput1">{{translate('messages.item')}} {{translate('messages.images')}}</label>
+                        <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.item'),translate('messages.images'))}}</label>
                         <div>
                             <div class="row" id="coba"></div>
                         </div>

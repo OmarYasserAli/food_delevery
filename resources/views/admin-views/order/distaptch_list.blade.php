@@ -21,7 +21,7 @@
         <div class="page-header">
             <div class="row align-items-center mb-3">
                 <div class="col-9">
-                    <h1 class="page-header-title text-capitalize">{{translate('messages.'.$status)}} {{translate('messages.orders')}} <span
+                    <h1 class="page-header-title text-capitalize">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.'.$status),translate('messages.orders'))}} <span
                             class="badge badge-soft-dark ml-2">{{$total}}</span></h1>
                 </div>
 
@@ -322,10 +322,10 @@
                         <th>{{translate('messages.date')}}</th>
                         <th>{{translate('messages.customer')}}</th>
                         <th>{{translate('messages.store')}}</th>
-                        <th>{{translate('messages.payment')}} {{translate('messages.status')}}</th>
+                        <th>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.payment'),translate('messages.status'))}}</th>
                         <th>{{translate('messages.total')}}</th>
-                        <th>{{translate('messages.order')}} {{translate('messages.status')}}</th>
-                        <th>{{translate('messages.order')}} {{translate('messages.type')}}</th>
+                        <th>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.order'),translate('messages.status'))}}</th>
+                        <th>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.order'),translate('messages.type'))}}</th>
                         <th>{{translate('messages.actions')}}</th>
                     </tr>
                     </thead>
