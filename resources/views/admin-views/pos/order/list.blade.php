@@ -12,7 +12,7 @@
         <div class="page-header">
             <div class="row align-items-center mb-3">
                 <div class="col-sm">
-                <h1 class="page-header-title text-capitalize">{{translate('messages.pos')}} {{translate('messages.orders')}} <span
+                <h1 class="page-header-title text-capitalize">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.pos'),translate('messages.orders'))}} <span
                             class="badge badge-soft-dark ml-2">{{$orders->total()}}</span></h1>
                 </div>
             </div>
