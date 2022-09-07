@@ -701,13 +701,15 @@ return response()->json([
             'from_date' => 'required_if:type,date_wise',
             'to_date' => 'required_if:type,date_wise'
         ]);
-        $products = Item::when($request['type'] == 'date_wise', function ($query) use ($request) {
+
+        $products = Helpers::model_join_translation(Item::when($request['type'] == 'date_wise', function ($query) use ($request) {
             $query->whereBetween('created_at', [$request['from_date'] . ' 00:00:00', $request['to_date'] . ' 23:59:59']);
         })
             ->when($request['type'] == 'id_wise', function ($query) use ($request) {
                 $query->whereBetween('id', [$request['start_id'], $request['end_id']]);
             })
-            ->withoutGlobalScope(StoreScope::class)->get();
+            ->withoutGlobalScope(StoreScope::class),0);
+           
         return (new FastExcel(ProductLogic::format_export_items($products)))->download('Items.xlsx');
     }
 

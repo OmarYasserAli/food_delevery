@@ -122,13 +122,12 @@ class AttributeController extends Controller
             'from_date'=>'required_if:type,date_wise',
             'to_date'=>'required_if:type,date_wise'
         ]);
-        $attributes = Attribute::when($request['type']=='date_wise', function($query)use($request){
+        $attributes = Helpers::model_join_translation(Attribute::when($request['type']=='date_wise', function($query)use($request){
             $query->whereBetween('created_at', [$request['from_date'].' 00:00:00', $request['to_date'].' 23:59:59']);
         })
         ->when($request['type']=='id_wise', function($query)use($request){
             $query->whereBetween('id', [$request['start_id'], $request['end_id']]);
-        })
-        ->get();
+        }));
         return (new FastExcel($attributes))->download('Attributes.xlsx');
     }
 }

@@ -1454,4 +1454,5 @@
   'withdraw_list' => 'قائمة السحب',
   'provide dm earning' => 'Provide dm earning',
   'withdraw list' => 'Withdraw list',
+  'account' => 'Account',
 );

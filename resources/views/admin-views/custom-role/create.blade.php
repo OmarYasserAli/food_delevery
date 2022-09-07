@@ -25,13 +25,15 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{translate('messages.dashboard')}}</a></li>
-            <li class="breadcrumb-item" aria-current="page">{{translate('messages.employee')}} {{translate('messages.Role')}}</li>
+            <li class="breadcrumb-item" aria-current="page">
+                {{App\CentralLogics\Helpers::get_local_language_translate(translate('messages.employee'), translate('messages.Role')) }}
+            </li>
         </ol>
     </nav>
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-2">
-        <h1 class="h3 mb-0 text-black-50">{{translate('messages.employee')}} {{translate('messages.Role')}}</h1>
+        <h1 class="h3 mb-0 text-black-50">{{App\CentralLogics\Helpers::get_local_language_translate(translate('messages.employee'), translate('messages.Role')) }}</h1>
     </div>
 
     <!-- Content Row -->
