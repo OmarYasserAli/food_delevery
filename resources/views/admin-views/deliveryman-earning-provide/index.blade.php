@@ -21,7 +21,7 @@
     </div>
     <div class="card">
         <div class="card-header">
-            <h4 class="text-capitalize">{{translate('messages.provide')}} {{translate('messages.deliverymen')}} {{translate('messages.earning')}}</h4>
+            <h4 class="text-capitalize">{{\App\CentralLogics\Helpers::get_local_language_translate_three(translate('messages.provide'),translate('messages.deliverymen'),translate('messages.earning'))}}</h4>
         </div>
         <div class="card-body">
             <form action="{{route('admin.provide-deliveryman-earnings.store')}}" method='post' id="add_transaction">
@@ -31,16 +31,16 @@
                         <div class="form-group">
                             <label class="input-label" for="deliveryman">{{translate('messages.deliveryman')}}<span class="input-label-secondary"></span></label>
                             <select id="deliveryman" name="deliveryman_id" data-placeholder="{{translate('messages.select')}} {{translate('messages.deliveryman')}}" onchange="getAccountData('{{url('/')}}/admin/delivery-man/get-account-data/',this.value,'deliveryman')" class="form-control" title="Select deliveryman">
-                                                    
+
                             </select>
                         </div>
-                    </div>  
+                    </div>
                     <div class="col-sm-6 col-12">
                         <div class="form-group">
                             <label class="input-label" for="amount">{{translate('messages.amount')}}<span class="input-label-secondary" id="account_info"></span></label>
                             <input class="form-control" type="number" min="1" step="0.01" name="amount" id="amount" max="999999999999.99">
                         </div>
-                    </div> 
+                    </div>
                 </div>
 
                 <div class="row">
@@ -48,14 +48,14 @@
                         <div class="form-group">
                             <label class="input-label" for="method">{{translate('messages.method')}}<span class="input-label-secondary"></span></label>
                             <input class="form-control" type="text" name="method" id="method" required maxlength="191">
-                        </div>  
+                        </div>
                     </div>
                     <div class="col-sm-6 col-12">
                         <div class="form-group">
                             <label class="input-label" for="ref">{{translate('messages.reference')}}<span class="input-label-secondary"></span></label>
                             <input  class="form-control" type="text" name="ref" id="ref" maxlength="191">
                         </div>
-                    </div> 
+                    </div>
                 </div>
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="{{translate('messages.save')}}" >
