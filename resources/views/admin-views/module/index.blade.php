@@ -19,7 +19,7 @@
         <!-- End Page Header -->
         <div class="card mt-3">
             <div class="card-header pb-0">
-                <h5>{{translate('messages.module')}} {{translate('messages.list')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$modules->total()}}</span></h5>
+                <h5>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.module'),translate('messages.list'))}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$modules->total()}}</span></h5>
                 {{--<form id="dataSearch">
                     @csrf
                     <!-- Search -->

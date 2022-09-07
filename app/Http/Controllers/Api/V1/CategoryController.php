@@ -39,12 +39,15 @@ class CategoryController extends Controller
                 return $query;
             });
             foreach ($categories as $category) {
+
                 foreach ($category->items as $item){
                 $item["category_ids"] = json_decode($item->category_ids);
                 $item["variations"] = json_decode($item->variations);
                 $item["add_ons"] = json_decode($item->add_ons);
                 $item["attributes"] = json_decode($item->attributes);
                 $item["choice_options"] = json_decode($item->choice_options);
+                $item['store_discount'] = Helpers::get_store_discount($item->store) ? $item->store->discount->discount : 0;
+
                 }
             }
             $categories = json_decode($categories);
@@ -61,7 +64,7 @@ class CategoryController extends Controller
             ], 200);
 
         }catch (\Exception $e) {
-
+return $e;
             return response()->json([], 200);
         }
 
