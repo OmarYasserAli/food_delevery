@@ -102,7 +102,7 @@ class StoreController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => Helpers::error_processor($validator)], 403);
         }
-        
+
         $type = $request->query('type', 'all');
 
         $zone_id= $request->header('zoneId');
@@ -149,7 +149,7 @@ class StoreController extends Controller
             {
                 $temp['customer_name'] = $temp->customer->f_name.' '.$temp->customer->l_name;
             }
-            
+
             unset($temp['item']);
             unset($temp['customer']);
             array_push($storage, $temp);
