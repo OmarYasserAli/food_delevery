@@ -35,8 +35,13 @@ class CategoryController extends Controller
             $hasMorePages = $categories->hasMorePages();
               $categories=  $categories ->map(function ($query) {
                 $query->setRelation('items', $query->items->take(5));
+
                 return $query;
             });
+            foreach ($categories as $category) {
+                foreach ($category->items as $item)
+                $item["category_ids"] = json_decode($item->category_ids);
+            }
             $categories = json_decode($categories);
 
             return response()->json([

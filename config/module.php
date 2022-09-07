@@ -17,7 +17,7 @@ return [
         'item_available_time'=>false,
         'show_restaurant_text'=>false,
         'is_parcel'=>false,
-        'description'=>'In this type, You can set delivery slot start after x minutes from current time, No available time for items and has stock for items.',    
+        'description'=>'In this type, You can set delivery slot start after x minutes from current time, No available time for items and has stock for items.',
     ],
 
     'food'=>[
@@ -64,7 +64,7 @@ return [
         'is_parcel'=>false,
         'description'=>'In this type, No opening and closing time for store, no available time for items and has stock for items.',
     ],
-   
+
     'parcel'=>[
         'order_status'=>['accepted'=>false],
         'order_place_to_schedule_interval'=>false,

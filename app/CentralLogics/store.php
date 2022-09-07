@@ -133,7 +133,7 @@ class StoreLogic
             $store_ratings[3] = $ratings[2];
             $store_ratings[4] = $ratings[1];
             $store_ratings[5] = $ratings[0];
-            $store_ratings[$product_rating] = $ratings[5-$product_rating] + 1; 
+            $store_ratings[$product_rating] = $ratings[5-$product_rating] + 1;
         }
         else
         {
@@ -194,7 +194,7 @@ class StoreLogic
         $monthly_earning = OrderTransaction::whereMonth('created_at', date('m'))->NotRefunded()->where('vendor_id', $vendor_id)->sum('store_amount');
         $weekly_earning = OrderTransaction::whereBetween('created_at', [now()->startOfWeek(), now()->endOfWeek()])->NotRefunded()->where('vendor_id', $vendor_id)->sum('store_amount');
         $daily_earning = OrderTransaction::whereDate('created_at', now())->NotRefunded()->where('vendor_id', $vendor_id)->sum('store_amount');
-        
+
         return['monthely_earning'=>(float)$monthly_earning, 'weekly_earning'=>(float)$weekly_earning, 'daily_earning'=>(float)$daily_earning];
     }
 
@@ -239,6 +239,6 @@ class StoreLogic
             return $e;
         }
         return false;
-        
+
     }
 }

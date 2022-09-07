@@ -28,7 +28,6 @@ class Item extends Model
         'images'=>'array',
         'module_id'=>'integer',
         'stock'=>'integer',
-        'category_ids'=>'array',
     ];
     protected $fillable  = ['order_count'];
 
