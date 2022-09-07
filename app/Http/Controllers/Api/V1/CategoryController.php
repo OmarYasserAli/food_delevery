@@ -39,8 +39,13 @@ class CategoryController extends Controller
                 return $query;
             });
             foreach ($categories as $category) {
-                foreach ($category->items as $item)
+                foreach ($category->items as $item){
                 $item["category_ids"] = json_decode($item->category_ids);
+                $item["variations"] = json_decode($item->variations);
+                $item["add_ons"] = json_decode($item->add_ons);
+                $item["attributes"] = json_decode($item->attributes);
+                $item["choice_options"] = json_decode($item->choice_options);
+                }
             }
             $categories = json_decode($categories);
 
