@@ -38,6 +38,8 @@ class CategoryController extends Controller
 
                 return $query;
             });
+            $categories= Helpers::category_data_formatting($categories, true);
+
             foreach ($categories as $category) {
 
                 foreach ($category->items as $item){
@@ -50,7 +52,7 @@ class CategoryController extends Controller
 
                 }
             }
-            $categories = json_decode($categories);
+
 
             return response()->json([
                 'status' => "success",
@@ -58,7 +60,8 @@ class CategoryController extends Controller
                 'lastPage' => $lastPage,
                 'hasMorePages' =>$hasMorePages,
                 'totalCategories' =>count($categories),
-                'category' => $categories,
+                'category' =>$categories,
+
 
 
             ], 200);
