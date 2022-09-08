@@ -29,7 +29,7 @@ class CategoryController extends Controller
     }
     public function get_category_with_product(){
         try {
-             $categories = Category::where(['position'=>0,'status'=>1])->with("items")->paginate(2);
+             $categories = Category::with("items")->paginate(2);
             $current_page =  $categories->currentPage();
             $lastPage = $categories->lastPage();
             $hasMorePages = $categories->hasMorePages();
