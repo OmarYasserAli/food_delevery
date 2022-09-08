@@ -224,6 +224,9 @@ class ProductLogic
         {
             $category_id = 0;
             $sub_category_id = 0;
+            $item->category_ids = stripslashes ($item->category_ids);
+            if($item->category_ids[0] == '"')  $item->category_ids =ltrim($item->category_ids , '"');
+            if($item->category_ids[strlen($item->category_ids)-1] == '"')  $item->category_ids =trim($item->category_ids , '"');
             foreach(json_decode($item->category_ids, true) as $category)
             {
                 if($category['position']==1)
