@@ -24,8 +24,8 @@ use App\Models\Translation;
 class ItemController extends Controller
 {
     public function index()
-    {   
-        
+    {
+
         $categories = Category::where(['position' => 0])->get();
         return view('admin-views.product.index', compact('categories'));
     }
@@ -209,7 +209,7 @@ class ItemController extends Controller
             $category = $temp;
             $sub_category = null;
         }
-       
+
         return view('admin-views.product.edit', compact('product', 'sub_category', 'category'));
     }
 
@@ -397,7 +397,7 @@ class ItemController extends Controller
 
     public function variant_combination(Request $request)
     {
-        
+
 
 
 
@@ -412,7 +412,7 @@ class ItemController extends Controller
                 array_push($options, explode(',', $my_str));
             }
         }
- 
+
         $result = [[]];
         foreach ($options as $property => $property_values) {
             $tmp = [];
@@ -482,7 +482,7 @@ class ItemController extends Controller
                 $query->where('position', '>', '0');
             })
             ->where(['parent_id' => $request->parent_id])->get([DB::raw('id, name as text')]);  //
-           
+
         return response()->json(Helpers::get_element_language_list('name',$cat,'text'));
     }
 
@@ -496,7 +496,8 @@ class ItemController extends Controller
             })
             ->when($request->module_id, function ($q) use ($request) {
                 $q->where('module_id', $request->module_id);
-            })->get();
+            });
+        $items=Helpers::model_join_translation($items);
         $res = '';
         if (count($items) > 0 && !$request->data) {
             $res = '<option value="' . 0 . '" disabled selected>---Select---</option>';
@@ -563,7 +564,7 @@ class ItemController extends Controller
 
     public function search(Request $request)
     {
-        
+
         $key = explode(' ', $request['search']);
         if (LaravelLocalization::getCurrentLocale() == 'en') {
 
@@ -571,8 +572,8 @@ class ItemController extends Controller
             foreach ($key as $value) {
                 $q->where('name', 'like', "%{$value}%");
             }
-        })->limit(50)->get(); 
-       
+        })->limit(50)->get();
+
             return response()->json([
                 'count' => count($items),
                 'view' => view('admin-views.product.partials._table', compact('items'))->render()
@@ -590,23 +591,23 @@ class ItemController extends Controller
                 foreach ($key as $value) {
                     $q->where('translations.translationable_type','App\Models\Item')->where('translations.value', 'like', "%{$value}%");
                 }
-            })    
+            })
             ->select(
                 'items.*',
                 'translations.value as name'
                 )
             ->limit(50)->get();
-           
-        
-           
-           
+
+
+
+
 return response()->json([
     'count' => count($items),
     'view' => view('admin-views.product.partials._table', compact('items'))->render()
 ]);
 
         }
-       
+
 
     }
 
@@ -709,7 +710,7 @@ return response()->json([
                 $query->whereBetween('id', [$request['start_id'], $request['end_id']]);
             })
             ->withoutGlobalScope(StoreScope::class),0);
-           
+
         return (new FastExcel(ProductLogic::format_export_items($products)))->download('Items.xlsx');
     }
 

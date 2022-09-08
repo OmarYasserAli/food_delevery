@@ -169,7 +169,7 @@
                                         <i class="tio-running nav-icon"></i>
 
                                         <div class="media-body">
-                                            <h4 class="mb-1 text-capitalize">{{\App\CentralLogics\Helpers::get_local_language_translate_three(translate('messages.delivery'),translate('messages.fee'),translate('messages.earned'))}}</h4>
+                                            <h4 class="mb-1 text-capitalize">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.fee'),translate('messages.earned'))}} {{translate('messages.delivery')}}</h4>
                                             <span class="font-size-sm text-danger">
                                                 {{\App\CentralLogics\Helpers::format_currency($deliveryman_earned)}}
                                             </span>
@@ -445,7 +445,8 @@
         <div class="card mt-3">
             <!-- Header -->
             <div class="card-header">
-                <h1>{{translate('messages.order')}} {{translate('messages.transactions')}}
+                <h1>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.order'),translate('messages.transactions'))}}
+
                 </h1>
             </div>
             <!-- End Header -->
@@ -463,7 +464,7 @@
                                 <th  style="width: 17%">{{translate('messages.total_order_amount')}}</th>
                                 <th  style="width: 10%">{{translate('messages.store_commission')}}</th>
                                 <th  style="width: 10%">{{translate('messages.admin_commission')}}</th>
-                                <th  style="width: 8%">{{translate('messages.delivery')}} {{translate('messages.fee')}}</th>
+                                <th  style="width: 8%">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.delivery'),translate('messages.fee'))}}</th>
                                 <th  style="width: 8%">{{translate('messages.vat/tax')}}</th>
                                 <th  style="width: 10%">{{translate('messages.amount')}} {{translate('messages.received_by')}}</th>
                                 <th  style="width: 22%">{{translate('messages.created_at')}}</th>
