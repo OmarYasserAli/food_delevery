@@ -710,7 +710,7 @@ return response()->json([
                 $query->whereBetween('id', [$request['start_id'], $request['end_id']]);
             })
             ->withoutGlobalScope(StoreScope::class),0);
-        return (ProductLogic::format_export_items($products));
+        
         return (new FastExcel(ProductLogic::format_export_items($products)))->download('Items.xlsx');
     }
 
