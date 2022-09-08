@@ -479,6 +479,7 @@
                         extend: 'pdf',
                         className: 'd-none',
 
+
                         defaultStyle: {
                             font: 'Roboto'
                         }
@@ -488,6 +489,7 @@
                         className: 'd-none'
                     },
                 ],
+                
                 select: {
                     style: 'multi',
                     selector: 'td:first-child input[type="checkbox"]',
