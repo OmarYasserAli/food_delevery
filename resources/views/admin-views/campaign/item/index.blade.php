@@ -90,25 +90,25 @@
                     <div class="row">
                         <div class="col-md-3 col-6">
                             <div class="form-group">
-                                <label class="input-label" for="title">{{translate('messages.start')}} {{translate('messages.date')}}</label>
+                                <label class="input-label" for="title">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.start'),translate('messages.date'))}}</label>
                                 <input type="date" id="date_from" class="form-control" required="" name="start_date">
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="form-group">
-                                <label class="input-label" for="title">{{translate('messages.end')}} {{translate('messages.date')}}</label>
+                                <label class="input-label" for="title">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.end'),translate('messages.date'))}}</label>
                                 <input type="date" id="date_to" class="form-control" required="" name="end_date">
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="form-group">
-                                <label class="input-label" for="title">{{translate('messages.start')}} {{translate('messages.time')}}</label>
+                                <label class="input-label" for="title">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.start'),translate('messages.time'))}}</label>
                                 <input type="time" id="start_time" class="form-control" name="start_time">
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="form-group">
-                                <label class="input-label" for="title">{{translate('messages.end')}} {{translate('messages.time')}}</label>
+                                <label class="input-label" for="title">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.end'),translate('messages.time'))}}</label>
                                 <input type="time" id="end_time" class="form-control" name="end_time">
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="form-group">
-                                <label class="input-label" for="exampleFormControlInput1">{{translate('messages.discount')}} {{translate('messages.type')}}</label>
+                                <label class="input-label" for="exampleFormControlInput1">{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.discount'),translate('messages.type'))}}</label>
                                 <select name="discount_type" class="form-control js-select2-custom">
                                     <option value="percent">{{translate('messages.percent')}}</option>
                                     <option value="amount">{{translate('messages.amount')}}</option>
@@ -242,7 +242,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>{{translate('messages.item')}} {{translate('messages.image')}}</label><small style="color: red">* ( {{translate('messages.ratio')}} 1:1 )</small>
+                        <label>{{\App\CentralLogics\Helpers::get_local_language_translate(translate('messages.item'),translate('messages.image'))}}</label><small style="color: red">* ( {{translate('messages.ratio')}} 1:1 )</small>
                         <div class="custom-file">
                             <input type="file" name="image" id="customFileEg1" class="custom-file-input"
                                    accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" required>

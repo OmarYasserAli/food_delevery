@@ -238,7 +238,7 @@
 
     function get_items()
     {
-        var nurl = '{{url('/')}}/admin/item/get-items?module_id='+module_id;
+        var nurl = '{{route("admin.item.getitems")}}?module_id='+module_id;
 
         if(!Array.isArray(zone_id))
         {
