@@ -344,6 +344,42 @@ class Helpers
         }
         return $data;
     }
+    public static function category_and_item_data_formatting($data, $multi_data = false, $trans = false)
+    {
+        $storage = [];
+        if ($multi_data == true) {
+            foreach ($data as $item) {
+                if (count($item->translations) > 0) {
+                    $item->name = $item->translations[0]['value'];
+                }
+
+                if (!$trans) {
+                    unset($item['translations']);
+                }
+                foreach ($item->items as $product){
+                    if (count($product->translations) > 0) {
+                        $product->name = $product->translations[0]['value'];
+                    }
+
+                    if (!$trans) {
+                        unset($product['translations']);
+                    }
+                }
+
+                $storage[] = $item;
+            }
+            $data = $storage;
+        } else if (isset($data)) {
+            if (count($data->translations) > 0) {
+                $data->name = $data->translations[0]['value'];
+            }
+
+            if (!$trans) {
+                unset($data['translations']);
+            }
+        }
+        return $data;
+    }
 
     public static function parcel_category_data_formatting($data, $multi_data = false)
     {

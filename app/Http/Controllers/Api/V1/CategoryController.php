@@ -38,7 +38,7 @@ class CategoryController extends Controller
 
                 return $query;
             });
-            $categories= Helpers::category_data_formatting($categories, true);
+            $categories= Helpers::category_and_item_data_formatting($categories, true);
 
             foreach ($categories as $category) {
 

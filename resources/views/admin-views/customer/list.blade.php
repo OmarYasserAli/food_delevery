@@ -383,7 +383,8 @@
 
                         defaultStyle: {
                             font: 'Roboto'
-                        }
+                        },
+
 
                 },
                     {
