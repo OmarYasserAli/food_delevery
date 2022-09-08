@@ -673,7 +673,7 @@ class VendorController extends Controller
         })
         ->when($request['type']=='id_wise', function($query)use($request){
             $query->whereBetween('id', [$request['start_id'], $request['end_id']]);
-        });
+        }));
         return (new FastExcel(StoreLogic::format_export_stores($vendors)))->download('Stores.xlsx');
     }
 
