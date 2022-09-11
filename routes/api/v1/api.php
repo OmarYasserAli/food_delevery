@@ -45,6 +45,7 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
         //social login(up comming)
         Route::post('social-login', 'SocialAuthController@social_login');
         Route::post('social-register', 'SocialAuthController@social_register');
+        Route::post('apple/callback', 'SocialAuthController@callback');
     });
 
     // Module
@@ -248,7 +249,7 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
             Route::get('/', 'BannerController@get_banners');
         });
 
-        Route::group(['prefix' => 'categories'], function () {
+        Route::group(['prefix' => 'Fries'], function () {
             Route::get('/', 'CategoryController@get_categories');
             Route::get('childes/{category_id}', 'CategoryController@get_childes');
             Route::get('items/{category_id}', 'CategoryController@get_products');
