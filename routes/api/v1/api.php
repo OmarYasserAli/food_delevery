@@ -45,8 +45,9 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
         //social login(up comming)
         Route::post('social-login', 'SocialAuthController@social_login');
         Route::post('social-register', 'SocialAuthController@social_register');
-
-        Route::get('apple/login', 'SocialAuthController@login');
+        Route::group(['middleware' => ['web']], function () {
+            Route::get('apple/login', 'SocialAuthController@login');
+        });
 
         Route::post('apple/callback', 'SocialAuthController@callback');
     });
