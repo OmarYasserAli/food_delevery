@@ -29,5 +29,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'sign-in-with-apple' => [
+        'client_id' => env('SIGN_IN_WITH_APPLE_CLIENT_ID'),
+        'client_secret' => env('SIGN_IN_WITH_APPLE_CLIENT_SECRET'),
+        'redirect' =>  env('SIGN_IN_WITH_APPLE_REDIRECT'),
+    ],
 
 ];
