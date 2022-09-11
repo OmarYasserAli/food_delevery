@@ -207,9 +207,12 @@ class SocialAuthController extends Controller
         // get abstract user object, not persisted
         $user = Socialite::driver("sign-in-with-apple")
             ->user();
+        return response()->json([
+            'user'=>$user
+        ], 200);
 
         // or use Socialiter to automatically manage user resolution and persistence
-//        $user = Socialiter::driver("sign-in-with-apple")
+//        $user = Socialite::driver("sign-in-with-apple")
 //            ->login();
     }
 }
