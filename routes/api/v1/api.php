@@ -15,10 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function () {
     Route::get('category/products', 'CategoryController@get_category_with_product');
-    Route::group(['prefix' => 'categories'], function () {
-        Route::get('/', 'CategoryController@get_categories');
 
-    });
     Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
         Route::post('sign-up', 'CustomerAuthController@register');
         Route::post('login', 'CustomerAuthController@login');
@@ -264,6 +261,14 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
             Route::get('stores/{category_id}', 'CategoryController@get_stores');
             Route::get('/products', 'CategoryController@get_category_with_product');
 
+        });
+
+        Route::group(['prefix' => 'categories'], function () {
+            Route::get('/', 'CategoryController@get_categories');
+            Route::get('childes/{category_id}', 'CategoryController@get_childes');
+            Route::get('items/{category_id}', 'CategoryController@get_products');
+            Route::get('items/{category_id}/all', 'CategoryController@get_all_products');
+            Route::get('stores/{category_id}', 'CategoryController@get_stores');
         });
 
         Route::group(['prefix' => 'campaigns'], function () {
