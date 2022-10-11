@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/vendor.min.css">
     <link rel="stylesheet" href="{{asset('public/assets/admin')}}/vendor/icon-set/style.css">
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/theme.minc619.css?v=1.0">
+    <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/theme.minc619.css?v=1.0" media="screen,print">
 
     <script src="{{asset('public/assets/admin')}}/js/vendor.min.js"></script>
     <script src="{{asset('public/assets/admin')}}/js/theme.min.js"></script>
@@ -108,6 +108,10 @@
             text-overflow: inherit !important;
             white-space: normal !important;
         }
+        /*  */
+
+
+
     </style>
 
     <script src="{{asset('public/assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
@@ -352,14 +356,16 @@
                 <div class="modal-body row" style="font-family: emoji;">
                     <div class="col-md-12">
                         <center>
-                            <input type="button" class="btn btn-primary non-printable" onclick="printDiv('printableArea')"
+                            <input type="button" class="btn btn-primary non-printable" onclick="printDiv('paretnPrint')"
                                 value="Proceed, If thermal printer is ready."/>
                             <!-- <a href="{{url()->previous()}}" class="btn btn-danger non-printable">Back</a> -->
                         </center>
                         <hr class="non-printable">
                     </div>
-                    <div class="row" id="printableArea" style="margin: auto;">
+                    <div id="paretnPrint" >
+                        <div class="row" id="printableArea" style="margin:auto; ">
 
+                        </div>
                     </div>
 
                 </div>
@@ -476,12 +482,58 @@
         });
     });
     function printDiv(divName) {
-        var printContents = document.getElementById(divName).innerHTML;
-        var originalContents = document.body.innerHTML;
-        document.body.innerHTML = printContents;
-        window.print();
-        document.body.innerHTML = originalContents;
-        location.reload();
+        var panel = document.getElementById(divName);
+      
+ 
+        var headHtml = window.document.head.innerHTML;
+    
+        
+        var printWindow = window.open('','','width=302,height=450');
+        // var head = document.getElementsByTagName('HEAD')[0];
+        // var link = document.createElement('link');
+ 
+        // set the attributes for link element
+        // link.rel = 'stylesheet';
+     
+        // link.type = 'text/css';
+     
+        // link.href = 'http://localhost/food/public/assets/admin/css/theme.minc619.css?v=1.0';
+ 
+        // Append link element to HTML head
+        printWindow.document.write('<link rel="stylesheet"  href="http://localhost/food/public/assets/admin/css/theme.minc619.css?v=1.0"  id="myLink">');
+        printWindow.document.getElementById("myLink").setAttribute("media", "screen,print");
+        // printWindow.document.write('<body>');
+    //     var head  = printWindow.document.getElementsByTagName('head')[0];
+    //     console.log(head);
+    // var link  = printWindow.document.createElement('link');
+    // // link.id   = cssId;
+    // link.rel  = 'stylesheet';
+    // link.type = 'text/css';
+    // link.href = 'http://localhost/food/public/assets/admin/css/theme.minc619.css?v=1.0';
+    // link.media = 'all';
+    // head.appendChild(link);
+ 
+       
+        // printWindow.getElementsByTagName('HEAD')[0].appendChild(link);
+        //head.appendChild(link);
+        
+        
+        
+        printWindow.document.write(panel.innerHTML);
+        printWindow.print();
+        // printWindow.document.write('</html>');
+        printWindow.document.close();
+
+        // var printContents = document.getElementById(divName);
+        
+        // printContents=printContents.innerHTML;
+        // // printContents.setAttribute("style","width:80%");
+        // // printContents.setAttribute("style","margin-right:50%");
+        // var originalContents = document.body.innerHTML;
+        // document.body.innerHTML = printContents;
+        // window.print();
+        // document.body.innerHTML = originalContents;
+        // location.reload();
     }
 
     function set_category_filter(id) {
