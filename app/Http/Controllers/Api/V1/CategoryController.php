@@ -38,7 +38,7 @@ class CategoryController extends Controller
 
                 return $query;
             });
-            $categories= Helpers::category_data_formatting($categories, true);
+            $categories= Helpers::category_and_item_data_formatting($categories, true);
 
             foreach ($categories as $category) {
 
@@ -49,6 +49,7 @@ class CategoryController extends Controller
                 $item["attributes"] = json_decode($item->attributes);
                 $item["choice_options"] = json_decode($item->choice_options);
                 $item['store_discount'] = Helpers::get_store_discount($item->store) ? $item->store->discount->discount : 0;
+                $item['store_name'] =  $item->store->name;
 
                 }
             }

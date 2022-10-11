@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use App\CentralLogics\SMS_module;
 use App\Models\BusinessSetting;
 use Illuminate\Support\Facades\DB;
+use Laravel\Socialite\Facades\Socialite;
 
 class SocialAuthController extends Controller
 {
@@ -101,7 +102,7 @@ class SocialAuthController extends Controller
                     $response = SMS_module::send($request['phone'],$otp);
                     if($response != 'success')
                     {
-    
+
                         $errors = [];
                         array_push($errors, ['code' => 'otp', 'message' => translate('messages.faield_to_send_sms')]);
                         return response()->json([
@@ -127,7 +128,7 @@ class SocialAuthController extends Controller
 
     public function social_login(Request $request)
     {
-      
+
         $validator = Validator::make($request->all(), [
             'email'=> 'required|email'
         ]);
@@ -194,4 +195,24 @@ class SocialAuthController extends Controller
         ], 404);
     }
 
+    public function login()
+    {
+        return Socialite::driver("sign-in-with-apple")
+            ->scopes(["name", "email"])
+            ->redirect();
+    }
+
+    public function callback(Request $request)
+    {
+        // get abstract user object, not persisted
+        $user = Socialite::driver("sign-in-with-apple")
+            ->user();
+        return response()->json([
+            'user'=>$user
+        ], 200);
+
+        // or use Socialiter to automatically manage user resolution and persistence
+//        $user = Socialite::driver("sign-in-with-apple")
+//            ->login();
+    }
 }
