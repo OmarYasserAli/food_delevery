@@ -5,7 +5,27 @@
 @push('css_or_js')
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
+<style type="text/css">
+    /* style sheet for "A4" printing */
+                     @media print and (width: 21cm) and (height: 29.7cm) {
+                          @page {
+                             margin: 3cm;
+                          }
+                     }
 
+                     /* style sheet for "letter" printing */
+                     @media print and (width: 8.5in) and (height: 11in) {
+                         @page {
+                             margin: 1in;
+                         }
+                     }
+
+                     /* A4 Landscape*/
+                     @page {
+                         size: 80mm;
+                         margin: 10%;
+                     }
+</style> 
 @section('content')
     <div class="content container-fluid">
         <!-- Page Header -->
@@ -347,12 +367,17 @@
                                 @endif
                             </td>
                             <td>
+                                {{-- <a target="_blank" href='{{route('admin.pos.inv-pdf',['id'=>$order['id']])}}'>print-pdf</a> --}}
                                 <a class="btn btn-sm btn-white"
                                            href="{{route('admin.pos.order-details',['id'=>$order['id']])}}"><i
                                                 class="tio-visible"></i> {{translate('messages.view')}}</a>
-                                <btton class="btn btn-sm btn-white" target="_blank"
+                                {{-- <a class="btn btn-sm btn-white" target="_blank"
                                            type="button" onclick="print_invoice('{{$order->id}}')"><i
-                                                class="tio-download"></i> {{translate('messages.invoice')}}</button>
+                                                class="tio-download"></i> {{translate('messages.invoice')}}</a> --}}
+                                <a class="btn btn-sm btn-white" target="_blank"
+                                           type="button"  href='{{route('admin.pos.inv-pdf',['id'=>$order['id']])}}'><i
+                                                class="tio-download"></i> {{translate('messages.invoice')}}</a>
+                                
                             </td>
                         </tr>
                     @endforeach
@@ -424,9 +449,12 @@
                         </center>
                         <hr class="non-printable">
                     </div>
-                    <div class="row" id="printableArea" style="margin: auto;">
+                   
+                        <div class="row" id="printableArea" style="margin: auto; width:302px;">
 
-                    </div>
+                        </div>
+                    
+                    
 
                 </div>
             </div>
@@ -620,6 +648,7 @@
                 },
             });
         }
+        
 
         function printDiv(divName) {
             var printContents = document.getElementById(divName).innerHTML;

@@ -16,7 +16,7 @@ use App\Models\Store;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Scopes\StoreScope;
-
+use PDF;
 class POSController extends Controller
 {
     public function index(Request $request)
@@ -451,6 +451,39 @@ class POSController extends Controller
         ->paginate(config('default_pagination'));
 
         return view('admin-views.pos.order.list', compact('orders'));
+    }
+
+    public function inv_print(){
+        $customPaper = array(0,0,567.00,283.80);
+        $mpdf = PDF::loadView('admin-views.pos.order.inv_print',[],[], [
+            'format' => [180, 250]
+     ]);
+        $mpdf->showImageErrors = true;
+        return $mpdf->stream('document.pdf');
+    }
+    public function generate_invoice_pdf($id)
+    {
+        $order = Order::with(['details', 'store' => function ($query) {
+            return $query->withCount('orders');
+        }, 'details.item' => function ($query) {
+            return $query->withoutGlobalScope(StoreScope::class);
+        }, 'details.campaign' => function ($query) {
+            return $query->withoutGlobalScope(StoreScope::class);
+        }])->where('id', $id)->first();
+        $customPaper = array(0,0,567.00,283.80);
+        $data = [
+            'order'=>$order,
+            
+        ];
+        $mpdf = PDF::loadView('admin-views.pos.order.inv_print',$data,[], [
+            'format' => [80, 250]
+     ]);
+        $mpdf->showImageErrors = true;
+        return $mpdf->stream('document.pdf');
+        // return response()->json([
+        //     'success' => 1,
+        //     'view' => view('admin-views.pos.order.invoice', compact('order'))->render(),
+        // ]);
     }
 
     public function search(Request $request){
