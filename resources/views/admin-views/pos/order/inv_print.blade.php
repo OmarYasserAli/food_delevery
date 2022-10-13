@@ -170,16 +170,16 @@
     @php($address = json_decode($order->delivery_address, true))
     @if(!empty($address))
 
-        <div>
+        <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             اسم جهة الاتصال  : {{isset($address['contact_person_name'])?$address['contact_person_name']:''}}
         </div>
-        <div>
+        <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             هاتف  : {{isset($address['contact_person_number'])? $address['contact_person_number'] : ''}}
-        </h5>
-        <div>
-            دار  : {{isset($address['floor'])? $address['floor'] : ''}}
         </div>
-        <div>
+        <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
+            دار  : {{isset($address['floor'])? $address['floor'] : ''}}
+        </div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
+        <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             الشقة : {{isset($address['road'])? $address['road'] : ''}}
         </div>
         <div>
@@ -189,10 +189,11 @@
         <div>
             عمارة  : {{isset($address['flat'])? $address['flat'] : ''}}
         </div>
+        <div class="text-break">
+            زون  : {{isset($order->delivery_address)?json_decode($order->delivery_address, true)['address']:''}}
+        </div>
     @endif
-    <h5 class="text-break">
-        زون  : {{isset($order->delivery_address)?json_decode($order->delivery_address, true)['address']:''}}
-    </h5>
+    
 </div>
 @if($order->customer)
 <div class="col-12 text-break">
