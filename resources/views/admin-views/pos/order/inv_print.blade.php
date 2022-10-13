@@ -5,6 +5,9 @@
 		<title> invoice </title>
         
 		<style>
+            *{
+            font-family: 'XBRiyaz' , Sans-Serif;
+        }
             .grid-container {
                 display: flex;
             }
@@ -19,11 +22,11 @@
 				max-width: 800px;
 				margin: auto;
 				padding: 20px;
-				
+				font-family: 'XBRiyaz' , Sans-Serif;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 				font-size: 16px;
 				line-height: 24px;
-				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+				
 				color: #555;
 			}
             .invoice-box-block {
@@ -33,7 +36,8 @@
 				
 				font-size: 16px;
 				
-				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+				font-family: 'XBRiyaz' , Sans-Serif;
+        
 				color: #555;
 			}
 
@@ -111,7 +115,7 @@
 			/** RTL **/
 			.invoice-box.rtl {
 				direction: rtl;
-				font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+				font-family: 'XBRiyaz' , Sans-Serif;
 			}
 
 			.invoice-box.rtl table {
@@ -151,11 +155,11 @@
   <table class="" style="width: 95%; padding: 0 3px;">
     <tr>
         <td>
-            <div style="font-weight: lighter; font-size:10px;">
+            <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
                 {{date('d/M/Y '.config('timeformat'),strtotime($order['created_at']))}}
             </div>
         </td>
-        <td style="font-weight: lighter; font-size:12px; text-align: right;">
+        <td style="font-weight: lighter; font-size:12px; text-align: right; font-family: 'XBRiyaz' , Sans-Serif;">
             <div >
                 {{translate('messages.order_id')}} : {{$order['id']}}</div>
         </td>
@@ -207,7 +211,7 @@
 
    <hr style="width:90%;">
     <div class="invoice-box.rtl">
-    <table class=" " style="width: 98%; font-size:12px;">
+    <table class=" " style="width: 98%; font-size:12px; font-family: 'XBRiyaz' , Sans-Serif;">
         <thead>
         <tr>
             <th style="">{{translate('messages.qty')}}</th>
@@ -312,7 +316,7 @@
 </div>
    <hr style="width: 90%">
    <div class="invoice-box.rtl">
-   <table class=" " style="width: 98%; font-size:18px !important;">
+   <table class=" " style="width: 98%; font-size:18px !important; font-family: 'XBRiyaz' , Sans-Serif;">
     <tr><td>{{translate('messages.item_price')}}:</td><td>{{\App\CentralLogics\Helpers::format_currency($sub_total)}}</td></tr>
     <tr><td>{{translate('messages.Delivery address')}}:</td><td>{{\App\CentralLogics\Helpers::format_currency($sub_total)}}</td></tr>
     <tr><td>{{translate('messages.discount')}}:</td><td>- {{\App\CentralLogics\Helpers::format_currency($order['store_discount_amount'])}}</td></tr>
@@ -335,7 +339,7 @@
     
    
     <hr style="width:90%;">
-    <div class="invoice-box-block" style="font-size: 12px; text-align:center;">
+    <div class="invoice-box-block" style="font-size: 12px; text-align:center; font-family: 'XBRiyaz' , Sans-Serif;">
         """{{translate('messages.THANK YOU')}}"""
     </div>
     <hr style="width:90%;">
