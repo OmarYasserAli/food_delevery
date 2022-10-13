@@ -166,7 +166,7 @@
     </tr>
   </table>
 
-<div class="invoice-box.rtl " style="padding: 0 10xp;">
+<div class="invoice-box.rtl " style="padding: 0 10xp; margin-right:20px;">
     @php($address = json_decode($order->delivery_address, true))
     @if(!empty($address))
 
