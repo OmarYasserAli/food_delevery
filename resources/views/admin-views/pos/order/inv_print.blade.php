@@ -170,25 +170,25 @@
     @php($address = json_decode($order->delivery_address, true))
     @if(!empty($address))
 
-        <h5>
+        <div>
             اسم جهة الاتصال  : {{isset($address['contact_person_name'])?$address['contact_person_name']:''}}
-        </h5>
-        <h5>
+        </div>
+        <div>
             هاتف  : {{isset($address['contact_person_number'])? $address['contact_person_number'] : ''}}
         </h5>
-        <h5>
+        <div>
             دار  : {{isset($address['floor'])? $address['floor'] : ''}}
-        </h5>
-        <h5>
+        </div>
+        <div>
             الشقة : {{isset($address['road'])? $address['road'] : ''}}
-        </h5>
-        <h5>
+        </div>
+        <div>
             بلوك  : {{isset($address['house'])? $address['house'] : ''}}
-        </h5>
+        </div>
 
-        <h5>
+        <div>
             عمارة  : {{isset($address['flat'])? $address['flat'] : ''}}
-        </h5>
+        </div>
     @endif
     <h5 class="text-break">
         زون  : {{isset($order->delivery_address)?json_decode($order->delivery_address, true)['address']:''}}
