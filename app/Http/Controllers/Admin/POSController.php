@@ -463,6 +463,7 @@ class POSController extends Controller
     }
     public function generate_invoice_pdf($id)
     {
+        $mpdf = new \Mpdf\Mpdf(array('mode' => 'utf-8', 'format' => array(216,356)));	
         $order = Order::with(['details', 'store' => function ($query) {
             return $query->withCount('orders');
         }, 'details.item' => function ($query) {
@@ -473,10 +474,19 @@ class POSController extends Controller
         $customPaper = array(0,0,567.00,283.80);
         $data = [
             'order'=>$order,
-            
+            'p1' =>'<style>@page { sheet-size: 80mm 100mm; }</style>'
         ];
+        
+        $h= 90;
+        if($order->store->gst_status) $h+=10;
+        if($order->store) $h+=40;
+        $h+= $order->details->count()*9;
+        $address = json_decode($order->delivery_address, true);
+        if(!empty($address)) $h+=40;
+        $v = view('admin-views.pos.order.inv_print',$data);
+        //dd($v);
         $mpdf = PDF::loadView('admin-views.pos.order.inv_print',$data,[], [
-            'format' => [80, 250]
+            'format' => [80, $h]
      ]);
         $mpdf->showImageErrors = true;
         return $mpdf->stream('document.pdf');

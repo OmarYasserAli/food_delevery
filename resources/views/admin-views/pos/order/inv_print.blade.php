@@ -3,11 +3,12 @@
 	<head>
 		<meta charset="utf-8" />
 		<title> invoice </title>
-        
+       
 		<style>
+            
             *{
             font-family: 'XBRiyaz' , Sans-Serif;
-        }
+           }
             .grid-container {
                 display: flex;
             }
@@ -130,6 +131,7 @@
 	</head>
 
 	<body >
+        
         <div style="width:410px;">
         @if ($order->store)
         <div class="invoice-box ">
@@ -428,5 +430,20 @@
 				</tr>
 			</table>
 		</div> --}}
+   
 	</body>
+    
+        
+        
+   
+        <script>
+           // document.body.style.height = document.getElementById("page-main").clientHeight + 400 + 'px';
+
+        // var t_height= document.height;
+        var h= '100';
+       
+      
+
+       
+        </script>
 </html>
