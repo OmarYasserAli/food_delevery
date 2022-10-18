@@ -289,6 +289,7 @@ class POSController extends Controller
 
     public function place_order(Request $request)
     {
+        
         if($request->session()->has('cart'))
         {
             if(count($request->session()->get('cart')) < 1)
@@ -467,14 +468,15 @@ class POSController extends Controller
         $order = Order::with(['details', 'store' => function ($query) {
             return $query->withCount('orders');
         }, 'details.item' => function ($query) {
-            return $query->withoutGlobalScope(StoreScope::class);
+
+            return Helpers::model_join_translation($query->withoutGlobalScope(StoreScope::class));
         }, 'details.campaign' => function ($query) {
             return $query->withoutGlobalScope(StoreScope::class);
         }])->where('id', $id)->first();
         $customPaper = array(0,0,567.00,283.80);
+
         $data = [
             'order'=>$order,
-            'p1' =>'<style>@page { sheet-size: 80mm 100mm; }</style>'
         ];
         
         $h= 90;

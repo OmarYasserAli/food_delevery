@@ -356,17 +356,17 @@
                 <div class="modal-body row" style="font-family: emoji;">
                     <div class="col-md-12">
                         <center>
-                            <input type="button" class="btn btn-primary non-printable" onclick="printDiv('paretnPrint')"
-                                value="Proceed, If thermal printer is ready."/>
+                            <a  target="_blank" type="button" class="btn btn-primary non-printable" id="print_invoice_pdf"  href="" 
+                                value=""/>Proceed, If thermal printer is ready.</a>
                             <!-- <a href="{{url()->previous()}}" class="btn btn-danger non-printable">Back</a> -->
                         </center>
                         <hr class="non-printable">
                     </div>
-                    <div id="paretnPrint" >
+                    
                         <div class="row" id="printableArea" style="margin:auto; ">
 
                         </div>
-                    </div>
+                   
 
                 </div>
             </div>
@@ -947,6 +947,8 @@
     }
 
     @if (session('last_order'))
+    $('#print_invoice_pdf').attr("href", "{{route('admin.pos.inv-pdf',['id'=>session('last_order')])}}")
+    
     print_invoice("{{session('last_order')}}")
     @php(session(['last_order'=> false]))
     @endif

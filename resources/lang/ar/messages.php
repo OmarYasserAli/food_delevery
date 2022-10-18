@@ -615,7 +615,7 @@
   'description' => 'الوصف',
   'back' => 'إلى الخلف',
   'of' => 'من',
-  'variations' => 'Variations',
+  'variations' => 'الأنواع',
   'reviewer' => 'المراجع',
   'review' => 'مراجعة',
   'review_submited_successfully' => 'تم إرسال المراجعة بنجاح!',
@@ -1455,4 +1455,5 @@
   'provide dm earning' => 'Provide dm earning',
   'withdraw list' => 'Withdraw list',
   'account' => 'Account',
+  'dd' => 'Dd',
 );

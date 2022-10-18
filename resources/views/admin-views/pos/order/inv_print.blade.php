@@ -237,7 +237,7 @@
                     <td class="text-break">
                         {{$detail->item['name']}} <br>
                         @if(count(json_decode($detail['variation'],true))>0)
-                            <strong><u>Variation : </u></strong>
+                            <strong><u>{{translate('messages.variations') }} :  </u></strong>
                             @foreach(json_decode($detail['variation'],true)[0] as $key1 =>$variation)
                                 @if ($key1 != 'stock')
                                     <div class="font-size-sm text-body">
@@ -280,7 +280,7 @@
                     <td class="text-break">
                         {{$detail->campaign['title']}} <br>
                         @if(count(json_decode($detail['variation'],true))>0)
-                            <strong><u>Variation : </u></strong>
+                            <strong><u>{{translate('messages.variations') }}  : </u></strong>
                             @foreach(json_decode($detail['variation'],true)[0] as $key1 =>$variation)
                                 <div class="font-size-sm text-body">
                                     <span>{{$key1}} :  </span>
@@ -321,7 +321,6 @@
    <div class="invoice-box.rtl">
    <table class=" " style="width: 98%; font-size:18px !important; font-family: 'XBRiyaz' , Sans-Serif;">
     <tr><td>{{translate('messages.item_price')}}:</td><td>{{\App\CentralLogics\Helpers::format_currency($sub_total)}}</td></tr>
-    <tr><td>{{translate('messages.Delivery address')}}:</td><td>{{\App\CentralLogics\Helpers::format_currency($sub_total)}}</td></tr>
     <tr><td>{{translate('messages.discount')}}:</td><td>- {{\App\CentralLogics\Helpers::format_currency($order['store_discount_amount'])}}</td></tr>
     <tr><td>{{translate('messages.coupon_discount')}}</td><td>- {{\App\CentralLogics\Helpers::format_currency($order['coupon_discount_amount'])}}</td></tr>
     <tr ><td style="border-bottom: solid; border-bottom-width: 0px; padding-bottom:15px;">{{translate('messages.delivery_charge')}}:</td>
