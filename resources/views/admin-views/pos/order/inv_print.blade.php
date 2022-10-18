@@ -217,8 +217,8 @@
     <table class=" " style="width: 98%; font-size:12px; font-family: 'XBRiyaz' , Sans-Serif;">
         <thead>
         <tr>
+            <th class="" style="text-align: right;">{{translate('DESC')}}</th>
             <th style="">{{translate('messages.qty')}}</th>
-            <th class="">{{translate('DESC')}}</th>
             <th class="">{{translate('messages.price')}}</th>
         </tr>
         </thead>
@@ -231,12 +231,10 @@
         @foreach($order->details as $detail)
             @if($detail->item)
                 <tr>
-                    <td class="">
-                        {{$detail['quantity']}}
-                    </td>
+                    
                     <td class="text-break">
                         {{$detail->item['name']}} <br>
-                        @if(count(json_decode($detail['variation'],true))>0)
+                        <!-- @if(count(json_decode($detail['variation'],true))>0)
                             <strong><u>{{translate('messages.variations') }} :  </u></strong>
                             @foreach(json_decode($detail['variation'],true)[0] as $key1 =>$variation)
                                 @if ($key1 != 'stock')
@@ -246,12 +244,12 @@
                                     </div>
                                 @endif
                             @endforeach
-                        @else
+                        @else -->
                         <div class="font-size-sm text-body">
                             <span>{{'Price'}} :  </span>
                             <span class="font-weight-bold">{{\App\CentralLogics\Helpers::format_currency($detail->price)}}</span>
                         </div>
-                        @endif
+                        <!-- @endif -->
 
                         @foreach(json_decode($detail['add_ons'],true) as $key2 =>$addon)
                             @if($key2==0)<strong><u>Addons : </u></strong>@endif
@@ -263,6 +261,9 @@
                             </div>
                             @php($add_ons_cost+=$addon['price']*$addon['quantity'])
                         @endforeach
+                    </td>
+                    <td class=""  style="text-align: center;">
+                        {{$detail['quantity']}}
                     </td>
                     <td style="width: 28%">
                         @php($amount=($detail['price'])*$detail['quantity'])
@@ -318,8 +319,8 @@
     </table>
 </div>
    <hr style="width: 90%">
-   <div class="invoice-box.rtl">
-   <table class=" " style="width: 98%; font-size:18px !important; font-family: 'XBRiyaz' , Sans-Serif;">
+   <div class="invoice-box.rtl" style=";">
+   <table class=" " style="margin: 0 15px; width: 90%; font-size:18px !important; font-family: 'XBRiyaz' , Sans-Serif;  @if(LaravelLocalization::getCurrentLocale() == 'en') direction: ltr ; text-align: left @endif">
     <tr><td>{{translate('messages.item_price')}}:</td><td>{{\App\CentralLogics\Helpers::format_currency($sub_total)}}</td></tr>
     <tr><td>{{translate('messages.discount')}}:</td><td>- {{\App\CentralLogics\Helpers::format_currency($order['store_discount_amount'])}}</td></tr>
     <tr><td>{{translate('messages.coupon_discount')}}</td><td>- {{\App\CentralLogics\Helpers::format_currency($order['coupon_discount_amount'])}}</td></tr>

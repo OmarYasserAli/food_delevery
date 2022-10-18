@@ -1302,7 +1302,7 @@
   'Redirecting_to_the_payment_page' => 'اعادة التوجيه إلى صفحة الدفع',
   'items_on_the_way' => 'عنصر على الطريق',
   'role' => 'منصب',
-  'DESC' => 'DESC',
+  'DESC' => 'الوصف',
   'item_price' => 'سعر العنصر',
   'addon_cost' => 'Addon cost',
   'THANK YOU' => 'شكرا لك',
