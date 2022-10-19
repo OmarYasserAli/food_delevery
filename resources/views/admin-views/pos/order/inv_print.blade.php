@@ -154,7 +154,7 @@
     @endif
 </div>
 
-  <table class="" style="width: 95%; padding: 0 3px;">
+  <table class="" style="width: 95%; padding: 0 3px; margin: 0 20px;">
     <tr>
         <td>
             <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
@@ -168,11 +168,11 @@
     </tr>
   </table>
 
-<div class="invoice-box.rtl " style="padding: 0 10xp; margin-right:20px;">
+<div class="invoice-box.rtl " style="padding: 0 10xp; margin-right:30px;">
     @php($address = json_decode($order->delivery_address, true))
     @if(!empty($address))
 
-        <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
+         <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             اسم جهة الاتصال  : {{isset($address['contact_person_name'])?$address['contact_person_name']:''}}
         </div>
         <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
@@ -180,18 +180,22 @@
         </div>
         <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             دار  : {{isset($address['floor'])? $address['floor'] : ''}}
-        </div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
+        </div >
+    
+
+
+
         <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             الشقة : {{isset($address['road'])? $address['road'] : ''}}
         </div>
-        <div>
+        <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             بلوك  : {{isset($address['house'])? $address['house'] : ''}}
         </div>
 
-        <div>
+        <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             عمارة  : {{isset($address['flat'])? $address['flat'] : ''}}
         </div>
-        <div class="text-break">
+        <div class="text-break" style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             زون  : {{isset($order->delivery_address)?json_decode($order->delivery_address, true)['address']:''}}
         </div>
     @endif
@@ -214,7 +218,7 @@
 
    <hr style="width:90%;">
     <div class="invoice-box.rtl">
-    <table class=" " style="width: 98%; font-size:12px; font-family: 'XBRiyaz' , Sans-Serif;">
+    <table class=" " style="width: 90%; font-size:12px; font-family: 'XBRiyaz' , Sans-Serif;">
         <thead>
         <tr>
             <th class="" style="text-align: right;">{{translate('DESC')}}</th>
