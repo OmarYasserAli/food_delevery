@@ -29,7 +29,7 @@
 				font-size: 16px;
 				line-height: 24px;
 				
-				color: #555;
+				color: #000;
 			}
             .invoice-box-block {
 				
@@ -40,7 +40,7 @@
 				
 				font-family: 'XBRiyaz' , Sans-Serif;
         
-				color: #555;
+				color: #000;
 			}
 
 			.invoice-box table {
@@ -137,7 +137,7 @@
         @if ($order->store)
         <div class="invoice-box ">
 
-            <div class="text-break" style="text-align: center; font-weight:bold;">{{$order->store->name}}</div>
+            <div class="" style="text-align: center; font-weight:bold;">{{$order->store->name}}</div>
             <div class="" style="font-weight: bold; text-align: center;">
                 {{$order->store->address}}
             </div>
