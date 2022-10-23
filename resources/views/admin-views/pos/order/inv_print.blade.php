@@ -8,6 +8,7 @@
             
             *{
             font-family: 'XBRiyaz' , Sans-Serif;
+            font-weight: bold !important;
            }
             .grid-container {
                 display: flex;
@@ -137,14 +138,14 @@
         <div class="invoice-box ">
 
             <div class="text-break" style="text-align: center; font-weight:bold;">{{$order->store->name}}</div>
-            <div class="" style="font-weight: lighter; text-align: center;">
+            <div class="" style="font-weight: bold; text-align: center;">
                 {{$order->store->address}}
             </div>
-            <div style="font-size: 16px;font-weight: lighter;line-height: 0 ;text-align: center;">
+            <div style="font-size: 16px;font-weight: bold;line-height: 0 ;text-align: center;">
                 Phone : {{$order->store->phone}}
             </div>
             @if($order->store->gst_status)
-            <div style="font-size: 12px;font-weight: lighter;line-height: 1;text-align: center;">
+            <div style="font-size: 12px;font-weight: bold;line-height: 1;text-align: center;">
                 Gst No : {{$order->store->gst_code}}
             </div>
             @endif
@@ -157,11 +158,11 @@
   <table class="" style="width: 95%; padding: 0 3px; margin: 0 20px;">
     <tr>
         <td>
-            <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
+            <div style="font-weight: bold; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
                 {{date('d/M/Y '.config('timeformat'),strtotime($order['created_at']))}}
             </div>
         </td>
-        <td style="font-weight: lighter; font-size:12px; text-align: right; font-family: 'XBRiyaz' , Sans-Serif;">
+        <td style="font-weight: bold; font-size:12px; text-align: right; font-family: 'XBRiyaz' , Sans-Serif;">
             <div >
                 {{translate('messages.order_id')}} : {{$order['id']}}</div>
         </td>
@@ -172,30 +173,30 @@
     @php($address = json_decode($order->delivery_address, true))
     @if(!empty($address))
 
-         <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
+         <div style="font-weight: bold; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             اسم جهة الاتصال  : {{isset($address['contact_person_name'])?$address['contact_person_name']:''}}
         </div>
-        <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
+        <div style="font-weight: bold; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             هاتف  : {{isset($address['contact_person_number'])? $address['contact_person_number'] : ''}}
         </div>
-        <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
+        <div style="font-weight: bold; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             دار  : {{isset($address['floor'])? $address['floor'] : ''}}
         </div >
     
 
 
 
-        <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
+        <div style="font-weight: bold; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             الشقة : {{isset($address['road'])? $address['road'] : ''}}
         </div>
-        <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
+        <div style="font-weight: bold; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             بلوك  : {{isset($address['house'])? $address['house'] : ''}}
         </div>
 
-        <div style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
+        <div style="font-weight: bold; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             عمارة  : {{isset($address['flat'])? $address['flat'] : ''}}
         </div>
-        <div class="text-break" style="font-weight: lighter; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
+        <div class="text-break" style="font-weight: bold; font-size:10px; font-family: 'XBRiyaz' , Sans-Serif;">
             زون  : {{isset($order->delivery_address)?json_decode($order->delivery_address, true)['address']:''}}
         </div>
     @endif
@@ -218,7 +219,7 @@
 
    <hr style="width:90%;">
     <div class="invoice-box.rtl">
-    <table class=" " style="width: 90%; font-size:12px; font-family: 'XBRiyaz' , Sans-Serif;">
+    <table class=" " style="width: 90%; font-size:12px; font-family: 'XBRiyaz' , Sans-Serif; font-weight: bold;" >
         <thead>
         <tr>
             <th class="" style="text-align: right;">{{translate('DESC')}}</th>
@@ -279,7 +280,7 @@
 
             @elseif($detail->campaign)
                 <tr>
-                    <td class="">
+                    <td class="font-weight-bold">
                         {{$detail['quantity']}}
                     </td>
                     <td class="text-break">
@@ -310,7 +311,7 @@
                             @php($add_ons_cost+=$addon['price']*$addon['quantity'])
                         @endforeach
                     </td>
-                    <td style="width: 28%">
+                    <td style="width: 28% ;font-weight:bold; ;" class="">
                         @php($amount=($detail['price'])*$detail['quantity'])
                         {{\App\CentralLogics\Helpers::format_currency($amount)}}
                     </td>
@@ -324,7 +325,7 @@
 </div>
    <hr style="width: 90%">
    <div class="invoice-box.rtl" style=";">
-   <table class=" " style="margin: 0 15px; width: 90%; font-size:18px !important; font-family: 'XBRiyaz' , Sans-Serif;  @if(LaravelLocalization::getCurrentLocale() == 'en') direction: ltr ; text-align: left @endif">
+   <table class=" " style="margin: 0 15px; width: 90%; font-size:18px !important; font-family: 'XBRiyaz' , Sans-Serif; font-weight: bold; @if(LaravelLocalization::getCurrentLocale() == 'en') direction: ltr ; text-align: left @endif">
     <tr><td>{{translate('messages.item_price')}}:</td><td>{{\App\CentralLogics\Helpers::format_currency($sub_total)}}</td></tr>
     <tr><td>{{translate('messages.discount')}}:</td><td>- {{\App\CentralLogics\Helpers::format_currency($order['store_discount_amount'])}}</td></tr>
     <tr><td>{{translate('messages.coupon_discount')}}</td><td>- {{\App\CentralLogics\Helpers::format_currency($order['coupon_discount_amount'])}}</td></tr>
@@ -337,7 +338,7 @@
         
     
     </table>
-    <div class="invoice-box-block" style="font-size: 12px; text-align:center;">
+    <div class="invoice-box-block" style="font-size: 12px; text-align:center; font-weight: bold;">
         <span style="font-size: 12px;">{{translate('Paid by')}}: {{$order->payment_method}}</span>	<span>{{translate('messages.amount')}}: {{$order->order_amount + $order->adjusment}}</span>	<span>{{translate('messages.change')}}: {{$order->adjusment}}</span>
     </div>
   
